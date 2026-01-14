@@ -32,17 +32,18 @@
             line-height: 1.7;
         }
 
-        /* --- 2. BACKGROUND VIDEO (FIXED & DARK) --- */
+        /* --- 2. BACKGROUND VIDEO (VARIANT #1: DARK FOREST) --- */
         .video-bg-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -3;
         }
         .video-bg {
             width: 100%; height: 100%; object-fit: cover; 
-            filter: brightness(0.4); /* Темний фон для контрасту */
+            filter: brightness(0.5); /* Трохи затемнюємо саме відео */
         }
         .video-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
-            background: radial-gradient(circle at center, rgba(5,22,38,0.4) 0%, rgba(5,22,38,0.95) 100%);
+            /* Градієнт для кращої читабельності тексту */
+            background: radial-gradient(circle at center, rgba(5,22,38,0.3) 0%, rgba(5,22,38,0.95) 100%);
         }
         #snow-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
 
@@ -147,7 +148,7 @@
         }
         .day-video-top iframe {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            border: none; pointer-events: none; /* Автоматичне відео як фон */
+            border: none; pointer-events: none; /* Авто-відео */
             transform: scale(1.3);
         }
         .video-mask { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; }
@@ -178,7 +179,7 @@
         .day-story p { margin-bottom: 20px; color: var(--text-gray); font-size: 1.05rem; line-height: 1.8; }
         .day-story b { color: #fff; font-weight: 700; }
 
-        /* --- 8. GALLERY (CLICK TO PLAY) --- */
+        /* --- 8. GALLERY (CLICK) --- */
         .gallery-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px; margin-bottom: 120px;
@@ -246,8 +247,8 @@
 <body>
 
     <div class="video-bg-container">
-        <video autoplay muted loop playsinline class="video-bg" poster="https://images.pexels.com/photos/730256/pexels-photo-730256.jpeg">
-            <source src="https://videos.pexels.com/video-files/5596425/5596425-hd_1920_1080_25fps.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline class="video-bg" poster="https://images.pexels.com/photos/3192137/pexels-photo-3192137.jpeg">
+            <source src="https://videos.pexels.com/video-files/3192137/3192137-hd_1920_1080_25fps.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>
     </div>
@@ -350,7 +351,8 @@
                 <h3>Підземна пригода у Santa Park 🎢</h3>
                 <p><b>11:00</b> — Відправлення до Санта Парку. 🎡 Це таємна печера в скелі, де ельфи готуються до Різдва цілий рік!</p>
                 <p><b>Школа Ельфів:</b> Пройдіть навчання та дізнайтеся всі секрети помічників Санти! 🎓</p>
-                <p><b>Пекарня місіс Клаус:</b> Ви власноруч прикрасите ароматне імбирне печиво. А в Крижаній галереї помилуєтеся скульптурами та відчуєте подих справжньої Арктики. 🧊</p>
+                <p><b>Пекарня місіс Клаус:</b> Ви власноруч прикрасите ароматне імбирне печиво за старовинним рецептом. 🍪</p>
+                <p><b>Крижана галерея:</b> Помилуйтеся крижаними скульптурами та відчуйте подих справжньої Арктики. 🧊</p>
             </div>
             <div class="day-visuals">
                 <div class="day-video-top">
@@ -387,6 +389,7 @@
                         <li><i class="fas fa-coffee"></i> Смачний сніданок</li>
                         <li><i class="fas fa-camera"></i> Фотосесія</li>
                         <li><i class="fas fa-plane-departure"></i> Трансфер в аеропорт</li>
+                        <li><i class="fas fa-heart"></i> Незабутні спогади</li>
                     </ul>
                 </div>
             </div>
@@ -395,19 +398,19 @@
         <h2 style="margin-top: 100px;">Відеогалерея Туру 🎬</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <iframe src="https://www.youtube.com/embed/qZ2k1Q1h7yU" loading="lazy" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/k9xx6y34xSI" loading="lazy" allowfullscreen></iframe>
             </div>
             <div class="gallery-item">
-                <iframe src="https://www.youtube.com/embed/fVN-fJS9iHQ" loading="lazy" allowfullscreen></iframe>
-            </div>
-            <div class="gallery-item">
-                <iframe src="https://www.youtube.com/embed/QghsIbaDKss" loading="lazy" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/_N6jU9FGHHA" loading="lazy" allowfullscreen></iframe>
             </div>
             <div class="gallery-item">
                 <iframe src="https://www.youtube.com/embed/WhAJf2rALkQ" loading="lazy" allowfullscreen></iframe>
             </div>
             <div class="gallery-item">
-                <iframe src="https://www.youtube.com/embed/_N6jU9FGHHA" loading="lazy" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/QghsIbaDKss" loading="lazy" allowfullscreen></iframe>
+            </div>
+            <div class="gallery-item">
+                <iframe src="https://www.youtube.com/embed/sH05pHZuptA" loading="lazy" allowfullscreen></iframe>
             </div>
         </div>
 
