@@ -26,42 +26,24 @@
         body { 
             font-family: 'Montserrat', sans-serif; 
             color: var(--text); 
-            background-color: #000; /* Чорний під відео */
+            /* ЗАМІСТЬ ВІДЕО - ТЕМНИЙ ГРАДІЄНТНИЙ ФОН */
+            background: radial-gradient(circle at center, #0a2342 0%, #020c1b 100%);
             overflow-x: hidden;
             line-height: 1.7;
+            min-height: 100vh;
         }
 
-        /* --- 2. ФОН (ВИПРАВЛЕНО) --- */
-        /* Контейнер відео фіксований і лежить "на дні" */
-        .video-bg-wrapper {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -10;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        
-        .video-bg {
-            width: 100%; height: 100%; object-fit: cover;
-            filter: brightness(0.5); /* Затемнення */
-        }
-
-        /* Накладка поверх відео для контрасту */
-        .video-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-        }
-
-        /* СНІГ - НАЙВИЩИЙ ШАР */
+        /* СНІГ (CANVAS) - Шар між фоном і контентом */
         #snow-canvas {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 9999; /* Поверх усього */
-            pointer-events: none; /* Щоб можна було клікати крізь сніг */
+            z-index: 1; /* Поверх градієнта */
+            pointer-events: none; /* Пропускає кліки */
         }
 
-        /* --- 3. КОНТЕНТ --- */
+        /* --- 2. КОНТЕНТ (Шар поверх снігу) --- */
         .container { 
             max-width: 1200px; margin: 0 auto; padding: 0 20px; 
-            position: relative; z-index: 1; 
+            position: relative; z-index: 10; /* Вище снігу */
         }
 
         h2 { 
@@ -73,7 +55,7 @@
         /* HERO */
         .hero {
             min-height: 100vh; display: flex; align-items: center; justify-content: center; 
-            text-align: center; padding: 120px 20px 80px; position: relative; z-index: 2;
+            text-align: center; padding: 120px 20px 80px; position: relative; z-index: 10;
         }
         .hero-subtitle {
             color: var(--accent); font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
@@ -215,13 +197,6 @@
 </head>
 <body>
 
-    <div class="video-bg-wrapper">
-        <video autoplay muted loop playsinline class="video-bg" poster="https://images.pexels.com/photos/3192137/pexels-photo-3192137.jpeg">
-            <source src="https://videos.pexels.com/video-files/3192137/3192137-hd_1920_1080_25fps.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
-    </div>
-    
     <canvas id="snow-canvas"></canvas>
 
     <section class="hero">
@@ -269,7 +244,7 @@
                 <span class="day-badge">День 1</span>
                 <h3>Приліт та Нічне Полювання за Сяйвом 🌌</h3>
                 <p>Виліт із Німеччини. При бажанні — трансфер від будинку. Ваша пригода починається в аеропорту Рованіємі, де Вас зустріне наш індивідуальний трансфер.</p>
-                <p>🚐 По дорозі до Вашого нового дому ми заїдемо до супермаркету 🛒, щоб Ви змогли купити улюблені продукти та смаколики для комфортного відпочинку в апартаментах.</p>
+                <p>🚐 <b>Комфорт:</b> По дорозі ми заїдемо до супермаркету 🛒, щоб Ви змогли купити улюблені продукти та смаколики для комфортного відпочинку в апартаментах.</p>
                 <p><b>ВВЕЧЕРІ:</b> Ми вирушаємо в заповідний лапландський ліс ловити Північне Сяйво! <b>Смачний пікнік:</b> тиша арктичної ночі, тріск багаття та аромат соковитих лапландських ковбасок на вогні. 🤤</p>
             </div>
             <div class="day-visuals">
