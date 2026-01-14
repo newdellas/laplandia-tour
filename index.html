@@ -3,494 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АРКТИЧНА КАЗКА 2026 | Лапландія</title>
+    <title>МАГІЯ ЛАПЛАНДІЇ 2026</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
-            --dark: #020c1b;
-            --aurora: #39ff14;
+            --bg: #051626;
+            --card-bg: #0b2238;
+            --accent: #39ff14; /* Неон лайм */
             --blue: #00d4ff;
-            --white: #ffffff;
-            --glass: rgba(255, 255, 255, 0.05);
-            --border: rgba(255, 255, 255, 0.1);
+            --text: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { 
-            background-color: var(--dark); 
-            color: var(--white); 
-            font-family: 'Montserrat', sans-serif; 
-            overflow-x: hidden; 
-            line-height: 1.6; 
-        }
+        body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-        /* --- ФОНОВІ ЕФЕКТИ (Північне Сяйво CSS) --- */
-        .bg-wrapper {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
-            background: linear-gradient(135deg, #010a1a 0%, #001f3f 100%);
-        }
-        .aurora-effect {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
-            background: radial-gradient(circle at 50% -20%, rgba(57, 255, 20, 0.15), transparent 60%),
-                        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1), transparent 50%);
-            animation: auroraMove 10s infinite alternate;
-        }
-        @keyframes auroraMove { 0% { opacity: 0.5; transform: scale(1); } 100% { opacity: 0.8; transform: scale(1.1); } }
-        
-        #snow-canvas {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;
-        }
-
-        /* --- HERO SECTION --- */
+        /* --- ГЕРОЙ --- */
         .hero {
             height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            /* Статичне надійне фото фону */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1531366930477-4f2118bdce49?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            /* Надійне фото з Wikimedia */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://upload.wikimedia.org/wikipedia/commons/a/a4/Aurora_Borealis_over_Lake_Burntside.jpg');
+            background-size: cover; background-position: center;
             position: relative;
         }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); text-transform: uppercase; margin-bottom: 20px; text-shadow: 0 0 20px var(--blue); }
+        .hero p { font-size: 1.5rem; color: var(--accent); font-weight: 700; margin-bottom: 40px; }
+        .btn-main { background: var(--accent); color: #000; padding: 20px 50px; border-radius: 50px; text-decoration: none; font-weight: 900; box-shadow: 0 0 20px var(--accent); transition: 0.3s; }
+        .btn-main:hover { transform: scale(1.05); }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            text-shadow: 0 0 30px var(--blue);
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
+        /* --- КОНТЕЙНЕР --- */
+        .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+        h2 { text-align: center; font-size: 2.5rem; margin-bottom: 50px; color: var(--blue); text-transform: uppercase; }
 
-        .hero p {
-            font-size: clamp(1.1rem, 4vw, 1.8rem);
-            color: var(--aurora);
-            font-weight: 700;
-            margin-bottom: 40px;
-        }
-
-        .btn-main {
-            background: linear-gradient(45deg, var(--aurora), #2ecc71);
-            color: #000;
-            padding: 20px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 900;
-            display: inline-block;
-            transition: 0.3s;
-            box-shadow: 0 0 25px rgba(57, 255, 20, 0.4);
-            text-transform: uppercase;
-            font-size: 1.1rem;
-        }
-        .btn-main:hover { transform: scale(1.05); box-shadow: 0 0 50px var(--aurora); }
-
-        /* --- CONTAINER & TITLES --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
-        .section-title { 
-            text-align: center; 
-            font-size: clamp(2rem, 5vw, 3rem); 
-            margin-bottom: 60px; 
-            font-weight: 900; 
-            color: var(--blue);
-            text-transform: uppercase;
-        }
-
-        /* --- FLIGHTS GRID --- */
-        .flights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 100px;
-        }
-
-        .country-card {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 25px;
-            transition: 0.3s;
-            backdrop-filter: blur(10px);
-        }
-
-        .country-card:hover { border-color: var(--aurora); transform: translateY(-5px); }
-
-        .country-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        /* --- КАРТКИ ВИЛЬОТІВ --- */
+        .flights-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .country-card { background: var(--card-bg); padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); }
+        .country-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
         .flag { font-size: 2rem; }
-        .country-card h4 { color: var(--aurora); font-size: 1.2rem; margin: 0; font-weight: 700; }
-        .country-card p { font-size: 0.9rem; opacity: 0.8; line-height: 1.5; color: #ddd; }
+        .country-card h4 { color: var(--accent); margin: 0; }
+        .country-card p { font-size: 0.9rem; color: #ccc; }
 
-        /* --- PROGRAM SLIDERS --- */
-        .day-block {
-            background: rgba(255,255,255,0.03);
-            border-radius: 30px;
-            margin-bottom: 80px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
+        /* --- ПРОГРАМА (СЛАЙДЕРИ) --- */
+        .day-block { 
+            background: var(--card-bg); border-radius: 30px; margin-bottom: 80px; overflow: hidden; 
+            display: grid; grid-template-columns: 1.2fr 1fr; border: 1px solid rgba(255,255,255,0.1);
         }
+        .day-text { padding: 40px; }
+        .day-text h3 { color: var(--blue); margin-bottom: 20px; font-size: 1.8rem; }
+        .day-num { background: var(--accent); color: #000; display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: 800; margin-bottom: 15px; }
+        .day-list li { list-style: none; margin-bottom: 10px; display: flex; gap: 10px; }
+        .day-list i { color: var(--accent); }
 
-        .day-block:nth-child(even) { direction: rtl; }
-        .day-block:nth-child(even) .day-text { direction: ltr; }
+        /* Слайдер */
+        .slider-area { position: relative; height: 100%; min-height: 400px; }
+        .slide-img { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            background-size: cover; background-position: center; opacity: 0; transition: opacity 1s;
+        }
+        .slide-img.active { opacity: 1; }
 
-        .day-text { padding: 50px; }
-        .day-num {
-            background: var(--aurora); color: #000;
-            width: 50px; height: 50px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 900; font-size: 1.3rem; margin-bottom: 20px;
+        /* --- LIVE КАМЕРИ (КНОПКИ) --- */
+        .live-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .live-item { 
+            background: #000; height: 250px; border-radius: 20px; position: relative; overflow: hidden; 
+            display: block; text-decoration: none; border: 2px solid #333;
         }
-
-        .day-text h3 { font-size: 2rem; color: var(--blue); margin-bottom: 20px; line-height: 1.2; }
-        .day-text p { margin-bottom: 15px; font-size: 1.1rem; color: #eee; }
-        .day-text b { color: var(--aurora); }
-
-        .day-list { list-style: none; margin: 25px 0; }
-        .day-list li { margin-bottom: 12px; display: flex; gap: 12px; align-items: flex-start; }
-        .day-list li i { color: var(--aurora); margin-top: 5px; }
-
-        /* Slider Logic CSS */
-        .slider-wrapper {
-            position: relative; width: 100%; height: 100%; min-height: 450px; overflow: hidden;
-        }
-        .slides-container {
-            display: flex; width: 500%; height: 100%; transition: transform 0.5s ease-in-out;
-        }
-        .slide {
-            width: 20%; height: 100%; background-size: cover; background-position: center;
-        }
-        .slider-btn {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            background: rgba(0,0,0,0.5); color: #fff; border: none;
-            width: 45px; height: 45px; border-radius: 50%; cursor: pointer;
-            z-index: 10; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
-        }
-        .prev { left: 15px; }
-        .next { right: 15px; }
-
-        /* --- LIVE WIDGETS --- */
-        .live-grid {
-            display: grid; grid-template-columns: 1fr 2fr; gap: 25px; margin-bottom: 100px;
-        }
-        .weather-card {
-            background: rgba(0,0,0,0.4); border-radius: 25px; padding: 30px; border: 1px solid var(--blue); height: 100%;
-        }
-        .cams-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-        }
-        
-        /* Стиль для камер-посилань */
-        .cam-link {
-            display: block; position: relative; height: 250px;
-            border-radius: 25px; overflow: hidden;
-            border: 2px solid rgba(255,255,255,0.1);
-            text-decoration: none;
-        }
-        .cam-link img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; opacity: 0.7; }
-        .cam-link:hover img { opacity: 1; transform: scale(1.05); }
-        .cam-overlay {
+        .live-item img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 0.3s; }
+        .live-item:hover img { opacity: 1; transform: scale(1.05); }
+        .live-btn {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            background: rgba(255,0,0,0.9); color: white;
-            padding: 10px 20px; border-radius: 50px; font-weight: 900;
-            display: flex; align-items: center; gap: 10px; z-index: 2;
-            box-shadow: 0 0 20px rgba(255,0,0,0.4); white-space: nowrap;
+            background: red; color: white; padding: 10px 20px; border-radius: 30px; font-weight: 900;
+            display: flex; align-items: center; gap: 10px; z-index: 2; box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
-        .cam-overlay i { font-size: 1.2rem; animation: pulse 2s infinite; }
 
-        /* --- GALLERY --- */
-        .gallery-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 15px; margin-bottom: 100px;
-        }
-        .gallery-grid img {
-            width: 100%; height: 220px; object-fit: cover; border-radius: 15px;
-            transition: 0.3s; border: 1px solid rgba(255,255,255,0.1);
-        }
-        .gallery-grid img:hover { transform: scale(1.03); border-color: var(--aurora); }
+        /* --- ГАЛЕРЕЯ --- */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+        .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); }
 
-        /* --- PRICE & FORM --- */
-        .price-section {
-            text-align: center; padding: 60px;
-            background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1), transparent);
-            border: 2px solid var(--blue); border-radius: 40px; margin-bottom: 100px;
-        }
-        .price-val { font-size: clamp(3rem, 8vw, 6rem); font-weight: 900; color: var(--aurora); margin: 20px 0; }
+        /* --- ЦІНА --- */
+        .price-box { text-align: center; padding: 60px; background: linear-gradient(135deg, #0b2238, #051626); border: 2px solid var(--blue); border-radius: 40px; margin-bottom: 80px; }
+        .price-val { font-size: 4rem; font-weight: 900; color: var(--accent); margin: 10px 0; }
 
-        .form-container {
-            max-width: 600px; margin: 0 auto;
-            background: #fff; padding: 50px; border-radius: 30px; color: #111;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-        .form-container h2 { text-align: center; margin-bottom: 30px; font-weight: 800; }
-        .form-input {
-            width: 100%; padding: 15px; margin-bottom: 15px; border: 2px solid #ddd;
-            border-radius: 12px; font-family: inherit; font-size: 1rem;
-        }
-        .form-btn {
-            width: 100%; background: var(--dark); color: #fff; border: none; padding: 20px;
-            border-radius: 12px; font-weight: 900; font-size: 1.1rem; cursor: pointer; transition: 0.3s;
-        }
-        .form-btn:hover { background: var(--blue); }
+        /* --- ФОРМА --- */
+        .form-area { max-width: 600px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 30px; color: #000; }
+        .form-area input, .form-area select, .form-area textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 10px; }
+        .sub-btn { width: 100%; background: var(--bg); color: #fff; padding: 20px; border: none; border-radius: 10px; font-weight: 900; cursor: pointer; }
 
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
-
-        @media (max-width: 992px) {
+        @media (max-width: 900px) {
             .day-block { grid-template-columns: 1fr; }
-            .slider-wrapper { order: -1; min-height: 300px; }
+            .slider-area { height: 300px; order: -1; }
             .live-grid { grid-template-columns: 1fr; }
-            .cams-grid { grid-template-columns: 1fr; }
-            .day-text { padding: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-wrapper"></div>
-    <div class="aurora-effect"></div>
-    <canvas id="snow-canvas"></canvas>
-
     <header class="hero">
-        <div class="hero-content" data-aos="zoom-out">
-            <p>🦌 МАГІЯ ЗА ПОЛЯРНИМ КОЛОМ ✨🎅</p>
+        <div data-aos="fade-up">
+            <p>🦌 МАГІЯ ЗА ПОЛЯРНИМ КОЛОМ ✨</p>
             <h1>АРКТИЧНА КАЗКА 2026</h1>
             <p>Санта, Лапландія та Північне Сяйво!</p>
-            <a href="#book" class="btn-main">Забронювати пригоду</a>
+            <a href="#book" class="btn-main">Забронювати</a>
         </div>
     </header>
 
     <div class="container">
-        
-        <h2 class="section-title" data-aos="fade-up">Вильоти з усієї Європи ✈️</h2>
+
+        <h2 data-aos="fade-up">Вильоти з Європи ✈️</h2>
         <div class="flights-grid">
-            <div class="country-card" data-aos="fade-up"><div class="country-header"><span class="flag">🇩🇪</span><h4>Німеччина</h4></div><p>Берлін, Дюссельдорф, Франкфурт, Гамбург, Мюнхен, Штутгарт</p></div>
-            <div class="country-card" data-aos="fade-up"><div class="country-header"><span class="flag">🇫🇷</span><h4>Франція</h4></div><p>Париж (CDG, Orly, Beauvais), Ліон, Ніцца, Бордо</p></div>
-            <div class="country-card" data-aos="fade-up"><div class="country-header"><span class="flag">🇵🇱</span><h4>Польща</h4></div><p>Варшава (LOT)</p></div>
-            <div class="country-card" data-aos="fade-up"><div class="country-header"><span class="flag">🇨🇿</span><h4>Чехія</h4></div><p>Прага (Eurowings, Smartwings)</p></div>
-            <div class="country-card" data-aos="fade-up"><div class="country-header"><span class="flag">🇮🇹</span><h4>Італія</h4></div><p>Мілан, Рим, Неаполь</p></div>
-            <div class="country-card" data-aos="fade-up"><div class="country-header"><span class="flag">🇪🇸</span><h4>Іспанія</h4></div><p>Мадрид, Барселона</p></div>
-            <div class="country-card" data-aos="fade-up"><div class="country-header"><span class="flag">🇦🇹</span><h4>Австрія</h4></div><p>Відень</p></div>
-            <div class="country-card" data-aos="fade-up"><div class="country-header"><span class="flag">🇳🇱</span><h4>Нідерланди</h4></div><p>Амстердам</p></div>
-            <div class="country-card" data-aos="fade-up"><div class="country-header"><span class="flag">🇧🇪</span><h4>Бельгія</h4></div><p>Брюссель</p></div>
+            <div class="country-card"><div class="country-head"><span class="flag">🇩🇪</span><h4>Німеччина</h4></div><p>Берлін, Мюнхен, Гамбург...</p></div>
+            <div class="country-card"><div class="country-head"><span class="flag">🇵🇱</span><h4>Польща</h4></div><p>Варшава (LOT)</p></div>
+            <div class="country-card"><div class="country-head"><span class="flag">🇨🇿</span><h4>Чехія</h4></div><p>Прага</p></div>
+            <div class="country-card"><div class="country-head"><span class="flag">🇫🇷</span><h4>Франція</h4></div><p>Париж, Ніцца</p></div>
+            <div class="country-card"><div class="country-head"><span class="flag">🇮🇹</span><h4>Італія</h4></div><p>Мілан, Рим</p></div>
+            <div class="country-card"><div class="country-head"><span class="flag">🇪🇸</span><h4>Іспанія</h4></div><p>Мадрид, Барселона</p></div>
         </div>
 
-        <h2 class="section-title">Програма Вашої Казки</h2>
+        <h2 style="margin-top: 80px;">Програма Туру</h2>
 
         <div class="day-block" data-aos="fade-right">
             <div class="day-text">
-                <div class="day-num">1</div>
-                <h3>Приліт та Полювання за Сяйвом 🌌</h3>
-                <p>Ваша пригода починається в аеропорту Рованіємі. Наш водій зустріне Вас на індивідуальному трансфері та відвезе до затишних <b>апартаментів</b>. По дорозі заїдемо до супермаркету 🛒 за смаколиками.</p>
+                <span class="day-num">День 1</span>
+                <h3>Полювання за Сяйвом 🌌</h3>
+                <p>Приліт в Рованіємі. Індивідуальний трансфер. Заїзд у супермаркет 🛒 за продуктами в апартаменти.</p>
                 <ul class="day-list">
-                    <li><i class="fas fa-magic"></i> <b>ВВЕРІ:</b> Вирушаємо в заповідний ліс на полювання за Сяйвом!</li>
-                    <li><i class="fas fa-fire"></i> <b>Пікнік:</b> Тріск багаття та аромат лапландських ковбасок на вогні.</li>
-                    <li><i class="fas fa-mug-hot"></i> Гарячий ягідний чай ☕️🍓 під магічним небом.</li>
+                    <li><i class="fas fa-magic"></i> <b>Вечір:</b> Виїзд у ліс ловити Сяйво!</li>
+                    <li><i class="fas fa-fire"></i> <b>Пікнік:</b> Ковбаски на багатті та чай.</li>
                 </ul>
             </div>
-            <div class="slider-wrapper" id="slider1">
-                <div class="slides-container">
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1579033461380-adb47c3eb938?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1531366930477-4f2118bdce49?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1483347756197-71ef80e95f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1546271876-af6caec5fae5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                </div>
-                <button class="slider-btn prev">❮</button><button class="slider-btn next">❯</button>
+            <div class="slider-area" id="slider1">
+                <div class="slide-img active" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a4/Aurora_Borealis_over_Lake_Burntside.jpg')"></div>
+                <div class="slide-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Aurora_borealis_2016.jpg/800px-Aurora_borealis_2016.jpg')"></div>
             </div>
         </div>
 
         <div class="day-block" data-aos="fade-left">
             <div class="day-text">
-                <div class="day-num">2</div>
-                <h3>У гості до Санти та Олені 🦌</h3>
-                <p><b>11:00 — Відправлення до Селища Санта-Клауса.</b> Мрії стають реальністю!</p>
+                <span class="day-num">День 2</span>
+                <h3>Санта та Олені 🦌</h3>
+                <p><b>11:00</b> — Виїзд у Селище Санти. Перетин Полярного кола.</p>
                 <ul class="day-list">
-                    <li><i class="fas fa-bolt"></i> <b>Полярне коло:</b> Перетин магічної лінії Арктики.</li>
-                    <li><i class="fas fa-sleigh"></i> <b>Олені Санти:</b> Подорож у санях засніженим лісом.</li>
-                    <li><i class="fas fa-star"></i> <b>Аудієнція:</b> Зустріч із Сантою в його офісі. 🎁</li>
-                    <li><i class="fas fa-envelope"></i> <b>Пошта:</b> Відправка листівок зі штампом.</li>
+                    <li><i class="fas fa-star"></i> Аудієнція у Санти в офісі.</li>
+                    <li><i class="fas fa-sleigh"></i> Катання на оленях у лісі.</li>
+                    <li><i class="fas fa-envelope"></i> Головна Пошта Санти.</li>
                 </ul>
-                <p><b>16:00 — Повернення до апартаментів.</b></p>
+                <p><b>16:00</b> — Повернення в апартаменти.</p>
             </div>
-            <div class="slider-wrapper" id="slider2">
-                <div class="slides-container">
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1544233736-0f62e633225c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1512598268429-9d7458084500?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1513297887119-d46091b24bfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1543589077-47d81606c1bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1605553090637-234299b80036?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                </div>
-                <button class="slider-btn prev">❮</button><button class="slider-btn next">❯</button>
+            <div class="slider-area" id="slider2">
+                <div class="slide-img active" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/87/Santa_Claus_Reindeer_Rovaniemi_Lapland_Finland.jpg')"></div>
+                <div class="slide-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Santa_Claus_Village_Rovaniemi_Finland.jpg/800px-Santa_Claus_Village_Rovaniemi_Finland.jpg')"></div>
             </div>
         </div>
 
         <div class="day-block" data-aos="fade-right">
             <div class="day-text">
-                <div class="day-num">3</div>
-                <h3>Підземна пригода у Santa Park 🎡</h3>
-                <p><b>11:00 — Санта Парк.</b> Таємна печера в скелі, де ельфи готуються до Різдва.</p>
+                <span class="day-num">День 3</span>
+                <h3>Santa Park 🎡</h3>
+                <p><b>11:00</b> — Підземна печера ельфів у скелі.</p>
                 <ul class="day-list">
-                    <li><i class="fas fa-hat-wizard"></i> <b>Школа ельфів:</b> Дізнайтеся секрети помічників! 🎓</li>
-                    <li><i class="fas fa-cookie-bite"></i> <b>Пекарня:</b> Прикрасьте імбирне печиво. 🍪</li>
-                    <li><i class="fas fa-cube"></i> <b>Крижана галерея:</b> Скульптури з льоду. 🧊</li>
+                    <li><i class="fas fa-graduation-cap"></i> Школа ельфів (диплом).</li>
+                    <li><i class="fas fa-cookie"></i> Пекарня місіс Клаус (пряники).</li>
+                    <li><i class="fas fa-snowflake"></i> Крижана галерея скульптур.</li>
                 </ul>
-                <p><b>16:00 — Повернення до апартаментів.</b></p>
+                <p><b>16:00</b> — Повернення додому.</p>
             </div>
-            <div class="slider-wrapper" id="slider3">
-                <div class="slides-container">
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1512598268429-9d7458084500?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1605541604085-3e284a1bc1b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1542640244-7e672d6cef21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1482638186060-804d0806040b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                </div>
-                <button class="slider-btn prev">❮</button><button class="slider-btn next">❯</button>
+            <div class="slider-area" id="slider3">
+                <div class="slide-img active" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Santa_Park_Rovaniemi.jpg/800px-Santa_Park_Rovaniemi.jpg')"></div>
+                <div class="slide-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Ice_Gallery_Santa_Park.jpg/800px-Ice_Gallery_Santa_Park.jpg')"></div>
             </div>
         </div>
 
         <div class="day-block" data-aos="fade-left">
             <div class="day-text">
-                <div class="day-num">4</div>
-                <h3>Прощання з дивом 👋</h3>
-                <p>Останній сніданок... 🥞 Фінальні фото на фоні засніжених краєвидів 📸 та трансфер в аеропорт. Магія залишається з Вами!</p>
+                <span class="day-num">День 4</span>
+                <h3>Прощання 👋</h3>
+                <p>Останній сніданок. Фінальні фото на фоні снігу. Трансфер в аеропорт.</p>
+                <p>Магія залишається з Вами назавжди!</p>
             </div>
-            <div class="slider-wrapper" id="slider4">
-                <div class="slides-container">
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1489527483492-56743a96dc1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1511300633959-19e7b5dc1c17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1483347756197-71ef80e95f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1519865885898-a54a6f2c7dad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
-                </div>
-                <button class="slider-btn prev">❮</button><button class="slider-btn next">❯</button>
+            <div class="slider-area" id="slider4">
+                <div class="slide-img active" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Lapland_winter_landscape.jpg/800px-Lapland_winter_landscape.jpg')"></div>
+                <div class="slide-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Rovaniemi_Winter.jpg/800px-Rovaniemi_Winter.jpg')"></div>
             </div>
         </div>
 
-        <h2 class="section-title">Атмосфера Лапландії</h2>
-        <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1546271876-af6caec5fae5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Aurora">
-            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cabin">
-            <img src="https://images.unsplash.com/photo-1542640244-7e672d6cef21?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sleigh">
-            <img src="https://images.unsplash.com/photo-1518248479020-56bc0a4866aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Snow">
-            <img src="https://images.unsplash.com/photo-1483347756197-71ef80e95f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Night">
-            <img src="https://images.unsplash.com/photo-1511300633959-19e7b5dc1c17?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Bridge">
-            <img src="https://images.unsplash.com/photo-1579033461380-adb47c3eb938?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sky">
-            <img src="https://images.unsplash.com/photo-1531366930477-4f2118bdce49?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Winter">
-            <img src="https://images.unsplash.com/photo-1489527483492-56743a96dc1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Mounts">
-            <img src="https://images.unsplash.com/photo-1605553090637-234299b80036?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Elf">
-        </div>
-
-        <h2 class="section-title">Лапландія наживо ❄️</h2>
+        <h2 style="margin-top: 80px;">Лапландія LIVE 🔴</h2>
         <div class="live-grid">
-            <div class="weather-card">
-                <h4 style="margin-bottom: 20px; color: var(--aurora);">Погода в Рованіємі:</h4>
-                <a class="weatherwidget-io" href="https://forecast7.com/uk/66d5025d73/rovaniemi/" data-label_1="РОВАНІЄМІ" data-label_2="ПОГОДА" data-theme="pure" data-basecolor="rgba(0,0,0,0)" data-accent="var(--blue)" data-textcolor="#ffffff">РОВАНІЄМІ</a>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>
+            <div class="country-card" style="text-align: center;">
+                <h4>Погода в Рованіємі</h4>
+                <div style="font-size: 3rem; margin: 20px 0; color: #fff;">-12°C</div>
+                <p>❄️ Снігопад</p>
             </div>
-            <div class="cams-grid">
-                <a href="https://www.youtube.com/watch?v=p90_t78S8vA" target="_blank" class="cam-link">
-                    <img src="https://images.unsplash.com/photo-1512598268429-9d7458084500?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Santa">
-                    <div class="cam-overlay"><i class="fas fa-video"></i> ДИВИТИСЯ LIVE</div>
-                </a>
-                <a href="https://www.youtube.com/results?search_query=aurora+borealis+live" target="_blank" class="cam-link">
-                    <img src="https://images.unsplash.com/photo-1531366930477-4f2118bdce49?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Aurora">
-                    <div class="cam-overlay"><i class="fas fa-video"></i> ПОШУК СЯЙВА</div>
-                </a>
-            </div>
+            
+            <a href="https://www.youtube.com/watch?v=p90_t78S8vA" target="_blank" class="live-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Santa_Claus_Village_Rovaniemi_Finland.jpg/640px-Santa_Claus_Village_Rovaniemi_Finland.jpg" alt="Santa">
+                <div class="live-btn"><i class="fas fa-play"></i> LIVE: СЕЛИЩЕ САНТИ</div>
+            </a>
+
+            <a href="https://www.youtube.com/results?search_query=northern+lights+live" target="_blank" class="live-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Aurora_Borealis_over_Lake_Burntside.jpg" alt="Aurora">
+                <div class="live-btn"><i class="fas fa-play"></i> LIVE: СЯЙВО</div>
+            </a>
         </div>
 
-        <div class="price-section" data-aos="zoom-in" id="book">
-            <h2>ВАРТІСТЬ ПРИГОДИ</h2>
+        <h2 style="margin-top: 80px;">Галерея</h2>
+        <div class="gallery">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Lapland_winter_landscape.jpg/640px-Lapland_winter_landscape.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Aurora_Borealis_over_Lake_Burntside.jpg/640px-Aurora_Borealis_over_Lake_Burntside.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Santa_Claus_Reindeer_Rovaniemi_Lapland_Finland.jpg/640px-Santa_Claus_Reindeer_Rovaniemi_Lapland_Finland.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Santa_Park_Rovaniemi.jpg/640px-Santa_Park_Rovaniemi.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Ice_Gallery_Santa_Park.jpg/640px-Ice_Gallery_Santa_Park.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Rovaniemi_Winter.jpg/640px-Rovaniemi_Winter.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Aurora_borealis_2016.jpg/640px-Aurora_borealis_2016.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Santa_Claus_Village_Rovaniemi_Finland.jpg/640px-Santa_Claus_Village_Rovaniemi_Finland.jpg">
+        </div>
+
+        <div class="price-box" id="book">
+            <h2>ВАРТІСТЬ</h2>
             <div class="price-val">від 450€</div>
-            <p style="font-size: 1.5rem; opacity: 0.8; margin-bottom: 30px;">+ авіаквитки</p>
-            <div style="text-align: left; display: inline-block; max-width: 550px;">
-                <p>✅ <b>ВКЛЮЧЕНО:</b> Переліт, Трансфери, Апартаменти, Полювання за Сяйвом + Пікнік, Гіди.</p>
-                <br>
-                <p>❌ <b>ДОДАТКОВО:</b> Квитки в Санта Парк, олені/хаскі, <b>Сертифікат про перетин Полярного кола</b>, Трансфер від дому.</p>
-            </div>
+            <p>+ авіаквитки</p>
+            <p style="margin-top: 20px; color: #aaa;">Включено: Проживання (апартаменти), трансфери, пікнік із сяйвом.</p>
         </div>
 
-        <div class="form-container" data-aos="fade-up">
-            <h2>ЗАБРОНЮВАТИ МІСЦЕ ✨</h2>
+        <div class="form-area">
+            <h2 style="text-align: center; margin-bottom: 20px;">ЗАБРОНЮВАТИ</h2>
             <form>
-                <input type="text" class="form-input" placeholder="Ваше ім'я" required>
-                <input type="tel" class="form-input" placeholder="Телефон (WhatsApp/Viber)" required>
-                <select class="form-input" required>
-                    <option value="">Країна вильоту</option>
-                    <option>Німеччина</option><option>Польща</option><option>Чехія</option><option>Франція</option><option>Інша</option>
+                <input type="text" placeholder="Ваше ім'я" required>
+                <input type="tel" placeholder="Телефон" required>
+                <select>
+                    <option>Країна вильоту</option>
+                    <option>Німеччина</option><option>Польща</option><option>Чехія</option>
                 </select>
-                <textarea class="form-input" rows="3" placeholder="Ваші побажання"></textarea>
-                <button type="submit" class="form-btn">ХОЧУ В ЛАПЛАНДІЮ!</button>
+                <textarea rows="3" placeholder="Ваші побажання"></textarea>
+                <button type="submit" class="sub-btn">ВІДПРАВИТИ</button>
             </form>
         </div>
 
     </div>
 
-    <footer style="text-align: center; padding: 50px; opacity: 0.6; font-size: 0.9rem;">
-        <p>© 2026 ЛАПЛАНДІЯ ТУР. Україномовні гіди. Магія на все життя.</p>
-    </footer>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1000, once: true });
+        AOS.init();
 
-        // СНІГ
-        const canvas = document.getElementById('snow-canvas');
-        const ctx = canvas.getContext('2d');
-        let width, height, flakes = [];
-        
-        function initSnow() {
-            width = window.innerWidth; height = window.innerHeight;
-            canvas.width = width; canvas.height = height;
-            flakes = [];
-            for(let i=0; i<100; i++) {
-                flakes.push({ x: Math.random()*width, y: Math.random()*height, r: Math.random()*3+1, d: Math.random()*1 });
-            }
-        }
-        
-        function drawSnow() {
-            ctx.clearRect(0,0,width,height); ctx.fillStyle = 'rgba(255,255,255,0.8)'; ctx.beginPath();
-            for(let i=0; i<flakes.length; i++) {
-                let f = flakes[i]; ctx.moveTo(f.x, f.y); ctx.arc(f.x, f.y, f.r, 0, Math.PI*2, true);
-            }
-            ctx.fill(); moveSnow();
-        }
-        
-        function moveSnow() {
-            for(let i=0; i<flakes.length; i++) {
-                let f = flakes[i]; f.y += Math.pow(f.d, 2) + 1;
-                if(f.y > height) flakes[i] = { x: Math.random()*width, y: 0, r: f.r, d: f.d };
-            }
-        }
-        
-        window.addEventListener('resize', initSnow); initSnow(); setInterval(drawSnow, 30);
-
-        // СЛАЙДЕРИ (Перевірено)
-        function setupSlider(id) {
+        // Простий автослайдер
+        function startSlider(id) {
+            let slides = document.querySelectorAll('#' + id + ' .slide-img');
             let index = 0;
-            const container = document.querySelector(`#${id} .slides-container`);
-            const prevBtn = document.querySelector(`#${id} .prev`);
-            const nextBtn = document.querySelector(`#${id} .next`);
-            
-            function slide(direction) {
-                index = (index + direction + 5) % 5;
-                container.style.transform = `translateX(-${index * 20}%)`;
+            if(slides.length > 0) {
+                setInterval(function() {
+                    slides[index].classList.remove('active');
+                    index = (index + 1) % slides.length;
+                    slides[index].classList.add('active');
+                }, 3000);
             }
-            
-            nextBtn.addEventListener('click', () => slide(1));
-            prevBtn.addEventListener('click', () => slide(-1));
-            setInterval(() => slide(1), 4000); // Автопрокрутка
         }
-
-        ['slider1', 'slider2', 'slider3', 'slider4'].forEach(setupSlider);
+        ['slider1', 'slider2', 'slider3', 'slider4'].forEach(startSlider);
     </script>
 </body>
 </html>
