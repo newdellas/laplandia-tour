@@ -5,17 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>МАГІЯ ЗА ПОЛЯРНИМ КОЛОМ 2026 | Авторський Тур в Лапландію</title>
-    <meta name="description" content="Ексклюзивний тур в Лапландію 2026. Проживання в апартаментах, полювання за Сяйвом, Санта Клаус. Гарантований виїзд.">
-    <meta name="keywords" content="Лапландія тур, Санта Клаус тур, Північне сяйво, Полярне коло, відпочинок з дітьми зима 2026">
+    <meta name="description" content="Ексклюзивний тур в Лапландію 2026: проживання в апартаментах, полювання за Північним Сяйвом, зустріч із Сантою. Гарантований виїзд з Європи.">
+    <meta name="keywords" content="Лапландія тур 2026, Санта Клаус тур, Північне сяйво, Полярне коло, тур з дітьми зима, Рованіємі">
+    <link rel="canonical" href="https://newdellas.github.io/laplandia-tour/">
     <meta name="theme-color" content="#020c1b">
+    
+    <meta property="og:title" content="❄️ АРКТИЧНА КАЗКА 2026: Тур в Лапландію">
+    <meta property="og:description" content="Магія існує! Олені, Санта, Сяйво та затишні вечори. Дивись програму та ціни!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://newdellas.github.io/laplandia-tour/">
+    <meta property="og:image" content="https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=1200">
     
     <link rel="icon" type="image/png" href="favicon.png"> 
     
-    <meta property="og:title" content="❄️ АРКТИЧНА КАЗКА 2026: Тур в Лапландію">
-    <meta property="og:description" content="Магія існує! Олені, Санта, Сяйво та затишні вечори. Дивись програму!">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg">
-    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristTrip",
+      "name": "Арктична Казка 2026",
+      "description": "4-денна подорож у Лапландію: Санта, Олені, Сяйво.",
+      "provider": { "@type": "TravelAgency", "name": "Laplandia Tour" },
+      "itinerary": {
+        "@type": "ItemList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Приліт та Сяйво" },
+          { "@type": "ListItem", "position": 2, "name": "Санта Клаус та Олені" },
+          { "@type": "ListItem", "position": 3, "name": "Санта Парк та Ельфи" },
+          { "@type": "ListItem", "position": 4, "name": "Виліт" }
+        ]
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "450",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://newdellas.github.io/laplandia-tour/#book"
+      }
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -29,10 +57,10 @@
             --gradient-text: linear-gradient(135deg, #00d4ff 0%, #ffffff 100%); 
             --accent-primary: #39ff14; /* Lime */
             --accent-secondary: #00d4ff; /* Cyan */
-            --glass-bg: rgba(17, 25, 40, 0.8);
+            --glass-bg: rgba(13, 25, 48, 0.85); /* Darker glass for better contrast */
             --glass-border: rgba(255, 255, 255, 0.1);
             --radius: 24px;
-            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -47,24 +75,22 @@
             font-size: 16px;
         }
 
-        /* --- 2. BACKGROUND LAYERS --- */
+        /* --- 2. BACKGROUND (PERFORMANCE OPTIMIZED) --- */
         .video-bg-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             z-index: -10; overflow: hidden;
         }
         
-        /* iOS Fix for background flickering */
-        @supports (-webkit-touch-callout: none) { .video-bg-container { position: absolute; } }
-
         .video-bg {
             width: 100%; height: 100%; object-fit: cover;
             filter: brightness(0.35) contrast(1.1) saturate(1.1);
+            will-change: transform; /* Hint for browser optimization */
         }
 
         .bg-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -5;
-            background: radial-gradient(circle at 50% 50%, rgba(2,12,27,0.4) 0%, rgba(2,12,27,0.95) 100%);
+            background: radial-gradient(circle at 50% 50%, rgba(2,12,27,0.3) 0%, rgba(2,12,27,0.95) 100%);
         }
 
         #snow-canvas {
@@ -79,7 +105,7 @@
 
         /* --- 3. TYPOGRAPHY & UI --- */
         h2 {
-            font-size: clamp(2.2rem, 5vw, 3.5rem); text-align: center; margin-bottom: 70px;
+            font-size: clamp(2rem, 5vw, 3.5rem); text-align: center; margin-bottom: 70px;
             font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
             background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             text-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
@@ -91,27 +117,28 @@
             background: var(--accent-primary); color: #000;
             font-weight: 800; text-transform: uppercase; text-decoration: none;
             border-radius: 50px; border: none; cursor: pointer; letter-spacing: 1px;
-            box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.4);
             transition: var(--transition); overflow: hidden; z-index: 1;
         }
         
         .btn-main:hover { 
             transform: translateY(-4px) scale(1.02); 
-            box-shadow: 0 10px 40px rgba(57, 255, 20, 0.6); 
+            box-shadow: 0 10px 50px rgba(57, 255, 20, 0.6); 
             color: #fff;
         }
 
         .glass-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
             transition: var(--transition);
         }
         .glass-card:hover {
-            border-color: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.2);
             transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
         }
 
         /* --- 4. SECTIONS --- */
@@ -133,8 +160,8 @@
             filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.4));
         }
         .hero p {
-            font-size: 1.25rem; max-width: 700px; margin-bottom: 40px; 
-            color: var(--text-muted); font-weight: 400;
+            font-size: 1.25rem; max-width: 750px; margin-bottom: 40px; 
+            color: var(--text-muted); font-weight: 400; line-height: 1.8;
         }
         .hero-badge {
             background: rgba(57, 255, 20, 0.05); border: 1px solid var(--accent-primary);
@@ -143,10 +170,9 @@
             backdrop-filter: blur(5px);
         }
         
-        /* Scroll Indicator */
         .scroll-down {
             position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
-            animation: bounce 2s infinite; opacity: 0.7;
+            animation: bounce 2s infinite; opacity: 0.7; cursor: pointer;
         }
         .scroll-down i { font-size: 24px; color: var(--accent-secondary); }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform:translateY(0) translateX(-50%);} 40% {transform:translateY(-10px) translateX(-50%);} 60% {transform:translateY(-5px) translateX(-50%);} }
@@ -160,7 +186,7 @@
         }
         .date-item:hover { 
             border-color: var(--accent-secondary); background: rgba(0, 212, 255, 0.15); 
-            transform: translateY(-3px);
+            transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,212,255,0.2);
         }
 
         .flights-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-bottom: 140px; }
@@ -226,7 +252,7 @@
             text-align: center; padding: 80px 30px; border-radius: 50px; margin-bottom: 120px;
             background: linear-gradient(180deg, rgba(2, 12, 27, 0.8) 0%, rgba(0, 212, 255, 0.1) 100%);
             border: 1px solid var(--accent-secondary);
-            box-shadow: 0 0 50px rgba(0, 212, 255, 0.1);
+            box-shadow: 0 0 60px rgba(0, 212, 255, 0.1);
         }
         .price-val { font-size: clamp(4rem, 10vw, 6rem); font-weight: 900; color: var(--accent-primary); margin: 20px 0; text-shadow: 0 0 40px rgba(57,255,20,0.3); line-height: 1; }
         
@@ -243,7 +269,7 @@
             background: #fff; border-radius: 40px; position: relative;
             color: #000; box-shadow: 0 30px 80px rgba(0,0,0,0.6);
         }
-        .form-container h2 { color: #000; text-shadow: none; margin-bottom: 15px; background: none; -webkit-text-fill-color: initial; }
+        .form-container h2 { color: #000; text-shadow: none; margin-bottom: 10px; background: none; -webkit-text-fill-color: initial; }
         .form-input {
             width: 100%; padding: 18px; margin-bottom: 18px; border: 2px solid #f0f0f0; 
             border-radius: 14px; font-size: 1rem; font-family: inherit; transition: 0.3s; background: #f9f9f9;
@@ -256,26 +282,23 @@
         }
         .form-btn:hover { background: var(--accent-secondary); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,212,255,0.3); }
 
-        /* FOOTER & LEGAL */
-        footer { text-align: center; padding: 40px 20px; background: #01060e; border-top: 1px solid rgba(255,255,255,0.05); }
-        .footer-links { margin-bottom: 20px; }
-        .footer-links a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.9rem; transition: 0.3s; }
+        /* FOOTER & COOKIES */
+        footer { text-align: center; padding: 50px 20px; background: #01060e; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-links { margin-bottom: 25px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; margin: 0 15px; font-size: 0.9rem; transition: 0.3s; }
         .footer-links a:hover { color: var(--accent-primary); }
-        .footer-copy { color: #555; font-size: 0.85rem; }
-
-        /* COOKIE BANNER */
+        
         .cookie-banner {
             position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 500px;
             background: rgba(10, 15, 30, 0.95); backdrop-filter: blur(10px);
             padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);
-            display: none; /* JS will toggle this */
-            align-items: center; justify-content: space-between; gap: 20px;
+            display: none; align-items: center; justify-content: space-between; gap: 20px;
             z-index: 10000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
         .cookie-banner p { font-size: 0.85rem; margin: 0; line-height: 1.4; color: #ccc; }
         .cookie-btn {
-            padding: 8px 20px; background: var(--accent-secondary); color: #fff;
-            border: none; border-radius: 8px; font-weight: 700; cursor: pointer; white-space: nowrap;
+            padding: 10px 25px; background: var(--accent-secondary); color: #fff;
+            border: none; border-radius: 10px; font-weight: 700; cursor: pointer; white-space: nowrap;
         }
 
         /* MODAL */
@@ -295,7 +318,7 @@
             .program-day { grid-template-columns: 1fr; border-radius: 30px; }
             .day-info { padding: 40px 25px; }
             .day-info h3 { font-size: 1.8rem; }
-            .day-visual { order: 2; }
+            .day-visual { order: 2; height: 280px; }
             .includes-wrapper { grid-template-columns: 1fr; gap: 40px; }
             .hero { padding-top: 100px; padding-bottom: 60px; }
             .hero h1 { font-size: 3.2rem; }
@@ -329,7 +352,7 @@
                 <br>
                 <a href="#book" class="btn-main">ЗАБРОНЮВАТИ МІСЦЕ</a>
             </div>
-            <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
+            <div class="scroll-down" onclick="document.querySelector('.dates-grid').scrollIntoView()"><i class="fas fa-chevron-down"></i></div>
         </section>
 
         <h2 data-aos="fade-up">📅 Дати турів 2026</h2>
@@ -346,15 +369,15 @@
 
         <h2 data-aos="fade-up">✈️ Вильоти з Європи</h2>
         <div class="flights-grid">
-            <div class="flight-card glass-card" data-aos="fade-up" data-aos-delay="100"><div class="flight-head"><span class="flag">🇩🇪</span><h4>Німеччина</h4></div><p>Берлін, Дюссельдорф, Франкфурт, Мюнхен</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up" data-aos-delay="150"><div class="flight-head"><span class="flag">🇫🇷</span><h4>Франція</h4></div><p>Париж, Ліон, Ніцца, Бордо</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up" data-aos-delay="200"><div class="flight-head"><span class="flag">🇵🇱</span><h4>Польща</h4></div><p>Варшава (прямий рейс LOT)</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up" data-aos-delay="250"><div class="flight-head"><span class="flag">🇨🇿</span><h4>Чехія</h4></div><p>Прага (Eurowings)</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up" data-aos-delay="300"><div class="flight-head"><span class="flag">🇮🇹</span><h4>Італія</h4></div><p>Мілан, Рим, Неаполь</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up" data-aos-delay="350"><div class="flight-head"><span class="flag">🇪🇸</span><h4>Іспанія</h4></div><p>Мадрид, Барселона</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up" data-aos-delay="400"><div class="flight-head"><span class="flag">🇦🇹</span><h4>Австрія</h4></div><p>Відень</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up" data-aos-delay="450"><div class="flight-head"><span class="flag">🇳🇱</span><h4>Нідерланди</h4></div><p>Амстердам</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up" data-aos-delay="500"><div class="flight-head"><span class="flag">🇧🇪</span><h4>Бельгія</h4></div><p>Брюссель</p></div>
+            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇩🇪</span><h4>Німеччина</h4></div><p>Берлін, Дюссельдорф, Франкфурт, Мюнхен, Гамбург</p></div>
+            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇫🇷</span><h4>Франція</h4></div><p>Париж, Ліон, Ніцца, Бордо</p></div>
+            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇵🇱</span><h4>Польща</h4></div><p>Варшава (прямий рейс LOT)</p></div>
+            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇨🇿</span><h4>Чехія</h4></div><p>Прага (Eurowings)</p></div>
+            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇮🇹</span><h4>Італія</h4></div><p>Мілан, Рим, Неаполь</p></div>
+            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇪🇸</span><h4>Іспанія</h4></div><p>Мадрид, Барселона</p></div>
+            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇦🇹</span><h4>Австрія</h4></div><p>Відень</p></div>
+            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇳🇱</span><h4>Нідерланди</h4></div><p>Амстердам</p></div>
+            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇧🇪</span><h4>Бельгія</h4></div><p>Брюссель</p></div>
         </div>
 
         <h2 style="margin-top:100px">🗺 Ваша Чарівна Програма</h2>
@@ -462,23 +485,23 @@
         <h2 style="margin-top: 100px;">Відеогалерея Туру 🎬</h2>
         <div class="gallery-grid">
             <div class="gallery-item" onclick="loadVideo(this, 'k9xx6y34xSI')">
-                <img src="https://img.youtube.com/vi/k9xx6y34xSI/maxresdefault.jpg" alt="Video">
+                <img src="https://img.youtube.com/vi/k9xx6y34xSI/maxresdefault.jpg" alt="Відео Лапландія" loading="lazy">
                 <div class="play-btn"><i class="fas fa-play"></i></div>
             </div>
             <div class="gallery-item" onclick="loadVideo(this, '_N6jU9FGHHA')">
-                <img src="https://img.youtube.com/vi/_N6jU9FGHHA/hqdefault.jpg" alt="Video">
+                <img src="https://img.youtube.com/vi/_N6jU9FGHHA/hqdefault.jpg" alt="Відео Санта" loading="lazy">
                 <div class="play-btn"><i class="fas fa-play"></i></div>
             </div>
             <div class="gallery-item" onclick="loadVideo(this, 'WhAJf2rALkQ')">
-                <img src="https://img.youtube.com/vi/WhAJf2rALkQ/maxresdefault.jpg" alt="Video">
+                <img src="https://img.youtube.com/vi/WhAJf2rALkQ/maxresdefault.jpg" alt="Відео Парк" loading="lazy">
                 <div class="play-btn"><i class="fas fa-play"></i></div>
             </div>
             <div class="gallery-item" onclick="loadVideo(this, 'QghsIbaDKss')">
-                <img src="https://img.youtube.com/vi/QghsIbaDKss/maxresdefault.jpg" alt="Video">
+                <img src="https://img.youtube.com/vi/QghsIbaDKss/maxresdefault.jpg" alt="Відео Зима" loading="lazy">
                 <div class="play-btn"><i class="fas fa-play"></i></div>
             </div>
             <div class="gallery-item" onclick="loadVideo(this, 'sH05pHZuptA')">
-                <img src="https://img.youtube.com/vi/sH05pHZuptA/maxresdefault.jpg" alt="Video">
+                <img src="https://img.youtube.com/vi/sH05pHZuptA/maxresdefault.jpg" alt="Відео Сяйво" loading="lazy">
                 <div class="play-btn"><i class="fas fa-play"></i></div>
             </div>
         </div>
@@ -512,8 +535,9 @@
         </div>
 
         <div class="form-container" data-aos="fade-up">
-            <h2>ЗАБРОНЮВАТИ КАЗКУ ✨</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: #555;">В захваті як дорослі так і діти! Залиште заявку, і ми розрахуємо найкращий варіант для вас!</p>
+            <h2>РОЗПОЧАТИ ПРИГОДУ ✨</h2>
+            <p style="text-align: center; margin-bottom: 25px; color: #555;">В захваті як дорослі так і діти! Забронюйте своє місце зараз.</p>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 0.9rem; color: #ff4444; font-weight: 700;">🔥 Залишилось місць: Обмежено</p>
             
             <form id="bookingForm" action="https://formspree.io/f/ВСТАВТЕ_ТУТ_ВАШ_ID_FORMSPREE" method="POST">
                 <input type="text" name="name" class="form-input" placeholder="Ваше ім'я" required>
@@ -551,7 +575,8 @@
             <a href="#">Політика конфіденційності</a>
             <a href="#">Публічна оферта</a>
         </div>
-        <p class="footer-copy">© 2026 ЛАПЛАНДІЯ ТУР. Україномовні гіди. Магія на все життя.</p>
+        <p style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">© 2026 ЛАПЛАНДІЯ ТУР. Україномовні гіди. Магія на все життя.</p>
+        <p style="color: #39ff14; font-weight: 700;">Зв'яжіться з нами, щоб відчути казку!</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -576,7 +601,7 @@
 
             const data = new FormData(event.target);
             
-            // Якщо Formspree ID не налаштований, імітуємо успіх (для тесту)
+            // Demo mode if ID is not set
             if (form.action.includes("ВСТАВТЕ_ТУТ")) {
                 setTimeout(() => {
                     showModal();
