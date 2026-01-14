@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>МАГІЯ ЗА ПОЛЯРНИМ КОЛОМ 2026</title>
+    <meta name="description" content="Авторський тур в Лапландію. Санта, Сяйво та Олені.">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* --- 1. CORE STYLES --- */
+        /* --- 1. БАЗОВІ НАЛАШТУВАННЯ --- */
         :root {
-            --primary: #00d4ff; 
-            --accent: #39ff14;
-            --dark: #020c1b;
-            --glass: rgba(16, 36, 56, 0.9);
+            --primary: #00d4ff; /* Блакитний неон */
+            --accent: #39ff14;  /* Лайм */
+            --dark: #020c1b;    /* Глибокий чорний */
+            --glass: rgba(16, 36, 56, 0.85); /* Ефект скла */
             --text: #ffffff;
             --text-gray: #e0e0e0;
         }
@@ -27,433 +28,411 @@
             font-family: 'Montserrat', sans-serif; 
             color: var(--text); 
             background-color: #000;
-            overflow-x: hidden;
-            line-height: 1.7;
+            overflow-x: hidden; /* Заборона горизонтального скролу */
+            line-height: 1.6;
         }
 
-        /* --- 2. BACKGROUND (FIXED VIDEO - NEW SOURCE) --- */
-        .video-bg-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            z-index: -10; 
-            overflow: hidden;
-        }
-        .video-bg {
-            width: 100%; height: 100%; object-fit: cover;
-            filter: brightness(0.4); /* Затемнення */
-        }
-        .video-overlay {
+        /* --- 2. ФОН І СНІГ (СТАБІЛЬНА ВЕРСІЯ) --- */
+        /* Нерухомий темний фон (заміна глючному відео) */
+        .fixed-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -9;
-            background: radial-gradient(circle at center, rgba(5,22,38,0.2) 0%, rgba(5,22,38,0.9) 100%);
+            z-index: -10;
+            /* Темний ліс */
+            background-image: linear-gradient(rgba(2, 12, 27, 0.7), rgba(2, 12, 27, 0.8)), 
+                              url('https://images.pexels.com/photos/3192137/pexels-photo-3192137.jpeg?auto=compress&cs=tinysrgb&w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
-        /* --- 3. SNOW (TOP LAYER) --- */
+        /* Сніг падає поверх фону, але під контентом */
         #snow-canvas {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1; /* Поверх фону, але під контентом */
+            z-index: -5; 
             pointer-events: none;
         }
 
-        /* --- 4. CONTENT (ABOVE ALL) --- */
-        .container, .hero { 
-            position: relative; z-index: 10; 
+        /* Головний контейнер (щоб контент був поверх усього) */
+        .wrapper {
+            position: relative;
+            z-index: 10;
         }
 
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- 3. ТИПОГРАФІКА --- */
         h2 { 
-            text-align: center; font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 60px; 
+            text-align: center; font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 50px; 
             color: var(--primary); text-transform: uppercase; font-weight: 900; 
-            text-shadow: 0 0 30px rgba(0,212,255,0.4);
+            text-shadow: 0 0 20px rgba(0,212,255,0.5); letter-spacing: 1px;
         }
 
-        /* HERO */
+        /* --- 4. HERO СЕКЦІЯ --- */
         .hero {
             min-height: 100vh; display: flex; align-items: center; justify-content: center; 
-            text-align: center; padding: 120px 20px 80px;
+            text-align: center; padding: 100px 20px;
+        }
+        .hero-box {
+            max-width: 900px;
         }
         .hero-subtitle {
-            color: var(--accent); font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+            color: var(--accent); font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
             display: block; margin-bottom: 20px; font-size: 1.1rem;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
         }
         .hero h1 { 
-            font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 900; text-transform: uppercase; margin-bottom: 30px; 
-            line-height: 1.1; text-shadow: 0 0 60px rgba(0, 212, 255, 0.6);
+            font-size: clamp(3rem, 9vw, 6rem); font-weight: 900; text-transform: uppercase; margin-bottom: 20px; 
+            line-height: 1.1; text-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
         }
         .hero p { 
-            font-size: clamp(1.1rem, 4vw, 1.4rem); color: var(--text-gray); max-width: 800px; 
-            margin: 0 auto 40px; font-weight: 400;
+            font-size: clamp(1.1rem, 4vw, 1.4rem); color: var(--text-gray); 
+            margin: 0 auto 40px; font-weight: 400; max-width: 700px;
         }
         .hero-badge {
-            display: inline-block; background: rgba(57,255,20,0.1); border: 1px solid var(--accent);
-            color: var(--accent); padding: 12px 30px; border-radius: 50px; font-weight: 700;
-            margin-bottom: 40px; backdrop-filter: blur(10px);
+            display: inline-block; background: rgba(57,255,20,0.15); border: 1px solid var(--accent);
+            color: var(--accent); padding: 10px 30px; border-radius: 50px; font-weight: 700;
+            margin-bottom: 40px; backdrop-filter: blur(5px);
         }
         .btn-main {
-            display: inline-block; padding: 22px 60px; background: var(--accent);
+            display: inline-block; padding: 20px 50px; background: var(--accent);
             color: #000; text-decoration: none; font-weight: 800; border-radius: 50px;
             font-size: 1.2rem; text-transform: uppercase; transition: all 0.3s;
             box-shadow: 0 0 30px rgba(57, 255, 20, 0.4); border: none; cursor: pointer;
         }
-        .btn-main:hover { transform: scale(1.05); background: #fff; }
+        .btn-main:hover { transform: scale(1.05); background: #fff; box-shadow: 0 0 50px var(--accent); }
 
-        /* DATES & FLIGHTS */
-        .dates-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 100px; }
+        /* --- 5. ДАТИ --- */
+        .dates-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 100px; }
         .date-item {
-            background: var(--glass); border: 1px solid rgba(255,255,255,0.15);
-            padding: 12px 25px; border-radius: 12px; font-weight: 600; color: #fff;
+            background: var(--glass); border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 20px; border-radius: 10px; font-weight: 600; color: #fff;
             transition: 0.3s; cursor: default; backdrop-filter: blur(10px);
         }
-        .date-item:hover { border-color: var(--primary); background: rgba(0, 212, 255, 0.15); transform: translateY(-3px); }
+        .date-item:hover { border-color: var(--primary); background: rgba(0, 212, 255, 0.2); transform: translateY(-3px); }
 
+        /* --- 6. ВИЛЬОТИ --- */
         .flights-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 120px; }
         .flight-card {
             background: var(--glass); border: 1px solid rgba(255,255,255,0.1);
-            padding: 25px; border-radius: 20px; backdrop-filter: blur(10px);
+            padding: 25px; border-radius: 20px; backdrop-filter: blur(10px); transition: 0.3s;
         }
-        .flight-card h4 { color: var(--accent); margin: 0; font-size: 1.1rem; font-weight: 700; }
+        .flight-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .flight-card h4 { color: var(--accent); margin: 0; font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; }
         .flight-card p { font-size: 0.95rem; color: var(--text-gray); margin: 0; }
-        .flag-row { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .flag { font-size: 2.2rem; }
+        .flag-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .flag { font-size: 2rem; }
 
-        /* PROGRAM (MAGAZINE LAYOUT) */
+        /* --- 7. ПРОГРАМА (ЖУРНАЛЬНИЙ СТИЛЬ) --- */
         .day-block {
             background: var(--glass); border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 30px; margin-bottom: 100px; overflow: hidden;
-            display: grid; grid-template-columns: 1.1fr 0.9fr;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5); backdrop-filter: blur(15px);
+            border-radius: 30px; margin-bottom: 80px; overflow: hidden;
+            display: grid; grid-template-columns: 1fr 1fr;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5); backdrop-filter: blur(10px);
         }
         .day-block:nth-child(even) { direction: rtl; } 
         .day-block:nth-child(even) .day-story { direction: ltr; }
         .day-block:nth-child(even) .day-visuals { direction: ltr; }
 
-        .day-story { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
-        .day-visuals { display: flex; flex-direction: column; background: rgba(0,0,0,0.3); }
-
-        /* ЗАМІНА ВІДЕО НА КАРТИНКУ З КНОПКОЮ (ЩОБ НЕ БУЛО "ВІДЕО НЕДОСТУПНЕ") */
-        .day-img-link {
-            display: block; position: relative; height: 300px; overflow: hidden;
-            text-decoration: none;
+        .day-story { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+        .day-visuals { position: relative; min-height: 300px; }
+        
+        /* Заміна iframe на картинки для стабільності */
+        .day-img {
+            width: 100%; height: 100%; object-fit: cover;
+            position: absolute; top: 0; left: 0;
         }
-        .day-img-link img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .day-img-link:hover img { transform: scale(1.1); }
-        .play-icon {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 60px; height: 60px; background: rgba(0,0,0,0.6); border-radius: 50%;
-            display: flex; justify-content: center; align-items: center;
-            border: 2px solid #fff; transition: 0.3s;
-        }
-        .play-icon i { color: #fff; font-size: 24px; margin-left: 4px; }
-        .day-img-link:hover .play-icon { background: var(--accent); border-color: var(--accent); transform: translate(-50%, -50%) scale(1.1); }
-        .day-img-link:hover .play-icon i { color: #000; }
-
-        .day-highlights { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
-        .day-highlights h4 { color: var(--accent); text-transform: uppercase; margin-bottom: 15px; font-size: 0.9rem; letter-spacing: 2px; }
-        .highlight-list { list-style: none; padding: 0; margin: 0; }
-        .highlight-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 15px; font-size: 1rem; color: #fff; }
-        .highlight-list i { color: var(--primary); font-size: 1.2rem; min-width: 25px; text-align: center; }
 
         .day-badge { 
             display: inline-block; background: var(--accent); color: #000; 
-            padding: 6px 18px; border-radius: 30px; font-weight: 800; font-size: 0.85rem;
-            margin-bottom: 25px; width: fit-content; text-transform: uppercase; 
+            padding: 5px 15px; border-radius: 30px; font-weight: 800; font-size: 0.8rem;
+            margin-bottom: 20px; width: fit-content; text-transform: uppercase; 
         }
-        .day-story h3 { font-size: 2rem; color: var(--primary); margin-bottom: 25px; line-height: 1.1; font-weight: 800; }
-        .day-story p { margin-bottom: 20px; color: var(--text-gray); font-size: 1.05rem; }
+        .day-story h3 { font-size: 1.8rem; color: var(--primary); margin-bottom: 20px; line-height: 1.2; font-weight: 800; }
+        .day-story p { margin-bottom: 15px; color: var(--text-gray); font-size: 1rem; }
         .day-story b { color: #fff; font-weight: 700; }
 
-        /* GALLERY (Simple Grid) */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 120px; }
-        .gallery-item { border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.2); }
-        .gallery-item img { width: 100%; height: 200px; object-fit: cover; display: block; }
-
-        /* PRICE */
-        .price-section {
-            text-align: center; padding: 80px 20px; 
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.15), transparent);
-            border: 2px solid var(--primary); border-radius: 40px; margin-bottom: 100px;
-            backdrop-filter: blur(5px);
+        /* --- 8. ГАЛЕРЕЯ --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-bottom: 100px; }
+        .gallery-item {
+            position: relative; border-radius: 15px; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.2); background: #000;
+            aspect-ratio: 16/9; transition: 0.3s;
         }
-        .price-val { font-size: clamp(4rem, 8vw, 6rem); font-weight: 900; color: var(--accent); margin: 10px 0; }
-        .includes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; text-align: left; max-width: 900px; margin: 50px auto 0; }
-        .inc-col h4 { margin-bottom: 25px; color: #fff; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; }
-        .inc-col ul li { list-style: none; margin-bottom: 12px; color: var(--text-gray); font-size: 1.05rem; display: flex; gap: 10px; }
+        .gallery-item:hover { border-color: var(--accent); transform: scale(1.02); }
+        .gallery-item iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
 
-        /* FORM */
+        /* --- 9. ЦІНА ТА ВКЛЮЧЕНО --- */
+        .price-section {
+            text-align: center; padding: 60px 20px; 
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.15), transparent);
+            border: 2px solid var(--primary); border-radius: 30px; margin-bottom: 100px;
+            backdrop-filter: blur(10px);
+        }
+        .price-val { font-size: clamp(3.5rem, 8vw, 5rem); font-weight: 900; color: var(--accent); margin: 10px 0; text-shadow: 0 0 20px rgba(57,255,20,0.3); }
+        
+        .includes-grid { 
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px; 
+            text-align: left; max-width: 900px; margin: 40px auto 0; 
+        }
+        .inc-col h4 { margin-bottom: 20px; color: #fff; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
+        .inc-col ul li { list-style: none; margin-bottom: 10px; color: var(--text-gray); font-size: 1rem; display: flex; gap: 10px; align-items: flex-start; }
+        .fa-check { color: var(--accent); }
+        .fa-times { color: #ff4444; }
+        .fa-arrow-right { color: var(--primary); }
+
+        /* --- 10. ФОРМА --- */
         .form-section {
-            max-width: 600px; margin: 0 auto 120px; background: #fff; 
-            padding: 60px; border-radius: 30px; color: #000; position: relative;
+            max-width: 600px; margin: 0 auto 100px; background: #fff; 
+            padding: 50px 30px; border-radius: 30px; color: #000; position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
         .form-section h2 { color: #000; text-shadow: none; margin-bottom: 10px; text-align: center; font-weight: 800; }
-        .form-control { width: 100%; padding: 18px; margin-bottom: 15px; border: 2px solid #eee; border-radius: 12px; font-size: 1rem; }
+        .form-control { 
+            width: 100%; padding: 15px; margin-bottom: 15px; 
+            border: 2px solid #eee; border-radius: 10px; font-size: 1rem; font-family: inherit;
+        }
+        .form-control:focus { outline: none; border-color: var(--primary); }
         .btn-submit { 
-            width: 100%; padding: 22px; background: var(--dark); color: #fff; 
-            border: none; border-radius: 12px; font-weight: 900; font-size: 1.2rem; cursor: pointer; text-transform: uppercase; 
+            width: 100%; padding: 18px; background: var(--dark); color: #fff; 
+            border: none; border-radius: 10px; font-weight: 800; font-size: 1.1rem; cursor: pointer; text-transform: uppercase; transition: 0.3s;
         }
+        .btn-submit:hover { background: var(--primary); }
 
-        /* MODAL */
-        .modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85); z-index: 10000; justify-content: center; align-items: center;
-            backdrop-filter: blur(5px);
-        }
-        .modal-content {
-            background: #fff; padding: 40px; border-radius: 20px; text-align: center; color: #000; max-width: 400px; width: 90%;
-        }
-
+        /* --- 11. АДАПТИВНІСТЬ --- */
         @media (max-width: 900px) {
             .day-block { grid-template-columns: 1fr; display: flex; flex-direction: column; }
-            .day-story { padding: 30px 20px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
-            .day-visuals { order: 2; }
-            .includes-grid { grid-template-columns: 1fr; }
+            .day-story { padding: 30px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .day-visuals { order: 2; height: 250px; min-height: 250px; }
+            .includes-grid { grid-template-columns: 1fr; gap: 30px; }
+            .hero { padding-top: 80px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="video-bg-container">
-        <video autoplay muted loop playsinline class="video-bg">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-snow-falling-on-pine-trees-in-winter-42379-large.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
-    </div>
+    <div class="fixed-bg"></div>
     
     <canvas id="snow-canvas"></canvas>
 
-    <div class="container">
-
+    <div class="wrapper">
         <section class="hero">
-            <div data-aos="zoom-in">
+            <div class="hero-box" data-aos="fade-up">
                 <span class="hero-subtitle">🎅 Санта, Лапландія та Північне Сяйво!</span>
                 <h1>АРКТИЧНА КАЗКА</h1>
-                <p>Готові до подорожі, яка трапляється раз у житті? 🎟🧸 Ми запрошуємо Вас у серце Лапландії, де казка стає реальністю на кожному кроці!</p>
+                <p>Готові до подорожі, яка трапляється раз у житті? Запрошуємо Вас у серце Лапландії, де сніг виблискує яскравіше за діаманти!</p>
                 <div class="hero-badge">🧤 Гарантовані тури від 2-х туристів!</div>
                 <br>
-                <a href="#book" class="btn-main" id="hero-btn">ЗАБРОНЮВАТИ МІСЦЕ</a>
+                <a href="#book" class="btn-main">ЗАБРОНЮВАТИ МІСЦЕ</a>
             </div>
         </section>
 
-        <h2 data-aos="fade-up">📅 Дати турів 2026</h2>
-        <div class="dates-grid" data-aos="fade-up">
-            <div class="date-item">21.01</div><div class="date-item">26.01</div><div class="date-item">28.01</div>
-            <div class="date-item">02.02</div><div class="date-item">04.02</div><div class="date-item">09.02</div>
-            <div class="date-item">11.02</div><div class="date-item">16.02</div><div class="date-item">18.02</div>
-            <div class="date-item">23.02</div><div class="date-item">25.02</div>
-            <div class="date-item">02.03</div><div class="date-item">04.03</div><div class="date-item">09.03</div>
-            <div class="date-item">11.03</div><div class="date-item">16.03</div><div class="date-item">18.03</div>
-            <div class="date-item">23.03</div><div class="date-item">25.03</div><div class="date-item">30.03</div>
-        </div>
-        <p style="text-align: center; margin-bottom: 100px; color: var(--accent); font-weight: 600;">*Можливі інші дати під Ваш запит</p>
+        <div class="container">
 
-        <h2 data-aos="fade-up">✈️ Вильоти з Європи</h2>
-        <div class="flights-grid">
-            <div class="flight-card"><div class="flag-row"><span class="flag">🇩🇪</span><h4>Німеччина</h4></div><p>Берлін, Дюссельдорф, Франкфурт, Гамбург, Мюнхен</p></div>
-            <div class="flight-card"><div class="flag-row"><span class="flag">🇫🇷</span><h4>Франція</h4></div><p>Париж, Ліон, Ніцца, Бордо</p></div>
-            <div class="flight-card"><div class="flag-row"><span class="flag">🇵🇱</span><h4>Польща</h4></div><p>Варшава (прямий рейс LOT)</p></div>
-            <div class="flight-card"><div class="flag-row"><span class="flag">🇨🇿</span><h4>Чехія</h4></div><p>Прага (Eurowings)</p></div>
-            <div class="flight-card"><div class="flag-row"><span class="flag">🇮🇹</span><h4>Італія</h4></div><p>Мілан, Рим, Неаполь</p></div>
-            <div class="flight-card"><div class="flag-row"><span class="flag">🇪🇸</span><h4>Іспанія</h4></div><p>Мадрид, Барселона</p></div>
-            <div class="flight-card"><div class="flag-row"><span class="flag">🇦🇹</span><h4>Австрія</h4></div><p>Відень</p></div>
-            <div class="flight-card"><div class="flag-row"><span class="flag">🇳🇱</span><h4>Нідерланди</h4></div><p>Амстердам</p></div>
-            <div class="flight-card"><div class="flag-row"><span class="flag">🇧🇪</span><h4>Бельгія</h4></div><p>Брюссель</p></div>
-        </div>
-
-        <h2 style="margin-top:100px">🗺 Ваша Чарівна Програма</h2>
-
-        <div class="day-block" data-aos="fade-right">
-            <div class="day-story">
-                <span class="day-badge">День 1</span>
-                <h3>Приліт та Нічне Полювання за Сяйвом 🌌</h3>
-                <p>Виліт із Німеччини. При бажанні — трансфер від будинку.</p>
-                <p>🚐 <b>Комфорт:</b> По дорозі ми заїдемо до супермаркету 🛒.</p>
-                <p><b>ВВЕЧЕРІ:</b> Полювання за Північним Сяйвом та пікнік! 🌭</p>
+            <h2 data-aos="fade-up">📅 Дати турів 2026</h2>
+            <div class="dates-grid" data-aos="fade-up">
+                <div class="date-item">21.01</div><div class="date-item">26.01</div><div class="date-item">28.01</div>
+                <div class="date-item">02.02</div><div class="date-item">04.02</div><div class="date-item">09.02</div>
+                <div class="date-item">11.02</div><div class="date-item">16.02</div><div class="date-item">18.02</div>
+                <div class="date-item">23.02</div><div class="date-item">25.02</div>
+                <div class="date-item">02.03</div><div class="date-item">04.03</div><div class="date-item">09.03</div>
+                <div class="date-item">11.03</div><div class="date-item">16.03</div><div class="date-item">18.03</div>
+                <div class="date-item">23.03</div><div class="date-item">25.03</div><div class="date-item">30.03</div>
             </div>
-            <div class="day-visuals">
-                <a href="https://www.youtube.com/watch?v=sH05pHZuptA" target="_blank" class="day-img-link">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Aurora_Borealis_over_Lake_Burntside.jpg" alt="Aurora">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </a>
-                <div class="day-highlights">
-                    <h4>Що на вас чекає:</h4>
-                    <ul class="highlight-list">
-                        <li><i class="fas fa-plane"></i> Приліт та Трансфер</li>
-                        <li><i class="fas fa-home"></i> Поселення в Апартаменти</li>
-                        <li><i class="fas fa-tree"></i> Нічний магічний ліс</li>
-                    </ul>
+            <p style="text-align: center; margin-bottom: 100px; color: var(--accent); font-weight: 600;">*Можливі інші дати під Ваш запит</p>
+
+            <h2 data-aos="fade-up">✈️ Вильоти з Європи</h2>
+            <div class="flights-grid">
+                <div class="flight-card"><div class="flag-row"><span class="flag">🇩🇪</span><h4>Німеччина</h4></div><p>Берлін, Дюссельдорф, Франкфурт, Гамбург, Мюнхен, Штутгарт</p></div>
+                <div class="flight-card"><div class="flag-row"><span class="flag">🇫🇷</span><h4>Франція</h4></div><p>Париж, Ліон, Ніцца, Бордо</p></div>
+                <div class="flight-card"><div class="flag-row"><span class="flag">🇵🇱</span><h4>Польща</h4></div><p>Варшава (прямий рейс LOT)</p></div>
+                <div class="flight-card"><div class="flag-row"><span class="flag">🇨🇿</span><h4>Чехія</h4></div><p>Прага (Eurowings)</p></div>
+                <div class="flight-card"><div class="flag-row"><span class="flag">🇮🇹</span><h4>Італія</h4></div><p>Мілан, Рим, Неаполь</p></div>
+                <div class="flight-card"><div class="flag-row"><span class="flag">🇪🇸</span><h4>Іспанія</h4></div><p>Мадрид, Барселона</p></div>
+                <div class="flight-card"><div class="flag-row"><span class="flag">🇦🇹</span><h4>Австрія</h4></div><p>Відень</p></div>
+                <div class="flight-card"><div class="flag-row"><span class="flag">🇳🇱</span><h4>Нідерланди</h4></div><p>Амстердам</p></div>
+                <div class="flight-card"><div class="flag-row"><span class="flag">🇧🇪</span><h4>Бельгія</h4></div><p>Брюссель</p></div>
+            </div>
+
+            <h2 style="margin-top:100px">🗺 Ваша Чарівна Програма</h2>
+
+            <div class="day-block" data-aos="fade-right">
+                <div class="day-story">
+                    <span class="day-badge">День 1</span>
+                    <h3>Приліт та Нічне Полювання за Сяйвом 🌌</h3>
+                    <p>Виліт із Європи. Ваша пригода починається в аеропорту Рованіємі, де Вас зустріне трансфер.</p>
+                    <p>🚐 По дорозі до Вашого нового дому (апартаментів) ми заїдемо до супермаркету 🛒.</p>
+                    <p><b>ВВЕЧЕРІ:</b> Ми вирушаємо в заповідний ліс ловити Північне Сяйво! <b>Смачний пікнік:</b> тиша арктичної ночі, тріск багаття та аромат лапландських ковбасок 🌭.</p>
+                </div>
+                <div class="day-visuals">
+                    <img src="https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg" alt="Aurora" class="day-img">
                 </div>
             </div>
-        </div>
 
-        <div class="day-block" data-aos="fade-left">
-            <div class="day-story">
-                <span class="day-badge">День 2</span>
-                <h3>У гості до Санти та Олені 🦌</h3>
-                <p><b>11:00</b> — Відправлення до Селища Санта-Клауса.</p>
-                <p><b>Олені Санти:</b> Подорож у санях 🛷.</p>
-                <p><b>Аудієнція у Санти:</b> Зустріч та фото. 📸</p>
-            </div>
-            <div class="day-visuals">
-                <a href="https://www.youtube.com/watch?v=k9xx6y34xSI" target="_blank" class="day-img-link">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Santa_Claus_Village_Rovaniemi_Finland.jpg" alt="Santa Village">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </a>
-                <div class="day-highlights">
-                    <h4>Що на вас чекає:</h4>
-                    <ul class="highlight-list">
-                        <li><i class="fas fa-globe"></i> Полярне Коло</li>
-                        <li><i class="fas fa-sleigh"></i> Олені</li>
-                        <li><i class="fas fa-star"></i> Санта</li>
-                    </ul>
+            <div class="day-block" data-aos="fade-left">
+                <div class="day-story">
+                    <span class="day-badge">День 2</span>
+                    <h3>У гості до Санти та Олені 🦌</h3>
+                    <p><b>11:00</b> — Відправлення до Селища Санта-Клауса. 🏘</p>
+                    <p><b>Полярне коло:</b> Ви перетнете магічну лінію Арктики!</p>
+                    <p><b>Олені Санти:</b> Подорож у санях, запряжених справжніми північними оленями. 🛷</p>
+                    <p><b>Аудієнція у Санти:</b> Особиста зустріч із Головним Чарівником та фото на згадку. 📸</p>
+                </div>
+                <div class="day-visuals">
+                    <img src="https://images.pexels.com/photos/716658/pexels-photo-716658.jpeg" alt="Santa Village" class="day-img">
                 </div>
             </div>
-        </div>
 
-        <div class="day-block" data-aos="fade-right">
-            <div class="day-story">
-                <span class="day-badge">День 3</span>
-                <h3>Підземна пригода у Santa Park 🎢</h3>
-                <p><b>11:00</b> — Відправлення до Санта Парку. 🎡</p>
-                <p><b>Школа Ельфів</b> та <b>Пекарня місіс Клаус</b>.</p>
-            </div>
-            <div class="day-visuals">
-                <a href="https://www.youtube.com/watch?v=WhAJf2rALkQ" target="_blank" class="day-img-link">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Santa_Park_Rovaniemi.jpg" alt="Santa Park">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </a>
-                <div class="day-highlights">
-                    <h4>Що на вас чекає:</h4>
-                    <ul class="highlight-list">
-                        <li><i class="fas fa-graduation-cap"></i> Диплом Ельфа</li>
-                        <li><i class="fas fa-cookie-bite"></i> Печиво</li>
-                        <li><i class="fas fa-snowflake"></i> Крижана Галерея</li>
-                    </ul>
+            <div class="day-block" data-aos="fade-right">
+                <div class="day-story">
+                    <span class="day-badge">День 3</span>
+                    <h3>Підземна пригода у Santa Park 🎢</h3>
+                    <p><b>11:00</b> — Відправлення до Санта Парку. 🎡 Таємна печера в скелі.</p>
+                    <p><b>Школа Ельфів:</b> Пройдіть навчання та дізнайтеся секрети помічників Санти! 🎓</p>
+                    <p><b>Пекарня місіс Клаус:</b> Прикрашання імбирного печива. 🍪</p>
+                    <p><b>Крижана галерея:</b> Крижані скульптури та подих Арктики. 🧊</p>
+                </div>
+                <div class="day-visuals">
+                    <img src="https://images.pexels.com/photos/5727916/pexels-photo-5727916.jpeg" alt="Santa Park" class="day-img">
                 </div>
             </div>
-        </div>
 
-        <div class="day-block" data-aos="fade-left">
-            <div class="day-story">
-                <span class="day-badge">День 4</span>
-                <h3>Прощання з дивом 👋</h3>
-                <p>Сніданок 🥞, фото та трансфер в аеропорт.</p>
-            </div>
-            <div class="day-visuals">
-                <a href="https://www.youtube.com/watch?v=QghsIbaDKss" target="_blank" class="day-img-link">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Rovaniemi_Winter.jpg" alt="Winter">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </a>
-                <div class="day-highlights">
-                    <h4>Що на вас чекає:</h4>
-                    <ul class="highlight-list">
-                        <li><i class="fas fa-camera"></i> Фотосесія</li>
-                        <li><i class="fas fa-plane-departure"></i> Виліт</li>
-                    </ul>
+            <div class="day-block" data-aos="fade-left">
+                <div class="day-story">
+                    <span class="day-badge">День 4</span>
+                    <h3>Прощання з дивом 👋</h3>
+                    <p>Останній сніданок... 🥞</p> 
+                    <p>Робимо фінальні фото на фоні засніжених краєвидів 📸 та вирушаємо в аеропорт.</p>
+                    <p>Ваша подорож завершується, але магія залишається з Вами назавжди! 🛫</p>
+                </div>
+                <div class="day-visuals">
+                    <img src="https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg" alt="Winter" class="day-img">
                 </div>
             </div>
-        </div>
 
-        <div class="price-section" id="book">
-            <h2>ВАРТІСТЬ ТУРУ</h2>
-            <div class="price-val">від 450€</div>
-            <p style="font-size: 1.3rem; margin-bottom: 40px; color: #ddd;">+ авіаквитки</p>
-            
-            <div class="includes-grid">
-                <div class="inc-col">
-                    <h4 style="color: var(--accent);">✅ У ВАРТІСТЬ ВКЛЮЧЕНО:</h4>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Авіаквитки в обидві сторони ✈️</li>
-                        <li><i class="fas fa-check"></i> Трансфер 🚐</li>
-                        <li><i class="fas fa-check"></i> Проживання 🏢</li>
-                        <li><i class="fas fa-check"></i> Трансфери</li>
-                        <li><i class="fas fa-check"></i> Сяйво та пікнік! 🌭</li>
-                    </ul>
+            <h2 style="margin-top: 100px;">Відеогалерея Туру 🎬</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <iframe src="https://www.youtube.com/embed/M3F2Y9YyZ3o" loading="lazy" allowfullscreen></iframe>
                 </div>
-                <div class="inc-col">
-                    <h4 style="color: #ff4444;">❌ ОПЛАЧУЄТЬСЯ ДОДАТКОВО:</h4>
-                    <ul>
-                        <li><i class="fas fa-times"></i> Квитки до Санта Парку 🎟</li>
-                        <li><i class="fas fa-times"></i> Катання 🦌</li>
-                        <li><i class="fas fa-times"></i> Особисті витрати 🛒</li>
-                    </ul>
+                <div class="gallery-item">
+                    <iframe src="https://www.youtube.com/embed/Q91JjYy_eyI" loading="lazy" allowfullscreen></iframe>
+                </div>
+                <div class="gallery-item">
+                    <iframe src="https://www.youtube.com/embed/WhAJf2rALkQ" loading="lazy" allowfullscreen></iframe>
+                </div>
+                <div class="gallery-item">
+                    <iframe src="https://www.youtube.com/embed/h1_qG3qJ8kM" loading="lazy" allowfullscreen></iframe>
+                </div>
+                <div class="gallery-item">
+                    <iframe src="https://www.youtube.com/embed/fVN-fJS9iHQ" loading="lazy" allowfullscreen></iframe>
                 </div>
             </div>
-        </div>
 
-        <div class="form-section">
-            <h2>ЗАБРОНЮВАТИ КАЗКУ ✨</h2>
-            <form class="form-box" id="bookingForm">
-                <input type="text" class="form-control" placeholder="Ваше ім'я" required>
-                <input type="tel" class="form-control" placeholder="Телефон (WhatsApp/Viber)" required>
-                <select class="form-control" required>
-                    <option value="" disabled selected>Оберіть дату</option>
-                    <option>Січень 2026</option>
-                    <option>Лютий 2026</option>
-                    <option>Березень 2026</option>
-                </select>
-                <textarea class="form-control" rows="3" placeholder="Кількість людей"></textarea>
-                <button type="submit" class="btn-submit" id="submit-form-btn">ВІДПРАВИТИ ЗАПИТ</button>
-            </form>
-        </div>
+            <div class="price-section" id="book">
+                <h2>ВАРТІСТЬ ТУРУ</h2>
+                <div class="price-val">від 450€</div>
+                <p style="font-size: 1.3rem; margin-bottom: 40px; color: #ddd;">+ авіаквитки</p>
+                
+                <div class="includes-grid">
+                    <div class="inc-col">
+                        <h4 style="color: var(--accent);">✅ У ВАРТІСТЬ ВКЛЮЧЕНО:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Авіаквитки в обидві сторони ✈️</li>
+                            <li><i class="fas fa-check"></i> Трансфер "аеропорт – апартаменти – аеропорт" 🚐</li>
+                            <li><i class="fas fa-check"></i> Проживання у комфортних апартаментах 🏢</li>
+                            <li><i class="fas fa-check"></i> Трансфери до всіх локацій</li>
+                            <li><i class="fas fa-check"></i> Нічна поїздка за Сяйвом з пікніком! 🌭</li>
+                        </ul>
+                    </div>
+                    <div class="inc-col">
+                        <h4 style="color: #ff4444;">❌ ОПЛАЧУЄТЬСЯ ДОДАТКОВО:</h4>
+                        <ul>
+                            <li><i class="fas fa-times"></i> Квитки до Санта Парку 🎟</li>
+                            <li><i class="fas fa-times"></i> Катання на оленях чи хаскі 🦌</li>
+                            <li><i class="fas fa-times"></i> Особисті витрати та харчування (крім пікніка) 🛒</li>
+                            <li><i class="fas fa-arrow-right"></i> <b>За бажанням:</b> Трансфер від будинку</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-    </div> <div id="successModal" class="modal">
-        <div class="modal-content">
-            <h3 style="color:#000; font-size:1.8rem; margin-bottom:10px;">Дякуємо!</h3>
-            <p style="color:#666;">Ми зв'яжемось з вами.</p>
-            <button onclick="closeModal()" style="margin-top:25px; padding:12px 40px; background:#00d4ff; border:none; border-radius:50px; font-weight:bold; cursor:pointer; color:#fff;">ОК</button>
+            <div class="form-section">
+                <h2>ЗАБРОНЮВАТИ КАЗКУ ✨</h2>
+                <p style="text-align: center; margin-bottom: 30px; color: #555;">Чекаю на Ваші запити!</p>
+                <form id="bookingForm">
+                    <input type="text" class="form-control" placeholder="Ваше ім'я" required>
+                    <input type="tel" class="form-control" placeholder="Телефон (WhatsApp/Viber)" required>
+                    <select class="form-control" required>
+                        <option value="" disabled selected>Оберіть бажану дату</option>
+                        <option>Січень 2026</option>
+                        <option>Лютий 2026</option>
+                        <option>Березень 2026</option>
+                    </select>
+                    <textarea class="form-control" rows="3" placeholder="Кількість людей або питання"></textarea>
+                    <button type="submit" class="btn-submit">ВІДПРАВИТИ ЗАПИТ</button>
+                </form>
+            </div>
+
         </div>
     </div>
-
-    <footer><p>© 2026 ЛАПЛАНДІЯ ТУР</p></footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // FORM
-        const form = document.getElementById('bookingForm');
-        const modal = document.getElementById('successModal');
-        const btn = document.getElementById('submit-form-btn');
-
-        form.addEventListener('submit', function(e) {
+        // --- FORM ALERT ---
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const originalText = btn.innerText;
-            btn.innerText = 'ВІДПРАВКА...';
-            btn.style.opacity = '0.7';
-            setTimeout(() => {
-                modal.style.display = 'flex';
-                btn.innerText = originalText;
-                btn.style.opacity = '1';
-                form.reset();
-            }, 1500);
+            alert("Дякуємо! Вашу заявку прийнято. Ми скоро зв'яжемось з Вами!");
+            this.reset();
         });
 
-        function closeModal() { modal.style.display = 'none'; }
-        window.onclick = function(event) { if (event.target == modal) modal.style.display = "none"; }
-
-        // SNOW
+        // --- SNOW SCRIPT (STABLE) ---
         (function() {
             var canvas = document.getElementById('snow-canvas');
             var ctx = canvas.getContext('2d');
             var width = window.innerWidth;
             var height = window.innerHeight;
             canvas.width = width; canvas.height = height;
+            
             var particles = [];
-            for(var i=0; i<80; i++) particles.push({x: Math.random()*width, y: Math.random()*height, r: Math.random()*3+1, d: Math.random()*1+1});
+            for(var i=0; i<100; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    r: Math.random() * 3 + 1,
+                    d: Math.random() * 2 + 1
+                });
+            }
+
             function draw() {
                 ctx.clearRect(0, 0, width, height);
                 ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
                 ctx.beginPath();
                 for(var i=0; i<particles.length; i++) {
-                    var p = particles[i]; ctx.moveTo(p.x, p.y); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
+                    var p = particles[i];
+                    ctx.moveTo(p.x, p.y);
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
                 }
-                ctx.fill(); requestAnimationFrame(update);
+                ctx.fill();
+                update();
+                requestAnimationFrame(draw);
             }
+
             function update() {
                 for(var i=0; i<particles.length; i++) {
-                    var p = particles[i]; p.y += p.d; if(p.y > height) particles[i] = {x: Math.random()*width, y: 0, r: p.r, d: p.d};
+                    var p = particles[i];
+                    p.y += p.d;
+                    if(p.y > height) {
+                        particles[i] = { x: Math.random() * width, y: -5, r: p.r, d: p.d };
+                    }
                 }
-                draw();
             }
             draw();
-            window.addEventListener('resize', function() { width=window.innerWidth; height=window.innerHeight; canvas.width=width; canvas.height=height; });
+            window.addEventListener('resize', function() { 
+                width=window.innerWidth; height=window.innerHeight; 
+                canvas.width=width; canvas.height=height; 
+            });
         })();
     </script>
 </body>
