@@ -26,24 +26,33 @@
         body { 
             font-family: 'Montserrat', sans-serif; 
             color: var(--text); 
-            /* ЗАМІСТЬ ВІДЕО - ТЕМНИЙ ГРАДІЄНТНИЙ ФОН */
-            background: radial-gradient(circle at center, #0a2342 0%, #020c1b 100%);
+            background-color: var(--dark);
+            /* ПОВЕРНУЛИ СТАБІЛЬНИЙ ФОН (Aurora) */
+            background-image: linear-gradient(rgba(5, 22, 38, 0.6), rgba(5, 22, 38, 0.8)), 
+                              url('https://upload.wikimedia.org/wikipedia/commons/a/a4/Aurora_Borealis_over_Lake_Burntside.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
             overflow-x: hidden;
             line-height: 1.7;
             min-height: 100vh;
         }
 
-        /* СНІГ (CANVAS) - Шар між фоном і контентом */
+        /* --- 2. СНІГ (ВИПРАВЛЕНО ШАРИ) --- */
         #snow-canvas {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1; /* Поверх градієнта */
-            pointer-events: none; /* Пропускає кліки */
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            z-index: 1; /* Сніг поверх фону */
+            pointer-events: none; /* Щоб кліки проходили крізь сніг */
         }
 
-        /* --- 2. КОНТЕНТ (Шар поверх снігу) --- */
-        .container { 
-            max-width: 1200px; margin: 0 auto; padding: 0 20px; 
-            position: relative; z-index: 10; /* Вище снігу */
+        /* --- 3. КОНТЕНТ (ВИЩЕ ЗА СНІГ) --- */
+        .container, .hero { 
+            position: relative; 
+            z-index: 10; /* Контент вище снігу */
         }
 
         h2 { 
@@ -55,7 +64,7 @@
         /* HERO */
         .hero {
             min-height: 100vh; display: flex; align-items: center; justify-content: center; 
-            text-align: center; padding: 120px 20px 80px; position: relative; z-index: 10;
+            text-align: center; padding: 120px 20px 80px;
         }
         .hero-subtitle {
             color: var(--accent); font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
@@ -124,7 +133,6 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
             border: none; pointer-events: none; transform: scale(1.3);
         }
-        .video-mask { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; }
         
         .day-highlights { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
         .day-highlights h4 { color: var(--accent); text-transform: uppercase; margin-bottom: 15px; font-size: 0.9rem; letter-spacing: 2px; }
@@ -244,12 +252,11 @@
                 <span class="day-badge">День 1</span>
                 <h3>Приліт та Нічне Полювання за Сяйвом 🌌</h3>
                 <p>Виліт із Німеччини. При бажанні — трансфер від будинку. Ваша пригода починається в аеропорту Рованіємі, де Вас зустріне наш індивідуальний трансфер.</p>
-                <p>🚐 <b>Комфорт:</b> По дорозі ми заїдемо до супермаркету 🛒, щоб Ви змогли купити улюблені продукти та смаколики для комфортного відпочинку в апартаментах.</p>
+                <p>🚐 По дорозі до Вашого нового дому ми заїдемо до супермаркету 🛒, щоб Ви змогли купити улюблені продукти та смаколики для комфортного відпочинку в апартаментах.</p>
                 <p><b>ВВЕЧЕРІ:</b> Ми вирушаємо в заповідний лапландський ліс ловити Північне Сяйво! <b>Смачний пікнік:</b> тиша арктичної ночі, тріск багаття та аромат соковитих лапландських ковбасок на вогні. 🤤</p>
             </div>
             <div class="day-visuals">
                 <div class="day-video-top">
-                    <div class="video-mask"></div>
                     <iframe src="https://www.youtube.com/embed/g4XVFIRcfa0?autoplay=1&mute=1&loop=1&playlist=g4XVFIRcfa0&controls=0&showinfo=0&rel=0&playsinline=1" loading="lazy" allow="autoplay; encrypted-media"></iframe>
                 </div>
                 <div class="day-highlights">
@@ -275,7 +282,6 @@
             </div>
             <div class="day-visuals">
                 <div class="day-video-top">
-                    <div class="video-mask"></div>
                     <iframe src="https://www.youtube.com/embed/PPWYhoRdwBM?autoplay=1&mute=1&loop=1&playlist=PPWYhoRdwBM&controls=0&showinfo=0&rel=0&playsinline=1" loading="lazy" allow="autoplay; encrypted-media"></iframe>
                 </div>
                 <div class="day-highlights">
@@ -301,7 +307,6 @@
             </div>
             <div class="day-visuals">
                 <div class="day-video-top">
-                    <div class="video-mask"></div>
                     <iframe src="https://www.youtube.com/embed/WhAJf2rALkQ?autoplay=1&mute=1&loop=1&playlist=WhAJf2rALkQ&controls=0&showinfo=0&rel=0&playsinline=1" loading="lazy" allow="autoplay; encrypted-media"></iframe>
                 </div>
                 <div class="day-highlights">
@@ -325,7 +330,6 @@
             </div>
             <div class="day-visuals">
                 <div class="day-video-top">
-                    <div class="video-mask"></div>
                     <iframe src="https://www.youtube.com/embed/-1BGe8gQVmo?autoplay=1&mute=1&loop=1&playlist=-1BGe8gQVmo&controls=0&showinfo=0&rel=0&playsinline=1" loading="lazy" allow="autoplay; encrypted-media"></iframe>
                 </div>
                 <div class="day-highlights">
@@ -445,7 +449,7 @@
         function closeModal() { modal.style.display = 'none'; }
         window.onclick = function(event) { if (event.target == modal) modal.style.display = "none"; }
 
-        // SNOW SCRIPT (FIXED)
+        // SNOW SCRIPT (ПОВЕРНУЛИ ПЕРШУ ВЕРСІЮ)
         (function() {
             var canvas = document.getElementById('snow-canvas');
             var ctx = canvas.getContext('2d');
@@ -459,8 +463,8 @@
                 particles.push({
                     x: Math.random() * width,
                     y: Math.random() * height,
-                    r: Math.random() * 3 + 1,
-                    d: Math.random() * 2 + 1
+                    r: Math.random() * 3 + 1, // Радіус сніжинки
+                    d: Math.random() * 1 + 1  // Швидкість падіння
                 });
             }
 
@@ -475,22 +479,27 @@
                 }
                 ctx.fill();
                 update();
-                requestAnimationFrame(draw);
             }
 
             function update() {
                 for(var i=0; i<particles.length; i++) {
                     var p = particles[i];
                     p.y += p.d;
+                    // Якщо сніжинка впала вниз - повертаємо нагору
                     if(p.y > height) {
-                        particles[i] = { x: Math.random() * width, y: -5, r: p.r, d: p.d };
+                        particles[i] = { x: Math.random() * width, y: 0, r: p.r, d: p.d };
                     }
                 }
             }
-            draw();
+
+            // Старий добрий setInterval (працював у першій версії)
+            setInterval(draw, 30);
+
             window.addEventListener('resize', function() { 
-                width=window.innerWidth; height=window.innerHeight; 
-                canvas.width=width; canvas.height=height; 
+                width=window.innerWidth; 
+                height=window.innerHeight; 
+                canvas.width=width; 
+                canvas.height=height; 
             });
         })();
     </script>
