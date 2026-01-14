@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>МАГІЯ ЗА ПОЛЯРНИМ КОЛОМ 2026 | Авторський Тур в Лапландію</title>
-    <meta name="description" content="Ексклюзивний тур в Лапландію 2026. Проживання в апартаментах, полювання за Сяйвом, Санта Клаус. Гарантований виїзд з Німеччини, Польщі та всієї Європи.">
+    <meta name="description" content="Ексклюзивний тур в Лапландію 2026. Проживання в апартаментах, полювання за Сяйвом, Санта Клаус. Гарантований виїзд з Європи.">
     <meta name="keywords" content="Лапландія тур 2026, Санта Клаус тур, Північне сяйво, поїздка до санти з європи, тур з дітьми">
     <link rel="canonical" href="https://newdellas.github.io/laplandia-tour/">
     <meta name="theme-color" content="#020c1b">
@@ -41,55 +41,49 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* --- 1. CORE VARIABLES --- */
+        /* --- 1. CORE & ANDROID FIXES --- */
         :root {
             --bg-color: #010811;
             --text-main: #e6f1ff;
-            --accent-primary: #39ff14; /* ПОВЕРНУТО ЯСКРАВИЙ ЛАЙМ */
-            --accent-secondary: #00d4ff; /* CYAN */
-            --glass-card: rgba(5, 15, 28, 0.9);
+            --accent-primary: #39ff14; /* ЛАЙМ */
+            --accent-secondary: #00d4ff; 
+            --glass-card: rgba(5, 15, 28, 0.92);
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100%; margin: 0; padding: 0; overflow-x: hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
         html { scroll-behavior: smooth; }
-
         body { 
             font-family: 'Montserrat', sans-serif; 
             color: var(--text-main); 
             background-color: var(--bg-color);
-            overflow-x: hidden;
             line-height: 1.7;
+            font-size: 16px;
         }
 
-        /* --- 2. BACKGROUND (BULLETPROOF) --- */
+        /* --- 2. BACKGROUND & SNOW --- */
         .video-bg-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            z-index: -10; overflow: hidden;
-            background: #010811; /* Базовий чорний */
+            z-index: -10; overflow: hidden; background: #000;
         }
-        
-        .video-bg {
-            width: 100%; height: 100%; object-fit: cover;
-            filter: brightness(0.35) contrast(1.1);
+        .video-bg { 
+            width: 100%; height: 100%; object-fit: cover; 
+            filter: brightness(0.3) contrast(1.1); 
             will-change: transform;
-            /* Fallback background image */
-            background-image: url('https://images.pexels.com/photos/3192137/pexels-photo-3192137.jpeg?auto=compress&cs=tinysrgb&w=1920');
-            background-size: cover;
-            background-position: center;
+            background: url('https://images.pexels.com/photos/3192137/pexels-photo-3192137.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
         }
-
-        .bg-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -5;
-            background: radial-gradient(circle at center, rgba(2,12,27,0.1) 0%, rgba(2,12,27,0.95) 100%);
+        .bg-overlay { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            z-index: -5; 
+            background: radial-gradient(circle at center, rgba(2,12,27,0.1) 0%, rgba(2,12,27,0.95) 100%); 
         }
-
         #snow-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
 
-        .main-wrapper { position: relative; z-index: 10; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+        .main-wrapper { position: relative; z-index: 10; max-width: 1240px; margin: 0 auto; padding: 0 20px; width: 100%; }
 
-        /* --- 3. TYPOGRAPHY & COMPONENTS --- */
+        /* --- 3. UI COMPONENTS --- */
         h2 {
             font-size: clamp(2rem, 5vw, 3.5rem); text-align: center; margin-bottom: 70px;
             font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
@@ -98,109 +92,93 @@
             text-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
         }
 
-        /* BUTTON (LIME MAGIC) */
         .btn-main {
             display: inline-block; padding: 22px 60px;
             background: var(--accent-primary); color: #000;
             font-weight: 900; text-transform: uppercase; text-decoration: none;
             border-radius: 60px; border: none; cursor: pointer; letter-spacing: 1.5px;
             box-shadow: 0 0 30px rgba(57, 255, 20, 0.7);
-            transition: var(--transition);
-            font-size: 1.1rem;
-            position: relative;
+            transition: var(--transition); font-size: 1.1rem;
         }
-        .btn-main:hover { 
-            transform: translateY(-5px) scale(1.03); 
-            box-shadow: 0 15px 50px var(--accent-primary); 
-            background: #fff;
+        .btn-main:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 15px 50px var(--accent-primary); background: #fff; }
+
+        .glass-card { 
+            background: var(--glass-card); 
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); 
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; 
+            transition: var(--transition); 
         }
 
-        .glass-card {
-            background: var(--glass-card);
-            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 30px;
-            transition: var(--transition);
-        }
-
-        /* --- 4. HERO (FIXED ALIGNMENT) --- */
-        .hero {
-            min-height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-            padding: 120px 20px 60px;
+        /* --- 4. HERO (CENTERED) --- */
+        .hero { 
+            min-height: 100vh; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; text-align: center; 
+            padding: 100px 15px 60px; width: 100%;
         }
         .hero-sub { color: var(--accent-primary); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 24px; display: block; }
-        .hero h1 { font-size: clamp(3.5rem, 11vw, 7.5rem); line-height: 1.05; margin-bottom: 30px; font-weight: 900; text-shadow: 0 0 60px rgba(0, 212, 255, 0.4); }
+        .hero h1 { font-size: clamp(3.2rem, 11vw, 7.5rem); line-height: 1.05; margin-bottom: 30px; font-weight: 900; }
         
         .hero p {
             font-size: clamp(1.1rem, 3vw, 1.4rem); 
             max-width: 850px; 
-            margin: 0 auto 45px; /* ІДЕАЛЬНЕ ЦЕНТРУВАННЯ ПО ГОРИЗОНТАЛІ */
+            margin: 0 auto 45px; /* CENTERED */
             color: #d1d9e6; 
             line-height: 1.8; 
             text-align: center;
         }
         
-        .hero-badge {
-            background: rgba(57, 255, 20, 0.05); border: 2px solid var(--accent-primary);
-            color: var(--accent-primary); padding: 12px 30px; border-radius: 50px;
-            font-weight: 700; margin-bottom: 50px; display: inline-block;
+        .hero-badge { 
+            background: rgba(57, 255, 20, 0.05); border: 2px solid var(--accent-primary); 
+            color: var(--accent-primary); padding: 12px 30px; border-radius: 50px; 
+            font-weight: 700; margin-bottom: 50px; display: inline-block; 
         }
 
-        /* --- 5. DATES (FIXED VISIBILITY) --- */
-        .date-section-container { text-align: center; margin-bottom: 120px; }
-        .date-subtitle {
-            margin-top: -30px; margin-bottom: 40px;
-            color: var(--accent-secondary); font-weight: 600; font-size: 1.2rem;
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-        }
-        .dates-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-        .date-item {
+        /* --- 5. DATES (STABLE) --- */
+        .date-section-container { text-align: center; margin-bottom: 120px; width: 100%; }
+        .date-subtitle { margin-top: -30px; margin-bottom: 40px; color: var(--accent-secondary); font-weight: 600; font-size: 1.2rem; }
+        .dates-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; width: 100%; }
+        .date-item { 
             padding: 18px 35px; border-radius: 15px; font-weight: 800; letter-spacing: 1px;
-            background: #050f1c; border: 2px solid rgba(0, 212, 255, 0.5); /* Більш видима рамка */
-            color: #fff; transition: var(--transition);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            background: #050f1c; border: 2px solid rgba(0, 212, 255, 0.4);
+            color: #fff; transition: var(--transition); box-shadow: 0 8px 25px rgba(0,0,0,0.6);
         }
         .date-item:hover { border-color: var(--accent-primary); color: var(--accent-primary); transform: translateY(-5px); }
 
         /* --- 6. FLIGHTS --- */
-        .flights-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-bottom: 140px; }
+        .flights-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-bottom: 140px; width: 100%; }
         .flight-card { padding: 35px; }
         .flight-head { display: flex; align-items: center; gap: 18px; margin-bottom: 15px; }
         .flag { font-size: 2.5rem; }
         .flight-card h4 { color: var(--accent-primary); font-size: 1.2rem; font-weight: 800; text-transform: uppercase; }
-        .flight-card p { color: #a8b2d1; font-size: 1rem; }
 
-        /* --- 7. PROGRAM (FULL VERSION) --- */
-        .program-day { display: grid; grid-template-columns: 1.2fr 1fr; margin-bottom: 100px; border-radius: 40px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
-        .program-day:nth-child(even) { direction: rtl; } 
-        .program-day:nth-child(even) .day-info, .program-day:nth-child(even) .day-visual { direction: ltr; }
+        /* --- 7. PROGRAM (ANDROID STABLE) --- */
+        .program-day { display: flex; flex-direction: row; margin-bottom: 100px; border-radius: 40px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.6); width: 100%; }
+        .program-day:nth-child(even) { flex-direction: row-reverse; }
         
-        .day-info { padding: 60px; display: flex; flex-direction: column; justify-content: center; background: rgba(5, 10, 20, 0.7); }
-        .day-badge { background: var(--accent-primary); color: #000; padding: 6px 18px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; margin-bottom: 24px; text-transform: uppercase; }
+        .day-info { flex: 1.2; padding: 60px; display: flex; flex-direction: column; justify-content: center; background: rgba(5, 10, 20, 0.7); }
+        .day-visual { flex: 1; background: #000; display: flex; flex-direction: column; position: relative; min-width: 350px; }
+        
+        .day-badge { background: var(--accent-primary); color: #000; padding: 6px 18px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; margin-bottom: 24px; text-transform: uppercase; width: fit-content; }
         .day-info h3 { font-size: 2.3rem; color: #fff; margin-bottom: 24px; font-weight: 800; line-height: 1.2; }
         .day-info p { margin-bottom: 18px; color: #d1d9e6; font-size: 1.05rem; }
-        .day-info b { color: #fff; font-weight: 700; }
 
-        .day-visual { background: #000; display: flex; flex-direction: column; position: relative; }
-        .video-facade { position: relative; height: 380px; cursor: pointer; overflow: hidden; display: block; }
+        .video-facade { position: relative; height: 380px; cursor: pointer; overflow: hidden; width: 100%; }
         .video-facade img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
         .video-facade:hover img { transform: scale(1.1); }
         .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(0,0,0,0.6); border-radius: 50%; border: 2px solid #fff; display: flex; align-items: center; justify-content: center; }
         
         .highlights-list { padding: 35px; list-style: none; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
         .highlights-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; font-weight: 600; color: #eee; font-size: 1rem; }
-        .highlights-list i { color: var(--accent-secondary); font-size: 1.2rem; width: 25px; text-align: center; }
+        .highlights-list i { color: var(--accent-secondary); width: 25px; text-align: center; }
 
         /* --- 8. GALLERY --- */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 160px; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 160px; width: 100%; }
         .gallery-item { aspect-ratio: 16/9; border-radius: 20px; overflow: hidden; cursor: pointer; position: relative; border: 1px solid rgba(255,255,255,0.1); }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-        .gallery-item:hover img { transform: scale(1.05); filter: brightness(0.7); }
         .gallery-item:first-child { grid-column: 1 / -1; aspect-ratio: 21/9; }
 
-        /* --- 9. PRICE & FORM (MATCHED WIDTH 1000px) --- */
-        .wide-block { max-width: 1000px; margin: 0 auto 120px; }
+        /* --- 9. WIDE BLOCKS (1000px) --- */
+        .wide-block { max-width: 1000px; margin: 0 auto 120px; width: 100%; position: relative; }
 
         .price-box {
             text-align: center; padding: 80px 40px; border-radius: 50px; 
@@ -208,17 +186,15 @@
             border: 2px solid var(--accent-secondary);
         }
         .price-val { font-size: clamp(4rem, 10vw, 6.5rem); font-weight: 900; color: var(--accent-primary); margin: 15px 0; line-height: 1; }
-        .includes-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; text-align: left; max-width: 900px; margin: 60px auto 0; }
+        .includes-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; text-align: left; max-width: 900px; margin: 50px auto 0; }
         .inc-col h4 { margin-bottom: 30px; color: #fff; font-size: 1.4rem; text-transform: uppercase; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 12px; }
         .inc-list li { list-style: none; margin-bottom: 18px; display: flex; gap: 15px; color: #ccc; font-size: 1.1rem; }
 
-        /* FORM BLOCK (WIDE) */
+        /* FORM */
         .form-container {
-            padding: 80px 60px; background: #fff; border-radius: 50px; position: relative;
-            color: #000; box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+            padding: 80px 60px; background: #fff; border-radius: 50px;
+            color: #000; box-shadow: 0 40px 100px rgba(0,0,0,0.7); width: 100%;
         }
-        
-        /* THE NEW LIMITED BADGE (ICON) */
         .limited-badge {
             position: absolute; top: -25px; right: 60px; 
             background: #ff4444; color: #fff; padding: 14px 35px; 
@@ -226,33 +202,27 @@
             box-shadow: 0 12px 25px rgba(255,68,68,0.5);
             display: flex; align-items: center; gap: 12px;
             animation: pulse-red 2s infinite; z-index: 100;
-            text-transform: uppercase; letter-spacing: 1px;
         }
         @keyframes pulse-red { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
 
-        .form-container h2 { color: #000; text-shadow: none; margin-bottom: 25px; background: none; -webkit-text-fill-color: initial; }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        .form-input { width: 100%; padding: 22px; border: 2px solid #f0f0f0; border-radius: 18px; font-size: 1.1rem; font-family: inherit; transition: 0.3s; background: #f9f9f9; }
-        .form-input:focus { outline: none; border-color: var(--accent-secondary); background: #fff; box-shadow: 0 0 0 5px rgba(0,212,255,0.1); }
+        .form-input { width: 100%; padding: 22px; border: 2px solid #f0f0f0; border-radius: 18px; font-size: 1.1rem; font-family: inherit; background: #f9f9f9; }
         .form-full { grid-column: 1 / -1; }
         .form-btn { grid-column: 1 / -1; padding: 24px; background: #000; color: #fff; border: none; border-radius: 18px; font-weight: 900; font-size: 1.3rem; cursor: pointer; text-transform: uppercase; transition: 0.3s; letter-spacing: 1px; }
-        .form-btn:hover { background: var(--accent-secondary); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,212,255,0.4); }
 
-        /* COOKIE & MODAL */
-        .cookie-banner { position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 500px; background: rgba(10, 15, 30, 0.98); padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); display: none; align-items: center; justify-content: space-between; gap: 20px; z-index: 10000; }
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; justify-content: center; align-items: center; backdrop-filter: blur(10px); }
-        .modal-box { background: #fff; padding: 50px; border-radius: 30px; text-align: center; color: #000; max-width: 450px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.5); animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        @keyframes popIn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        footer { text-align: center; padding: 60px 20px; background: #01060e; border-top: 1px solid rgba(255,255,255,0.05); color: #555; }
 
+        /* --- MOBILE FIXES --- */
         @media (max-width: 900px) {
-            .program-day { grid-template-columns: 1fr; }
-            .day-visual { order: 2; }
-            .form-grid { grid-template-columns: 1fr; }
-            .includes-wrapper { grid-template-columns: 1fr; }
+            .program-day, .program-day:nth-child(even) { flex-direction: column; }
+            .day-info { padding: 40px 25px; }
+            .day-visual { min-width: 100%; width: 100%; }
+            .includes-wrapper, .form-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3.5rem; }
             .form-container { padding: 60px 25px; }
-            .hero h1 { font-size: 3.2rem; }
             .limited-badge { right: 50%; transform: translateX(50%); top: -30px; white-space: nowrap; }
             @keyframes pulse-red { 0%, 100% { transform: translateX(50%) scale(1); } 50% { transform: translateX(50%) scale(1.05); } }
+            .gallery-item:first-child { aspect-ratio: 16/9; }
         }
     </style>
 </head>
@@ -301,11 +271,11 @@
         <h2 data-aos="fade-up">✈️ Вильоти з Європи</h2>
         <div class="flights-grid">
             <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇩🇪</span><h4>Німеччина</h4></div><p>Берлін, Дюссельдорф, Франкфурт, Мюнхен, Гамбург</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇫🇷</span><h4>Франція</h4></div><p>Париж, Ліон, Ніцца, Бордо</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇵🇱</span><h4>Польща</h4></div><p>Варшава (прямий рейс LOT)</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇨🇿</span><h4>Чехія</h4></div><p>Прага (Eurowings)</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇮🇹</span><h4>Італія</h4></div><p>Мілан, Рим, Неаполь</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇦🇹</span><h4>Австрія</h4></div><p>Відень</p></div>
+            <div class="flight-card glass-card" data-aos="fade-up" data-aos-delay="50"><div class="flight-head"><span class="flag">🇫🇷</span><h4>Франція</h4></div><p>Париж, Ліон, Ніцца, Бордо</p></div>
+            <div class="flight-card glass-card" data-aos="fade-up" data-aos-delay="100"><div class="flight-head"><span class="flag">🇵🇱</span><h4>Польща</h4></div><p>Варшава (прямий рейс LOT)</p></div>
+            <div class="flight-card glass-card" data-aos="fade-up" data-aos-delay="150"><div class="flight-head"><span class="flag">🇨🇿</span><h4>Чехія</h4></div><p>Прага (Eurowings)</p></div>
+            <div class="flight-card glass-card" data-aos="fade-up" data-aos-delay="200"><div class="flight-head"><span class="flag">🇮🇹</span><h4>Італія</h4></div><p>Мілан, Рим, Неаполь</p></div>
+            <div class="flight-card glass-card" data-aos="fade-up" data-aos-delay="250"><div class="flight-head"><span class="flag">🇦🇹</span><h4>Австрія</h4></div><p>Відень</p></div>
         </div>
 
         <h2 style="margin-top:100px">🗺 Ваша Чарівна Програма</h2>
@@ -314,9 +284,9 @@
             <div class="day-info">
                 <span class="day-badge">День 1</span>
                 <h3>Приліт та Нічне Полювання за Сяйвом 🌌</h3>
-                <p>Ваша арктична пригода починається! Наш водій зустріне вас в аеропорту Рованіємі та з комфортом доставить до <b>затишних апартаментів</b>. По дорозі ми заїдемо в супермаркет за фінськими делікатесами.</p>
-                <p><b>МАГІЯ ВЕЧОРА:</b> Ми вирушаємо в дикий засніжений ліс. Абсолютна тиша, величні ялинки та небо, що танцює Авророю... Це момент істинного спокою.</p>
-                <p><b>СМАЧНИЙ БОНУС:</b> Справжній лапландський пікнік! Гарячий гльог, тріск багаття та ароматні ковбаски на вогні. 🔥</p>
+                <p>Ваша арктична пригода починається! Наш водій зустріне вас в аеропорту Рованіємі та з комфортом доставить до <b>затишних апартаментів</b>. По дорозі заїдемо в супермаркет.</p>
+                <p><b>МАГІЯ ВЕЧОРА:</b> Ми вирушаємо в дикий засніжений ліс. Абсолютна тиша, ялинки-велетні та небо, що танцює Авророю... Це момент істинного спокою.</p>
+                <p><b>ПІКНІК:</b> Справжня лапландська вечеря біля багаття з гарячим гльогом та ароматними ковбасками 🔥.</p>
             </div>
             <div class="day-visual">
                 <div class="video-facade" onclick="loadVideo(this, 'sH05pHZuptA')">
@@ -327,7 +297,7 @@
                     <li><i class="fas fa-plane"></i> VIP Зустріч</li>
                     <li><i class="fas fa-home"></i> Апартаменти</li>
                     <li><i class="fas fa-tree"></i> Нічний ліс</li>
-                    <li><i class="fas fa-fire"></i> Пікнік біля багаття</li>
+                    <li><i class="fas fa-fire"></i> Пікнік</li>
                 </ul>
             </div>
         </div>
@@ -336,7 +306,7 @@
             <div class="day-info">
                 <span class="day-badge">День 2</span>
                 <h3>У гості до Санти та Олені 🦌</h3>
-                <p>Ранок мрії! Ми їдемо в офіційну резиденцію Санта Клауса. Ви перетнете магічну лінію <b>Полярного кола</b> — портал у світ чудес!</p>
+                <p>Ми їдемо в офіційну резиденцію Санта Клауса. Ви перетнете <b>Полярне коло</b> — портал у світ чудес!</p>
                 <p><b>Олені Санти:</b> Відчуйте себе героєм казки. Ми покатаємось на санях, запряжених справжніми північними оленями. Скрип снігу та дзвін дзвіночків...</p>
                 <p><b>Аудієнція:</b> Ви особисто зустрінетесь із Головним Чарівником, шепнете йому бажання та зробите легендарне фото. 📸</p>
             </div>
@@ -358,7 +328,7 @@
             <div class="day-info">
                 <span class="day-badge">День 3</span>
                 <h3>Підземна пригода у Santa Park 🎢</h3>
-                <p>Ми спустимось у таємну печеру в серці скелі, де ельфи готуються до Різдва цілий рік! Тут пахне корицею та дитинством.</p>
+                <p>Ми спустимось у таємну печеру в серці скелі, де ельфи готуються до Різдва цілий рік! Тут пахне корицею та магією.</p>
                 <p><b>Школа Ельфів:</b> Пройдіть магічне навчання та отримайте почесний Диплом Ельфа! 🎓</p>
                 <p><b>Пекарня:</b> Разом із місіс Клаус ви прикрасите найсмачніше імбирне печиво. 🍪</p>
                 <p><b>Крижана галерея:</b> Дивовижні скульптури з льоду і відчуття справжньої Арктики.</p>
@@ -382,8 +352,8 @@
                 <span class="day-badge">День 4</span>
                 <h3>Прощання з дивом 👋</h3>
                 <p>Смачний сніданок з видом на засніжені простори... 🥞</p>
-                <p>Ми зробимо фінальні фото на пам'ять, купуємо подарунки та вирушаємо в аеропорт.</p>
-                <p>Ваша казка не закінчується, вона залишається у вашому серці назавжди! ✨</p>
+                <p>Ми зробимо фінальні фото на пам'ять, купуємо останні сувеніри та вирушаємо в аеропорт.</p>
+                <p>Лапландія каже вам "До побачення", але магія, яку ви відчули тут, залишиться у вашому серці назавжди! ✨</p>
             </div>
             <div class="day-visual">
                 <div class="video-facade" onclick="loadVideo(this, 'QghsIbaDKss')">
@@ -391,7 +361,7 @@
                     <div class="play-btn"><i class="fas fa-play"></i></div>
                 </div>
                 <ul class="highlights-list">
-                    <li><i class="fas fa-coffee"></i> Сніданок</li>
+                    <li><i class="fas fa-coffee"></i> Останній сніданок</li>
                     <li><i class="fas fa-camera"></i> Фотосесія</li>
                     <li><i class="fas fa-plane-departure"></i> Трансфер в аеропорт</li>
                 </ul>
@@ -415,7 +385,7 @@
                 <div class="inc-col">
                     <h4 style="color: var(--accent-primary);">✅ ВКЛЮЧЕНО:</h4>
                     <ul class="inc-list">
-                        <li><i class="fas fa-check-circle"></i> Авіаквитки</li>
+                        <li><i class="fas fa-check-circle"></i> Авіаквитки в обидві сторони</li>
                         <li><i class="fas fa-check-circle"></i> Трансфер "аеропорт-апартаменти"</li>
                         <li><i class="fas fa-check-circle"></i> Проживання (Апартаменти)</li>
                         <li><i class="fas fa-check-circle"></i> Поїздка за Сяйвом + пікнік</li>
@@ -425,7 +395,7 @@
                     <h4 style="color: #ff4444;">❌ ДОДАТКОВО:</h4>
                     <ul class="inc-list">
                         <li><i class="fas fa-times-circle"></i> Квитки до Санта Парку</li>
-                        <li><i class="fas fa-times-circle"></i> Катання на оленях</li>
+                        <li><i class="fas fa-times-circle"></i> Катання на оленях чи хаскі</li>
                         <li><i class="fas fa-arrow-right"></i> <b>Опція:</b> Трансфер від будинку</li>
                     </ul>
                 </div>
@@ -434,10 +404,8 @@
 
         <div class="wide-block form-container" id="book" data-aos="fade-up">
             <div class="limited-badge"><i class="fas fa-fire"></i> Залишилось місць: Обмежено</div>
-            
-            <h2>РОЗПОЧАТИ ПРИГОДУ ✨</h2>
-            <p style="text-align: center; margin-bottom: 35px; color: #555; font-weight: 500;">Залиште заявку, і ми розрахуємо найкращий варіант для вашої родини!</p>
-            
+            <h2 style="text-align: center;">РОЗПОЧАТИ ПРИГОДУ ✨</h2>
+            <p style="text-align: center; margin-bottom: 35px; color: #555; font-weight: 500;">Забронюйте казку для своєї родини вже сьогодні!</p>
             <form id="bookingForm" action="https://formspree.io/f/ВСТАВТЕ_ТУТ_ID" method="POST">
                 <div class="form-grid">
                     <input type="text" name="name" class="form-input" placeholder="Ваше ім'я" required>
@@ -460,13 +428,13 @@
             <i class="fas fa-check-circle" style="font-size: 4rem; color: #39ff14; margin-bottom: 25px;"></i>
             <h3>ДЯКУЄМО!</h3>
             <p>Ми отримали ваш запит і зв'яжемось з вами скоро!</p>
-            <button onclick="closeModal()" style="margin-top: 25px; padding: 12px 40px; background: #000; color: #fff; border:none; border-radius: 50px; cursor: pointer;">ОК</button>
+            <button onclick="closeModal()" style="margin-top: 25px; padding: 12px 40px; background: #000; color: #fff; border:none; border-radius: 50px; cursor: pointer; text-transform: uppercase;">ОК</button>
         </div>
     </div>
 
-    <div id="cookieBanner" class="cookie-banner">
-        <p>Ми використовуємо файли cookie для вашої зручності.</p>
-        <button class="cookie-btn" onclick="acceptCookies()" style="padding: 8px 20px; background: var(--accent-secondary); color: #fff; border: none; border-radius: 8px; cursor: pointer;">ОК</button>
+    <div id="cookieBanner" class="cookie-banner" style="position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 500px; background: rgba(10, 15, 30, 0.98); padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); display: none; align-items: center; justify-content: space-between; gap: 20px; z-index: 10000;">
+        <p style="font-size: 0.85rem; color: #ccc;">Ми використовуємо файли cookie для вашої зручності.</p>
+        <button onclick="acceptCookies()" style="padding: 8px 20px; background: var(--accent-secondary); color: #fff; border: none; border-radius: 8px; cursor: pointer;">ОК</button>
     </div>
 
     <footer style="padding: 40px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
@@ -501,7 +469,6 @@
         });
 
         function closeModal() { modal.style.display = 'none'; }
-        
         if (!localStorage.getItem('cookiesAccepted')) { document.getElementById('cookieBanner').style.display = 'flex'; }
         function acceptCookies() { localStorage.setItem('cookiesAccepted', 'true'); document.getElementById('cookieBanner').style.display = 'none'; }
 
