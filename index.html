@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>МАГІЯ ЗА ПОЛЯРНИМ КОЛОМ 2026 | Ексклюзивний Тур</title>
-    <meta name="description" content="Подаруйте собі казку! Авторський тур в Лапландію 2026. Проживання в комфортних апартаментах, полювання за Північним Сяйвом, зустріч із Сантою.">
+    <title>МАГІЯ ЗА ПОЛЯРНИМ КОЛОМ 2026 | Авторський Тур в Лапландію</title>
+    <meta name="description" content="Ексклюзивний тур в Лапландію 2026. Проживання в апартаментах, полювання за Сяйвом, Санта Клаус. Гарантований виїзд.">
+    <meta name="keywords" content="Лапландія тур, Санта Клаус тур, Північне сяйво, Полярне коло, відпочинок з дітьми зима 2026">
     <meta name="theme-color" content="#020c1b">
+    
+    <link rel="icon" type="image/png" href="favicon.png"> 
     
     <meta property="og:title" content="❄️ АРКТИЧНА КАЗКА 2026: Тур в Лапландію">
     <meta property="og:description" content="Магія існує! Олені, Санта, Сяйво та затишні вечори. Дивись програму!">
@@ -18,22 +21,16 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* --- 1. DESIGN TOKENS --- */
+        /* --- 1. CORE VARIABLES --- */
         :root {
             --bg-color: #020c1b;
             --text-main: #e6f1ff;
             --text-muted: #a8b2d1;
-            /* Неоновий градієнт для акцентів */
             --gradient-text: linear-gradient(135deg, #00d4ff 0%, #ffffff 100%); 
-            --gradient-btn: linear-gradient(90deg, #39ff14 0%, #00d4ff 100%);
-            --accent-primary: #39ff14;
-            --accent-secondary: #00d4ff;
-            
-            /* Glass Effect refined */
-            --glass-bg: rgba(17, 25, 40, 0.75);
-            --glass-border: rgba(255, 255, 255, 0.125);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            
+            --accent-primary: #39ff14; /* Lime */
+            --accent-secondary: #00d4ff; /* Cyan */
+            --glass-bg: rgba(17, 25, 40, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.1);
             --radius: 24px;
             --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
@@ -50,18 +47,18 @@
             font-size: 16px;
         }
 
-        /* --- 2. VISUAL LAYERS --- */
+        /* --- 2. BACKGROUND LAYERS --- */
         .video-bg-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -10; overflow: hidden;
         }
         
-        /* iOS Fix */
+        /* iOS Fix for background flickering */
         @supports (-webkit-touch-callout: none) { .video-bg-container { position: absolute; } }
 
         .video-bg {
             width: 100%; height: 100%; object-fit: cover;
-            filter: brightness(0.35) contrast(1.1) saturate(1.1); /* Глибший контраст */
+            filter: brightness(0.35) contrast(1.1) saturate(1.1);
         }
 
         .bg-overlay {
@@ -80,9 +77,7 @@
             max-width: 1240px; margin: 0 auto; padding: 0 24px;
         }
 
-        /* --- 3. TYPOGRAPHY & COMPONENTS --- */
-        
-        /* Premium Headings */
+        /* --- 3. TYPOGRAPHY & UI --- */
         h2 {
             font-size: clamp(2.2rem, 5vw, 3.5rem); text-align: center; margin-bottom: 70px;
             font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
@@ -91,7 +86,6 @@
             position: relative; display: inline-block; width: 100%;
         }
 
-        /* "Magic" Button */
         .btn-main {
             position: relative; display: inline-block; padding: 20px 50px;
             background: var(--accent-primary); color: #000;
@@ -101,40 +95,26 @@
             transition: var(--transition); overflow: hidden; z-index: 1;
         }
         
-        /* Button Glow Animation */
-        .btn-main::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, #39ff14, #00d4ff, #39ff14);
-            background-size: 200%; z-index: -1; transition: 0.5s; opacity: 0;
-        }
-        
         .btn-main:hover { 
             transform: translateY(-4px) scale(1.02); 
             box-shadow: 0 10px 40px rgba(57, 255, 20, 0.6); 
             color: #fff;
         }
-        .btn-main:hover::before { opacity: 1; animation: glowing 2s linear infinite; }
-        
-        @keyframes glowing { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
 
-        /* Advanced Glass Card */
         .glass-card {
             background: var(--glass-bg);
             backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius);
-            box-shadow: var(--glass-shadow);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
             transition: var(--transition);
         }
         .glass-card:hover {
             border-color: rgba(255,255,255,0.3);
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
         }
 
         /* --- 4. SECTIONS --- */
-
-        /* HERO - More breathing room */
         .hero {
             min-height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
@@ -171,51 +151,39 @@
         .scroll-down i { font-size: 24px; color: var(--accent-secondary); }
         @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform:translateY(0) translateX(-50%);} 40% {transform:translateY(-10px) translateX(-50%);} 60% {transform:translateY(-5px) translateX(-50%);} }
 
-        /* DATES - "Ice Cubes" Style */
-        .dates-grid { 
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 100px; 
-        }
+        /* LOGISTICS */
+        .dates-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 100px; }
         .date-item {
             padding: 14px 28px; border-radius: 16px; font-weight: 700; letter-spacing: 1px;
             background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
             color: #fff; transition: var(--transition); cursor: default;
-            min-width: 100px; text-align: center;
         }
         .date-item:hover { 
-            border-color: var(--accent-secondary); 
-            background: rgba(0, 212, 255, 0.15); 
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            border-color: var(--accent-secondary); background: rgba(0, 212, 255, 0.15); 
             transform: translateY(-3px);
         }
 
-        /* FLIGHTS - Clean Grid */
-        .flights-grid { 
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-            gap: 24px; margin-bottom: 140px; 
-        }
+        .flights-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-bottom: 140px; }
         .flight-card { padding: 30px; display: flex; flex-direction: column; justify-content: center; }
         .flight-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
         .flag { font-size: 2.5rem; line-height: 1; }
         .flight-card h4 { color: var(--accent-secondary); font-size: 1.2rem; font-weight: 800; text-transform: uppercase; }
         .flight-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
 
-        /* PROGRAM - Premium Layout */
+        /* PROGRAM */
         .program-day {
-            display: grid; grid-template-columns: 1.2fr 1fr; /* Більше місця для тексту */
-            margin-bottom: 120px; border-radius: 40px; overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05); /* Дуже тонка рамка */
+            display: grid; grid-template-columns: 1.2fr 1fr; margin-bottom: 120px; 
+            border-radius: 40px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);
         }
         .program-day:nth-child(even) { direction: rtl; } 
         .program-day:nth-child(even) .day-info { direction: ltr; }
         .program-day:nth-child(even) .day-visual { direction: ltr; }
 
-        .day-info { 
-            padding: 60px; display: flex; flex-direction: column; justify-content: center; 
-            background: rgba(10, 15, 30, 0.6); /* Трохи темніше під текстом */
-        }
+        .day-info { padding: 60px; display: flex; flex-direction: column; justify-content: center; background: rgba(10, 15, 30, 0.6); }
         .day-badge { 
             background: var(--accent-primary); color: #000; padding: 6px 18px; 
-            border-radius: 50px; font-weight: 800; font-size: 0.8rem; width: fit-content; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px;
+            border-radius: 50px; font-weight: 800; font-size: 0.8rem; width: fit-content; 
+            margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px;
         }
         .day-info h3 { font-size: 2.2rem; color: #fff; margin-bottom: 24px; font-weight: 800; line-height: 1.1; }
         .day-info p { margin-bottom: 18px; color: var(--text-muted); font-size: 1.05rem; }
@@ -223,7 +191,6 @@
 
         .day-visual { background: #000; display: flex; flex-direction: column; position: relative; }
         
-        /* Video Facade - Cinematic */
         .video-facade {
             position: relative; height: 350px; cursor: pointer; overflow: hidden; display: block;
         }
@@ -231,19 +198,12 @@
         .video-facade:hover img { transform: scale(1.1); }
         .play-btn {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 80px; height: 80px; 
-            background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+            width: 80px; height: 80px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
             border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); 
-            display: flex; align-items: center; justify-content: center;
-            transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex; align-items: center; justify-content: center; transition: 0.4s;
         }
-        .play-btn i { color: #fff; font-size: 28px; margin-left: 4px; transition: 0.3s; }
-        
-        .video-facade:hover .play-btn { 
-            background: var(--accent-primary); border-color: var(--accent-primary); 
-            transform: translate(-50%, -50%) scale(1.1); 
-            box-shadow: 0 0 30px var(--accent-primary);
-        }
+        .play-btn i { color: #fff; font-size: 28px; margin-left: 4px; }
+        .video-facade:hover .play-btn { background: var(--accent-primary); border-color: var(--accent-primary); transform: translate(-50%, -50%) scale(1.1); }
         .video-facade:hover .play-btn i { color: #000; }
 
         .day-highlights { padding: 30px 40px; background: rgba(255,255,255,0.03); flex-grow: 1; border-top: 1px solid rgba(255,255,255,0.05); }
@@ -268,16 +228,9 @@
             border: 1px solid var(--accent-secondary);
             box-shadow: 0 0 50px rgba(0, 212, 255, 0.1);
         }
-        .price-val { 
-            font-size: clamp(4rem, 10vw, 6rem); font-weight: 900; 
-            color: var(--accent-primary); margin: 20px 0; line-height: 1;
-            text-shadow: 0 0 40px rgba(57,255,20,0.3); 
-        }
+        .price-val { font-size: clamp(4rem, 10vw, 6rem); font-weight: 900; color: var(--accent-primary); margin: 20px 0; text-shadow: 0 0 40px rgba(57,255,20,0.3); line-height: 1; }
         
-        .includes-wrapper { 
-            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; 
-            text-align: left; max-width: 1000px; margin: 60px auto 0; 
-        }
+        .includes-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; text-align: left; max-width: 1000px; margin: 60px auto 0; }
         .inc-col h4 { margin-bottom: 30px; color: #fff; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 15px; display: inline-block; }
         .inc-list li { list-style: none; margin-bottom: 18px; display: flex; gap: 15px; color: #ddd; font-size: 1.1rem; align-items: flex-start; }
         .fa-check-circle { color: var(--accent-primary); font-size: 1.2rem; margin-top: 3px; }
@@ -290,14 +243,10 @@
             background: #fff; border-radius: 40px; position: relative;
             color: #000; box-shadow: 0 30px 80px rgba(0,0,0,0.6);
         }
-        .form-container h2 { 
-            color: #000; text-shadow: none; margin-bottom: 15px; 
-            background: none; -webkit-text-fill-color: initial;
-        }
+        .form-container h2 { color: #000; text-shadow: none; margin-bottom: 15px; background: none; -webkit-text-fill-color: initial; }
         .form-input {
-            width: 100%; padding: 18px; margin-bottom: 18px; 
-            border: 2px solid #f0f0f0; border-radius: 14px; font-size: 1rem;
-            font-family: inherit; transition: 0.3s; background: #f9f9f9;
+            width: 100%; padding: 18px; margin-bottom: 18px; border: 2px solid #f0f0f0; 
+            border-radius: 14px; font-size: 1rem; font-family: inherit; transition: 0.3s; background: #f9f9f9;
         }
         .form-input:focus { outline: none; border-color: var(--accent-secondary); background: #fff; box-shadow: 0 0 0 4px rgba(0,212,255,0.1); }
         .form-btn {
@@ -306,6 +255,28 @@
             cursor: pointer; text-transform: uppercase; transition: 0.3s; letter-spacing: 1px;
         }
         .form-btn:hover { background: var(--accent-secondary); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,212,255,0.3); }
+
+        /* FOOTER & LEGAL */
+        footer { text-align: center; padding: 40px 20px; background: #01060e; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-links { margin-bottom: 20px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; margin: 0 10px; font-size: 0.9rem; transition: 0.3s; }
+        .footer-links a:hover { color: var(--accent-primary); }
+        .footer-copy { color: #555; font-size: 0.85rem; }
+
+        /* COOKIE BANNER */
+        .cookie-banner {
+            position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 500px;
+            background: rgba(10, 15, 30, 0.95); backdrop-filter: blur(10px);
+            padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);
+            display: none; /* JS will toggle this */
+            align-items: center; justify-content: space-between; gap: 20px;
+            z-index: 10000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .cookie-banner p { font-size: 0.85rem; margin: 0; line-height: 1.4; color: #ccc; }
+        .cookie-btn {
+            padding: 8px 20px; background: var(--accent-secondary); color: #fff;
+            border: none; border-radius: 8px; font-weight: 700; cursor: pointer; white-space: nowrap;
+        }
 
         /* MODAL */
         .modal-overlay {
@@ -319,7 +290,6 @@
         }
         @keyframes popIn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-        /* RESPONSIVE FINE-TUNING */
         @media (max-width: 900px) {
             h2 { font-size: 2rem; margin-bottom: 40px; }
             .program-day { grid-template-columns: 1fr; border-radius: 30px; }
@@ -330,6 +300,7 @@
             .hero { padding-top: 100px; padding-bottom: 60px; }
             .hero h1 { font-size: 3.2rem; }
             .form-container { padding: 40px 25px; }
+            .cookie-banner { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -398,7 +369,7 @@
             </div>
             <div class="day-visual">
                 <div class="video-facade" onclick="loadVideo(this, 'sH05pHZuptA')">
-                    <img src="https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Aurora Preview">
+                    <img src="https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Aurora Preview" loading="lazy">
                     <div class="play-btn"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="day-highlights">
@@ -423,7 +394,7 @@
             </div>
             <div class="day-visual">
                 <div class="video-facade" onclick="loadVideo(this, 'k9xx6y34xSI')">
-                    <img src="https://images.pexels.com/photos/716658/pexels-photo-716658.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Santa Preview">
+                    <img src="https://images.pexels.com/photos/716658/pexels-photo-716658.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Santa Preview" loading="lazy">
                     <div class="play-btn"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="day-highlights">
@@ -449,7 +420,7 @@
             </div>
             <div class="day-visual">
                 <div class="video-facade" onclick="loadVideo(this, 'WhAJf2rALkQ')">
-                    <img src="https://images.pexels.com/photos/5727916/pexels-photo-5727916.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Santa Park Preview">
+                    <img src="https://images.pexels.com/photos/5727916/pexels-photo-5727916.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Santa Park Preview" loading="lazy">
                     <div class="play-btn"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="day-highlights">
@@ -474,7 +445,7 @@
             </div>
             <div class="day-visual">
                 <div class="video-facade" onclick="loadVideo(this, 'QghsIbaDKss')">
-                    <img src="https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Winter Preview">
+                    <img src="https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Winter Preview" loading="lazy">
                     <div class="play-btn"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="day-highlights">
@@ -522,7 +493,7 @@
                     <h4 style="color: var(--accent-primary);">✅ У ВАРТІСТЬ ВКЛЮЧЕНО:</h4>
                     <ul class="inc-list">
                         <li><i class="fas fa-check-circle"></i> Авіаквитки в обидві сторони</li>
-                        <li><i class="fas fa-check-circle"></i> Трансфер "аеропорт – апартаменти"</li>
+                        <li><i class="fas fa-check-circle"></i> Трансфер "аеропорт – апартаменти – аеропорт"</li>
                         <li><i class="fas fa-check-circle"></i> Проживання у комфортних апартаментах</li>
                         <li><i class="fas fa-check-circle"></i> Трансфери до всіх локацій</li>
                         <li><i class="fas fa-check-circle"></i> Нічна поїздка за Сяйвом з пікніком!</li>
@@ -543,17 +514,18 @@
         <div class="form-container" data-aos="fade-up">
             <h2>ЗАБРОНЮВАТИ КАЗКУ ✨</h2>
             <p style="text-align: center; margin-bottom: 30px; color: #555;">В захваті як дорослі так і діти! Залиште заявку, і ми розрахуємо найкращий варіант для вас!</p>
-            <form id="bookingForm">
-                <input type="text" class="form-input" placeholder="Ваше ім'я" required>
-                <input type="tel" class="form-input" placeholder="Телефон (WhatsApp/Viber)" required pattern="[0-9]*">
-                <input type="email" class="form-input" placeholder="Ваш Email (не обов'язково)">
-                <select class="form-input" required>
+            
+            <form id="bookingForm" action="https://formspree.io/f/ВСТАВТЕ_ТУТ_ВАШ_ID_FORMSPREE" method="POST">
+                <input type="text" name="name" class="form-input" placeholder="Ваше ім'я" required>
+                <input type="tel" name="phone" class="form-input" placeholder="Телефон (WhatsApp/Viber)" required pattern="[0-9]*">
+                <input type="email" name="email" class="form-input" placeholder="Ваш Email (не обов'язково)">
+                <select name="date" class="form-input" required>
                     <option value="" disabled selected>Оберіть бажану дату</option>
                     <option>Січень 2026</option>
                     <option>Лютий 2026</option>
                     <option>Березень 2026</option>
                 </select>
-                <textarea class="form-input" rows="3" placeholder="Кількість людей або питання"></textarea>
+                <textarea name="message" class="form-input" rows="3" placeholder="Кількість людей або питання"></textarea>
                 <button type="submit" class="form-btn">ВІДПРАВИТИ ЗАПИТ</button>
             </form>
         </div>
@@ -569,8 +541,17 @@
         </div>
     </div>
 
+    <div id="cookieBanner" class="cookie-banner">
+        <p>Ми використовуємо файли cookie, щоб зробити ваш досвід кращим. Продовжуючи, ви погоджуєтесь з цим.</p>
+        <button class="cookie-btn" onclick="acceptCookies()">Зрозуміло</button>
+    </div>
+
     <footer>
-        <p style="text-align: center; color: #666; padding-bottom: 20px; font-size: 0.9rem;">© 2026 ЛАПЛАНДІЯ ТУР. Україномовні гіди. Магія на все життя.</p>
+        <div class="footer-links">
+            <a href="#">Політика конфіденційності</a>
+            <a href="#">Публічна оферта</a>
+        </div>
+        <p class="footer-copy">© 2026 ЛАПЛАНДІЯ ТУР. Україномовні гіди. Магія на все життя.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -582,29 +563,63 @@
             element.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
         }
 
-        // --- 2. FORM HANDLER ---
+        // --- 2. FORM HANDLER (AJAX for Formspree) ---
         const form = document.getElementById('bookingForm');
         const modal = document.getElementById('successModal');
         const btn = document.querySelector('.form-btn');
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
+        async function handleSubmit(event) {
+            event.preventDefault();
             const originalText = btn.innerText;
             btn.innerText = 'ВІДПРАВКА...';
             btn.style.opacity = '0.7';
-            
-            setTimeout(() => {
-                modal.style.display = 'flex';
-                btn.innerText = originalText;
-                btn.style.opacity = '1';
-                form.reset();
-            }, 1000);
-        });
 
+            const data = new FormData(event.target);
+            
+            // Якщо Formspree ID не налаштований, імітуємо успіх (для тесту)
+            if (form.action.includes("ВСТАВТЕ_ТУТ")) {
+                setTimeout(() => {
+                    showModal();
+                    resetBtn(originalText);
+                }, 1000);
+                return;
+            }
+
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    showModal();
+                    form.reset();
+                } else {
+                    alert("Помилка відправки. Спробуйте ще раз.");
+                }
+                resetBtn(originalText);
+            }).catch(error => {
+                alert("Помилка відправки. Перевірте з'єднання.");
+                resetBtn(originalText);
+            });
+        }
+
+        function showModal() { modal.style.display = 'flex'; }
+        function resetBtn(text) { btn.innerText = text; btn.style.opacity = '1'; }
         function closeModal() { modal.style.display = 'none'; }
         window.onclick = function(event) { if (event.target == modal) modal.style.display = "none"; }
+        
+        form.addEventListener("submit", handleSubmit);
 
-        // --- 3. SNOW ENGINE ---
+        // --- 3. COOKIES ---
+        if (!localStorage.getItem('cookiesAccepted')) {
+            document.getElementById('cookieBanner').style.display = 'flex';
+        }
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+
+        // --- 4. SNOW ENGINE ---
         (function() {
             const canvas = document.getElementById('snow-canvas');
             const ctx = canvas.getContext('2d');
