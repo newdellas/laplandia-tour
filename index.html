@@ -29,11 +29,18 @@
             line-height: 1.6; 
         }
 
-        /* --- ФОН --- */
+        /* --- ФОНОВІ ЕФЕКТИ (Північне Сяйво CSS) --- */
         .bg-wrapper {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
             background: linear-gradient(135deg, #010a1a 0%, #001f3f 100%);
         }
+        .aurora-effect {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+            background: radial-gradient(circle at 50% -20%, rgba(57, 255, 20, 0.15), transparent 60%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 212, 255, 0.1), transparent 50%);
+            animation: auroraMove 10s infinite alternate;
+        }
+        @keyframes auroraMove { 0% { opacity: 0.5; transform: scale(1); } 100% { opacity: 0.8; transform: scale(1.1); } }
         
         #snow-canvas {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;
@@ -47,6 +54,7 @@
             justify-content: center;
             text-align: center;
             padding: 20px;
+            /* Статичне надійне фото фону */
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
                         url('https://images.unsplash.com/photo-1531366930477-4f2118bdce49?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
@@ -194,7 +202,7 @@
             background: rgba(255,0,0,0.9); color: white;
             padding: 10px 20px; border-radius: 50px; font-weight: 900;
             display: flex; align-items: center; gap: 10px; z-index: 2;
-            box-shadow: 0 0 20px rgba(255,0,0,0.4);
+            box-shadow: 0 0 20px rgba(255,0,0,0.4); white-space: nowrap;
         }
         .cam-overlay i { font-size: 1.2rem; animation: pulse 2s infinite; }
 
@@ -247,10 +255,11 @@
 <body>
 
     <div class="bg-wrapper"></div>
+    <div class="aurora-effect"></div>
     <canvas id="snow-canvas"></canvas>
 
     <header class="hero">
-        <div data-aos="zoom-in">
+        <div class="hero-content" data-aos="zoom-out">
             <p>🦌 МАГІЯ ЗА ПОЛЯРНИМ КОЛОМ ✨🎅</p>
             <h1>АРКТИЧНА КАЗКА 2026</h1>
             <p>Санта, Лапландія та Північне Сяйво!</p>
@@ -288,11 +297,11 @@
             </div>
             <div class="slider-wrapper" id="slider1">
                 <div class="slides-container">
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1579033461380-adb47c3eb938?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1531366930477-4f2118bdce49?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1483347756197-71ef80e95f73?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1518248479020-56bc0a4866aa?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1579033461380-adb47c3eb938?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1531366930477-4f2118bdce49?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1483347756197-71ef80e95f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1546271876-af6caec5fae5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
                 </div>
                 <button class="slider-btn prev">❮</button><button class="slider-btn next">❯</button>
             </div>
@@ -313,11 +322,11 @@
             </div>
             <div class="slider-wrapper" id="slider2">
                 <div class="slides-container">
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1544233736-0f62e633225c?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1512598268429-9d7458084500?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1513297887119-d46091b24bfa?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1543589077-47d81606c1bf?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1605553090637-234299b80036?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1544233736-0f62e633225c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1512598268429-9d7458084500?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1513297887119-d46091b24bfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1543589077-47d81606c1bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1605553090637-234299b80036?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
                 </div>
                 <button class="slider-btn prev">❮</button><button class="slider-btn next">❯</button>
             </div>
@@ -337,11 +346,11 @@
             </div>
             <div class="slider-wrapper" id="slider3">
                 <div class="slides-container">
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1512598268429-9d7458084500?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1605541604085-3e284a1bc1b4?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1542640244-7e672d6cef21?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1482638186060-804d0806040b?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1512598268429-9d7458084500?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1605541604085-3e284a1bc1b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1542640244-7e672d6cef21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1482638186060-804d0806040b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
                 </div>
                 <button class="slider-btn prev">❮</button><button class="slider-btn next">❯</button>
             </div>
@@ -355,11 +364,11 @@
             </div>
             <div class="slider-wrapper" id="slider4">
                 <div class="slides-container">
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1489527483492-56743a96dc1f?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1511300633959-19e7b5dc1c17?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1483347756197-71ef80e95f73?auto=format&fit=crop&w=800&q=80')"></div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1519865885898-a54a6f2c7dad?auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1489527483492-56743a96dc1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1511300633959-19e7b5dc1c17?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1483347756197-71ef80e95f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1519865885898-a54a6f2c7dad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
                 </div>
                 <button class="slider-btn prev">❮</button><button class="slider-btn next">❯</button>
             </div>
@@ -367,16 +376,16 @@
 
         <h2 class="section-title">Атмосфера Лапландії</h2>
         <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1546271876-af6caec5fae5?auto=format&fit=crop&w=400&q=80" alt="Aurora">
-            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80" alt="Cabin">
-            <img src="https://images.unsplash.com/photo-1542640244-7e672d6cef21?auto=format&fit=crop&w=400&q=80" alt="Sleigh">
-            <img src="https://images.unsplash.com/photo-1518248479020-56bc0a4866aa?auto=format&fit=crop&w=400&q=80" alt="Snow">
-            <img src="https://images.unsplash.com/photo-1483347756197-71ef80e95f73?auto=format&fit=crop&w=400&q=80" alt="Night">
-            <img src="https://images.unsplash.com/photo-1511300633959-19e7b5dc1c17?auto=format&fit=crop&w=400&q=80" alt="Bridge">
-            <img src="https://images.unsplash.com/photo-1579033461380-adb47c3eb938?auto=format&fit=crop&w=400&q=80" alt="Sky">
-            <img src="https://images.unsplash.com/photo-1531366930477-4f2118bdce49?auto=format&fit=crop&w=400&q=80" alt="Winter">
-            <img src="https://images.unsplash.com/photo-1489527483492-56743a96dc1f?auto=format&fit=crop&w=400&q=80" alt="Mounts">
-            <img src="https://images.unsplash.com/photo-1605553090637-234299b80036?auto=format&fit=crop&w=400&q=80" alt="Elf">
+            <img src="https://images.unsplash.com/photo-1546271876-af6caec5fae5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Aurora">
+            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cabin">
+            <img src="https://images.unsplash.com/photo-1542640244-7e672d6cef21?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sleigh">
+            <img src="https://images.unsplash.com/photo-1518248479020-56bc0a4866aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Snow">
+            <img src="https://images.unsplash.com/photo-1483347756197-71ef80e95f73?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Night">
+            <img src="https://images.unsplash.com/photo-1511300633959-19e7b5dc1c17?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Bridge">
+            <img src="https://images.unsplash.com/photo-1579033461380-adb47c3eb938?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Sky">
+            <img src="https://images.unsplash.com/photo-1531366930477-4f2118bdce49?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Winter">
+            <img src="https://images.unsplash.com/photo-1489527483492-56743a96dc1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Mounts">
+            <img src="https://images.unsplash.com/photo-1605553090637-234299b80036?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Elf">
         </div>
 
         <h2 class="section-title">Лапландія наживо ❄️</h2>
@@ -388,12 +397,12 @@
             </div>
             <div class="cams-grid">
                 <a href="https://www.youtube.com/watch?v=p90_t78S8vA" target="_blank" class="cam-link">
-                    <img src="https://images.unsplash.com/photo-1512598268429-9d7458084500?auto=format&fit=crop&w=500" alt="Santa Village">
-                    <div class="cam-overlay"><i class="fas fa-video"></i> LIVE: СЕЛИЩЕ САНТИ</div>
+                    <img src="https://images.unsplash.com/photo-1512598268429-9d7458084500?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Santa">
+                    <div class="cam-overlay"><i class="fas fa-video"></i> ДИВИТИСЯ LIVE</div>
                 </a>
                 <a href="https://www.youtube.com/results?search_query=aurora+borealis+live" target="_blank" class="cam-link">
-                    <img src="https://images.unsplash.com/photo-1531366930477-4f2118bdce49?auto=format&fit=crop&w=500" alt="Aurora">
-                    <div class="cam-overlay"><i class="fas fa-video"></i> LIVE: ПОШУК СЯЙВА</div>
+                    <img src="https://images.unsplash.com/photo-1531366930477-4f2118bdce49?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Aurora">
+                    <div class="cam-overlay"><i class="fas fa-video"></i> ПОШУК СЯЙВА</div>
                 </a>
             </div>
         </div>
@@ -433,7 +442,7 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // СНІГ (Легкий скрипт)
+        // СНІГ
         const canvas = document.getElementById('snow-canvas');
         const ctx = canvas.getContext('2d');
         let width, height, flakes = [];
