@@ -3,302 +3,457 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Магія за Полярним Колом | Лапландія 2026</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Лапландія 2026 | Твоя Арктична Казка</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
         :root {
-            --primary-bg: #0a192f;
+            --bg-dark: #020c1b;
             --accent-green: #39ff14;
             --accent-blue: #00d4ff;
+            --glass: rgba(255, 255, 255, 0.1);
             --text-white: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.1);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            background: linear-gradient(135deg, #0a192f 0%, #020c1b 100%);
+            background-color: var(--bg-dark);
             color: var(--text-white);
-            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Hero Section */
-        header {
+        /* --- BACKGROUND SNOW --- */
+        #snow-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1531366930477-4f2118bdce49?auto=format&fit=crop&q=80&w=1920');
+            position: relative;
+            background: linear-gradient(rgba(2, 12, 27, 0.7), rgba(2, 12, 27, 0.7)), 
+                        url('https://images.unsplash.com/photo-1531366930477-4f2118bdce49?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             padding: 20px;
+            z-index: 2;
         }
 
         .hero-content h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 8vw, 4.5rem);
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            line-height: 1.1;
             margin-bottom: 20px;
             text-shadow: 0 0 20px var(--accent-blue);
         }
 
         .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
+            font-size: clamp(1rem, 3vw, 1.5rem);
             color: var(--accent-green);
-            font-weight: bold;
+            margin-bottom: 30px;
+            font-weight: 600;
         }
 
-        .btn {
-            background: var(--accent-green);
+        /* --- BUTTONS --- */
+        .btn-main {
+            background: linear-gradient(45deg, var(--accent-green), #2ecc71);
             color: #000;
-            padding: 15px 40px;
-            text-decoration: none;
+            padding: 18px 45px;
             border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: 0.3s;
+            text-decoration: none;
+            font-weight: 800;
             display: inline-block;
-            box-shadow: 0 0 15px var(--accent-green);
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+            border: none;
+            cursor: pointer;
         }
 
-        .btn:hover {
+        .btn-main:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 25px var(--accent-green);
+            box-shadow: 0 0 40px var(--accent-green);
         }
 
-        /* Sections */
-        section {
-            padding: 80px 20px;
+        /* --- CONTAINERS --- */
+        .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 80px 20px;
+            position: relative;
+            z-index: 2;
         }
 
         h2 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
             text-align: center;
-            font-size: 2.5rem;
             margin-bottom: 50px;
             color: var(--accent-blue);
+            text-transform: uppercase;
         }
 
-        /* Grid Layouts */
-        .grid {
+        /* --- HIGHLIGHTS GRID --- */
+        .highlights {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
         }
 
-        .card {
-            background: var(--glass-bg);
-            padding: 30px;
+        .h-card {
+            background: var(--glass);
+            padding: 35px;
             border-radius: 20px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
             transition: 0.3s;
         }
 
-        .card:hover {
-            border-color: var(--accent-green);
-        }
-
-        .card i {
-            font-size: 2rem;
+        .h-card i {
+            font-size: 2.5rem;
             color: var(--accent-green);
             margin-bottom: 20px;
         }
 
-        /* Dates Section */
-        .dates-box {
-            background: rgba(57, 255, 20, 0.1);
-            border: 2px dashed var(--accent-green);
-            padding: 20px;
-            text-align: center;
+        /* --- DETAILED PROGRAM --- */
+        .program-day {
+            background: var(--glass);
+            margin-bottom: 30px;
+            border-radius: 25px;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .day-img {
+            flex: 1 1 400px;
+            min-height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .day-text {
+            flex: 1 1 400px;
+            padding: 40px;
+        }
+
+        .day-number {
+            background: var(--accent-green);
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .day-text h3 { font-size: 1.6rem; margin-bottom: 15px; color: var(--accent-blue); }
+        .day-text ul { list-style: none; }
+        .day-text ul li { margin-bottom: 10px; display: flex; align-items: flex-start; }
+        .day-text ul li i { color: var(--accent-green); margin-right: 10px; margin-top: 5px; }
+
+        /* --- GALLERY --- */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 250px;
             border-radius: 15px;
-            margin: 40px 0;
+            overflow: hidden;
+            cursor: pointer;
         }
 
-        /* Flights Section */
-        .flights-list {
-            columns: 2;
-            list-style: none;
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: 0.5s;
         }
-        @media (max-width: 768px) { .flights-list { columns: 1; } }
 
-        .flights-list li {
-            margin-bottom: 10px;
+        .gallery-item:hover img { transform: scale(1.1); }
+
+        /* --- FLIGHTS --- */
+        .flights-section {
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 50px 0;
+        }
+
+        .flights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
             font-size: 0.9rem;
         }
 
-        /* Pricing Table */
-        .price-container {
+        .flight-city {
+            background: rgba(255,255,255,0.05);
+            padding: 10px 15px;
+            border-radius: 10px;
+            border-left: 3px solid var(--accent-green);
+        }
+
+        /* --- PRICE BLOCK --- */
+        .price-card {
             text-align: center;
-            background: linear-gradient(45deg, #112240, #0a192f);
-            padding: 50px;
-            border-radius: 30px;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #112240, #020c1b);
+            border-radius: 40px;
             border: 2px solid var(--accent-blue);
-        }
-
-        .price-val {
-            font-size: 4rem;
-            font-weight: 800;
-            color: var(--accent-green);
-        }
-
-        /* Form */
-        .form-container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
-            background: var(--text-white);
+        }
+
+        .price-card h2 { color: #fff; margin-bottom: 10px; }
+        .price-tag { font-size: 4.5rem; font-weight: 900; color: var(--accent-green); margin: 20px 0; }
+
+        /* --- FORM --- */
+        .booking-form {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
             padding: 40px;
-            border-radius: 20px;
+            border-radius: 30px;
             color: #333;
         }
 
-        .form-container input, .form-container select, .form-container textarea {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 8px;
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit;
         }
 
-        .form-btn {
-            width: 100%;
-            background: var(--primary-bg);
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: bold;
-        }
+        footer { text-align: center; padding: 40px; opacity: 0.6; font-size: 0.8rem; }
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            font-size: 0.9rem;
-            opacity: 0.7;
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .day-text { padding: 25px; }
+            .price-tag { font-size: 3rem; }
         }
-
-        /* Utils */
-        .highlight { color: var(--accent-green); font-weight: bold; }
-        .tag { background: var(--accent-blue); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; margin-right: 5px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="hero-content">
-            <h1>МАГІЯ ЗА ПОЛЯРНИМ КОЛОМ 🦌✨</h1>
-            <p>Твоя Арктична казка 2026: Санта, Лапландія та Північне Сяйво!</p>
-            <a href="#booking" class="btn">ЗАБРОНЮВАТИ МІСЦЕ</a>
+    <canvas id="snow-canvas"></canvas>
+
+    <header class="hero">
+        <div class="hero-content" data-aos="zoom-in">
+            <p>🦌 МАГІЯ ЗА ПОЛЯРНИМ КОЛОМ</p>
+            <h1>Твоя Арктична Казка<br>Санта та Сяйво</h1>
+            <a href="#book" class="btn-main">ЗАБРОНЮВАТИ ПРИГОДУ</a>
         </div>
     </header>
 
-    <section id="about">
-        <h2>Про тур</h2>
-        <div class="grid">
-            <div class="card">
-                <i class="fas fa-snowflake"></i>
-                <h3>Гарантія виїзду</h3>
-                <p>Тури від 2х осіб! Ми зробимо вашу казку реальною, навіть якщо ви подорожуєте вдвох.</p>
+    <div class="container">
+        <div class="highlights">
+            <div class="h-card" data-aos="fade-up">
+                <i class="fas fa-users-check"></i>
+                <h3>Від 2-х туристів</h3>
+                <p>Гарантований тур навіть для невеликої компанії.</p>
             </div>
-            <div class="card">
-                <i class="fas fa-comments"></i>
+            <div class="h-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-comment-dots"></i>
                 <h3>Україномовні гіди</h3>
-                <p>Весь супровід та екскурсії проводяться рідною мовою для вашого комфорту.</p>
+                <p>Жодного мовного бар'єру — тільки комфорт та цікаві історії.</p>
             </div>
-            <div class="card">
-                <i class="fas fa-home"></i>
-                <h3>Затишне житло</h3>
-                <p>Проживання у комфортних сучасних апартаментах з усіма зручностями.</p>
+            <div class="h-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Все включено</h3>
+                <p>Авіа, трансфери та проживання вже у вартості.</p>
             </div>
         </div>
 
-        <div class="dates-box">
-            <h3>📅 Доступні дати 2026:</h3>
-            <p>21.01, 26.01, 28.01, 02.02, 04.02, 09.02, 11.02, 16.02, 18.02, 23.02, 25.02, 02.03, 04.03, 09.03, 11.03, 16.03, 18.03, 23.03, 25.03, 30.03</p>
-            <p><small>*Можливі індивідуальні дати під ваш запит</small></p>
-        </div>
-    </section>
+        <section id="program">
+            <h2>Детальна програма туру</h2>
 
-    <section id="itinerary" style="background: rgba(255,255,255,0.05);">
-        <h2>Програма подорожі</h2>
-        <div class="card" style="margin-bottom: 20px;">
-            <h3>День 1. Приліт та Полювання за Сяйвом 🌌</h3>
-            <p>Зустріч в аеропорту Рованіємі, трансфер та заїзд у маркет. Ввечері — магічний пікнік у лісі біля багаття, лапландські ковбаски, гарячий чай та пошук Aurora Borealis.</p>
-        </div>
-        <div class="card" style="margin-bottom: 20px;">
-            <h3>День 2. Селище Санти та Олені 🎅🦌</h3>
-            <p>Перетин Полярного кола, аудієнція у Санта-Клауса, поїздка на оленячій упряжці та відправка листівок з Головної Пошти світу.</p>
-        </div>
-        <div class="card" style="margin-bottom: 20px;">
-            <h3>День 3. Santa Park — печера Ельфів 🎡</h3>
-            <p>Школа ельфів, пекарня місіс Клаус (майстер-клас з імбирного печива) та крижана галерея скульптур. Магія для будь-якого віку!</p>
-        </div>
-        <div class="card">
-            <h3>День 4. Прощання з дивом 👋</h3>
-            <p>Фінальний сніданок, фотосесія серед засніжених краєвидів та індивідуальний трансфер в аеропорт. Казка залишається з вами!</p>
-        </div>
-    </section>
+            <div class="program-day" data-aos="fade-right">
+                <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1483347756197-71ef80e95f73?q=80&w=2070&auto=format&fit=crop');"></div>
+                <div class="day-text">
+                    <span class="day-number">День 1</span>
+                    <h3>Приліт та Полювання за Сяйвом</h3>
+                    <ul>
+                        <li><i class="fas fa-plane-arrival"></i> Зустріч в аеропорту Рованіємі та комфортний трансфер.</li>
+                        <li><i class="fas fa-shopping-cart"></i> Заїзд до супермаркету для закупівлі смаколиків.</li>
+                        <li><i class="fas fa-moon"></i> <strong>Нічне полювання:</strong> Виїзд у заповідний ліс до секретних локацій.</li>
+                        <li><i class="fas fa-fire"></i> Арктичний пікнік: смажені ковбаски на багатті та гарячий ягідний чай.</li>
+                    </ul>
+                </div>
+            </div>
 
-    <section id="flights">
-        <h2>Вильоти з усієї Європи ✈️</h2>
-        <ul class="flights-list">
-            <li><strong>Німеччина:</strong> Берлін, Дюссельдорф, Франкфурт, Гамбург, Мюнхен, Штутгарт</li>
-            <li><strong>Франція:</strong> Париж (CDG, ORY, BVA), Ліон, Ніцца, Бордо</li>
-            <li><strong>Італія:</strong> Мілан, Рим, Неаполь</li>
-            <li><strong>Австрія:</strong> Відень | <strong>Польща:</strong> Варшава | <strong>Чехія:</strong> Прага</li>
-            <li><strong>Нідерланди:</strong> Амстердам | <strong>Бельгія:</strong> Брюссель</li>
-            <li><strong>Швейцарія:</strong> Цюрих, Женева | <strong>Іспанія:</strong> Мадрид, Барселона</li>
-        </ul>
-    </section>
+            <div class="program-day" data-aos="fade-left">
+                <div class="day-text">
+                    <span class="day-number">День 2</span>
+                    <h3>Селище Санти та Олені</h3>
+                    <ul>
+                        <li><i class="fas fa-map-pin"></i> Урочистий перетин Полярного кола (магічна лінія Арктики).</li>
+                        <li><i class="fas fa-reindeer"></i> <strong>Сафарі на оленях:</strong> Прогулянка в санях казковим лісом.</li>
+                        <li><i class="fas fa-certificate"></i> Аудієнція у Санта-Клауса: особиста зустріч та фото на згадку.</li>
+                        <li><i class="fas fa-envelope"></i> Головна Пошта Санти: відправка листівок рідним.</li>
+                    </ul>
+                </div>
+                <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1542640244-7e672d6cef21?q=80&w=2070&auto=format&fit=crop');"></div>
+            </div>
 
-    <section id="pricing">
-        <div class="price-container">
-            <h2>Вартість подорожі</h2>
-            <p>від</p>
-            <div class="price-val">450 €</div>
+            <div class="program-day" data-aos="fade-right">
+                <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1512598268429-9d7458084500?q=80&w=2070&auto=format&fit=crop');"></div>
+                <div class="day-text">
+                    <span class="day-number">День 3</span>
+                    <h3>Santa Park — підземна печера ельфів</h3>
+                    <ul>
+                        <li><i class="fas fa-hat-wizard"></i> Школа Ельфів: навчання секретам помічників Санти.</li>
+                        <li><i class="fas fa-cookie"></i> Пекарня Місіс Клаус: майстер-клас з розпису імбирного печива.</li>
+                        <li><i class="fas fa-ice-cream"></i> Крижана Галерея: скульптури з льоду та подих Арктики.</li>
+                        <li><i class="fas fa-train"></i> Магічний поїзд "Пори року".</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <p><strong>📅 Доступні дати 2026:</strong> Січень (21, 26, 28) | Лютий (02, 04, 09, 11, 16, 18, 23, 25) | Березень (02, 04, 09, 11, 16, 18, 23, 25, 30)</p>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Атмосфера подорожі</h2>
+            <div class="gallery">
+                <div class="gallery-item" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1579033461380-adb47c3eb938?q=80&w=500&auto=format&fit=crop" alt="Aurora"></div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=500&auto=format&fit=crop" alt="Cottage"></div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200"><img src="https://images.unsplash.com/photo-1483347756197-71ef80e95f73?q=80&w=500&auto=format&fit=crop" alt="Snow"></div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300"><img src="https://images.unsplash.com/photo-1544233736-0f62e633225c?q=80&w=500&auto=format&fit=crop" alt="Reindeer"></div>
+            </div>
+        </section>
+
+        <section id="flights" class="flights-section" data-aos="fade-up">
+            <h2 style="font-size: 1.5rem;">Вильоти з міст Європи</h2>
+            <div class="flights-grid">
+                <div class="flight-city"><b>Німеччина:</b> Берлін, Франкфурт, Мюнхен</div>
+                <div class="flight-city"><b>Польща:</b> Варшава</div>
+                <div class="flight-city"><b>Чехія:</b> Прага</div>
+                <div class="flight-city"><b>Франція:</b> Париж, Ніцца</div>
+                <div class="flight-city"><b>Австрія:</b> Відень</div>
+                <div class="flight-city"><b>Італія:</b> Рим, Мілан</div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; font-size: 0.8rem;">*та інші міста згідно вашого запиту</p>
+        </section>
+
+        <div class="price-card" data-aos="flip-up">
+            <h2>ВАРТІСТЬ ТУРУ</h2>
+            <div class="price-tag">від 450€</div>
             <p>+ авіаквитки</p>
             <div style="margin-top: 30px; text-align: left; display: inline-block;">
-                <p>✅ <strong>Включено:</strong> Переліт, Проживання, Трансфери, Полювання за Сяйвом + Пікнік.</p>
-                <p>❌ <strong>Додатково:</strong> Квитки в Санта Парк, катання на оленях, сертифікат.</p>
+                <p><i class="fas fa-check text-green"></i> Авіа та проживання включено</p>
+                <p><i class="fas fa-check text-green"></i> Всі трансфери по програмі</p>
+                <p><i class="fas fa-check text-green"></i> Полювання на Сяйво з пікніком</p>
             </div>
         </div>
-    </section>
 
-    <section id="booking">
-        <div class="form-container">
-            <h2 style="color: #333; margin-bottom: 20px;">Залишити заявку</h2>
-            <p style="text-align: center; margin-bottom: 20px;">Заповніть форму, і ми зв'яжемося з вами для розрахунку туру!</p>
-            <form action="#">
-                <input type="text" placeholder="Ваше ім'я" required>
-                <input type="tel" placeholder="Номер телефону (WhatsApp/Viber)" required>
-                <select>
-                    <option value="">Оберіть місто вильоту</option>
-                    <option value="de">Німеччина</option>
-                    <option value="pl">Польща</option>
-                    <option value="cz">Чехія</option>
-                    <option value="other">Інше місто</option>
-                </select>
-                <textarea rows="4" placeholder="Ваші побажання (кількість осіб, дати)"></textarea>
-                <button type="submit" class="form-btn">ХОЧУ В КАЗКУ ✨</button>
-            </form>
-        </div>
-    </section>
+        <section id="book">
+            <div class="booking-form">
+                <h2 style="color: #333; margin-bottom: 20px;">Забронювати казку</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>Ваше ім'я</label>
+                        <input type="text" placeholder="Олександр" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Телефон (WhatsApp/Viber)</label>
+                        <input type="tel" placeholder="+380..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Місто вильоту</label>
+                        <select>
+                            <option>Оберіть місто...</option>
+                            <option>Берлін</option>
+                            <option>Варшава</option>
+                            <option>Прага</option>
+                            <option>Мюнхен</option>
+                            <option>Інше</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Ваше запитання</label>
+                        <textarea rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn-main" style="width: 100%;">НАДІСЛАТИ ЗАПИТ</button>
+                </form>
+            </div>
+        </section>
+    </div>
 
     <footer>
-        <p>© 2026 Магія Лапландії. Всі права захищені. <br> Індивідуальні тури до серця Арктики.</p>
+        <p>© 2026 Магія Лапландії | Україномовні гіди в Арктиці</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Snow Animation
+        const canvas = document.getElementById('snow-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height, snowflakes = [];
+
+        function init() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            snowflakes = [];
+            for (let i = 0; i < 150; i++) {
+                snowflakes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    r: Math.random() * 3 + 1,
+                    d: Math.random() * 1
+                });
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.beginPath();
+            for (let i = 0; i < snowflakes.length; i++) {
+                let f = snowflakes[i];
+                ctx.moveTo(f.x, f.y);
+                ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+            }
+            ctx.fill();
+            move();
+        }
+
+        function move() {
+            for (let i = 0; i < snowflakes.length; i++) {
+                let f = snowflakes[i];
+                f.y += Math.pow(f.d, 2) + 1;
+                f.x += Math.sin(f.y / 50);
+                if (f.y > height) {
+                    snowflakes[i] = { x: Math.random() * width, y: 0, r: f.r, d: f.d };
+                }
+            }
+        }
+
+        window.addEventListener('resize', init);
+        init();
+        setInterval(draw, 30);
+    </script>
 </body>
 </html>
