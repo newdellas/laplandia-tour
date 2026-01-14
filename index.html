@@ -290,4 +290,98 @@
             <div class="live-grid">
                 <div class="cam-box">
                     <div class="cam-tag"><i class="fas fa-circle"></i> СЕЛИЩЕ САНТИ</div>
-                    <iframe src="https://www
+                    <iframe src="https://www.youtube.com/embed/p90_t78S8vA?autoplay=1&mute=1&loop=1&playlist=p90_t78S8vA&controls=0&showinfo=0&rel=0" allow="autoplay; encrypted-media"></iframe>
+                </div>
+                <div class="cam-box">
+                    <div class="cam-tag"><i class="fas fa-circle"></i> ПІВНІЧНЕ СЯЙВО</div>
+                    <iframe src="https://www.youtube.com/embed/OIm7_9S_Ouw?autoplay=1&mute=1&loop=1&playlist=OIm7_9S_Ouw&controls=0&showinfo=0&rel=0" allow="autoplay; encrypted-media"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="price-section" id="book">
+            <h2>ВАРТІСТЬ ПРИГОДИ</h2>
+            <div class="price-val">від 450€</div>
+            <p style="font-size: 1.2rem; margin-bottom: 30px;">+ авіаквитки</p>
+            
+            <div class="includes-grid">
+                <div class="inc-col">
+                    <h4 style="color: var(--accent);">✅ ЩО ВХОДИТЬ:</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Проживання в апартаментах</li>
+                        <li><i class="fas fa-check"></i> Всі трансфери (Аеропорт-Дім-Локації)</li>
+                        <li><i class="fas fa-check"></i> Експедиція за Сяйвом (авто + гід)</li>
+                        <li><i class="fas fa-check"></i> Пікнік (їжа, напої)</li>
+                        <li><i class="fas fa-check"></i> Супровід 24/7</li>
+                    </ul>
+                </div>
+                <div class="inc-col">
+                    <h4 style="color: #ff4444;">❌ ДОДАТКОВО:</h4>
+                    <ul>
+                        <li><i class="fas fa-times"></i> Авіаквитки</li>
+                        <li><i class="fas fa-times"></i> Вхідні квитки в Парк</li>
+                        <li><i class="fas fa-times"></i> Олені/Хаскі</li>
+                        <li><i class="fas fa-times"></i> Сертифікат про Полярне коло</li>
+                        <li><i class="fas fa-times"></i> Трансфер з дому до аеропорту</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>ЗАБРОНЮВАТИ МІСЦЕ ✨</h2>
+            <form class="form-box">
+                <input type="text" class="form-input" placeholder="Ваше ім'я" required>
+                <input type="tel" class="form-input" placeholder="Телефон (WhatsApp/Viber)" required>
+                <select class="form-input" required>
+                    <option value="" disabled selected>Країна вильоту</option>
+                    <option>Німеччина</option>
+                    <option>Польща</option>
+                    <option>Чехія</option>
+                    <option>Інша</option>
+                </select>
+                <textarea class="form-input" rows="3" placeholder="Питання або кількість осіб"></textarea>
+                <button type="submit" class="btn-submit">ВІДПРАВИТИ ЗАПИТ</button>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 ЛАПЛАНДІЯ ТУР. Організація магічних подорожей.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // СНІГ
+        (function() {
+            var canvas = document.getElementById('snow-canvas');
+            var ctx = canvas.getContext('2d');
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            var particles = [];
+            for(var i=0; i<80; i++) particles.push({x: Math.random()*width, y: Math.random()*height, r: Math.random()*3+1, d: Math.random()*1+1});
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+                ctx.beginPath();
+                for(var i=0; i<particles.length; i++) {
+                    var p = particles[i]; ctx.moveTo(p.x, p.y); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
+                }
+                ctx.fill(); update();
+            }
+            function update() {
+                for(var i=0; i<particles.length; i++) {
+                    var p = particles[i]; p.y += p.d; if(p.y > height) particles[i] = {x: Math.random()*width, y: 0, r: p.r, d: p.d};
+                }
+            }
+            setInterval(draw, 30);
+            window.addEventListener('resize', function() { width=window.innerWidth; height=window.innerHeight; canvas.width=width; canvas.height=height; });
+        })();
+    </script>
+</body>
+</html>
