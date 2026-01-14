@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
     <title>МАГІЯ ЗА ПОЛЯРНИМ КОЛОМ 2026 | Авторський Тур в Лапландію</title>
-    <meta name="description" content="Ексклюзивний тур в Лапландію 2026: проживання в апартаментах, полювання за Північним Сяйвом, зустріч із Сантою. Гарантований виїзд з Європи.">
-    <meta name="keywords" content="Лапландія тур 2026, Санта Клаус тур, Північне сяйво, Полярне коло, тур з дітьми зима, Рованіємі">
+    <meta name="description" content="Ексклюзивний тур в Лапландію 2026. Проживання в апартаментах, полювання за Сяйвом, Санта Клаус. Гарантований виїзд з Німеччини, Польщі та всієї Європи.">
+    <meta name="keywords" content="Лапландія тур 2026, Санта Клаус тур, Північне сяйво, поїздка до санти з європи, тур з дітьми">
     <link rel="canonical" href="https://newdellas.github.io/laplandia-tour/">
     <meta name="theme-color" content="#020c1b">
     
-    <meta property="og:title" content="❄️ АРКТИЧНА КАЗКА 2026: Тур в Лапландію">
-    <meta property="og:description" content="Магія існує! Олені, Санта, Сяйво та затишні вечори. Дивись програму та ціни!">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://newdellas.github.io/laplandia-tour/">
-    <meta property="og:image" content="https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=1200">
-    
     <link rel="icon" type="image/png" href="favicon.png"> 
+    
+    <meta property="og:title" content="❄️ АРКТИЧНА КАЗКА 2026: Тур в Лапландію">
+    <meta property="og:description" content="Магія існує! Олені, Санта, Сяйво та затишні вечори. Дивись програму!">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=1200">
     
     <script type="application/ld+json">
     {
@@ -24,23 +23,16 @@
       "@type": "TouristTrip",
       "name": "Арктична Казка 2026",
       "description": "4-денна подорож у Лапландію: Санта, Олені, Сяйво.",
-      "provider": { "@type": "TravelAgency", "name": "Laplandia Tour" },
       "itinerary": {
         "@type": "ItemList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Приліт та Сяйво" },
-          { "@type": "ListItem", "position": 2, "name": "Санта Клаус та Олені" },
-          { "@type": "ListItem", "position": 3, "name": "Санта Парк та Ельфи" },
-          { "@type": "ListItem", "position": 4, "name": "Виліт" }
+          { "@type": "ListItem", "position": 1, "name": "Приліт, Апартаменти, Сяйво" },
+          { "@type": "ListItem", "position": 2, "name": "Санта Клаус, Олені" },
+          { "@type": "ListItem", "position": 3, "name": "Санта Парк, Ельфи" },
+          { "@type": "ListItem", "position": 4, "name": "Прощання" }
         ]
       },
-      "offers": {
-        "@type": "Offer",
-        "price": "450",
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock",
-        "url": "https://newdellas.github.io/laplandia-tour/#book"
-      }
+      "offers": { "@type": "Offer", "price": "450", "priceCurrency": "EUR" }
     }
     </script>
 
@@ -51,16 +43,12 @@
     <style>
         /* --- 1. CORE VARIABLES --- */
         :root {
-            --bg-color: #020c1b;
+            --bg-color: #010811;
             --text-main: #e6f1ff;
-            --text-muted: #a8b2d1;
-            --gradient-text: linear-gradient(135deg, #00d4ff 0%, #ffffff 100%); 
-            --accent-primary: #39ff14; /* Lime */
-            --accent-secondary: #00d4ff; /* Cyan */
-            --glass-bg: rgba(13, 25, 48, 0.85); /* Darker glass for better contrast */
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --radius: 24px;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --accent-primary: #39ff14; /* ПОВЕРНУТО ЯСКРАВИЙ ЛАЙМ */
+            --accent-secondary: #00d4ff; /* CYAN */
+            --glass-card: rgba(5, 15, 28, 0.9);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -72,265 +60,207 @@
             background-color: var(--bg-color);
             overflow-x: hidden;
             line-height: 1.7;
-            font-size: 16px;
         }
 
-        /* --- 2. BACKGROUND (PERFORMANCE OPTIMIZED) --- */
+        /* --- 2. BACKGROUND (BULLETPROOF) --- */
         .video-bg-container {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             z-index: -10; overflow: hidden;
+            background: #010811; /* Базовий чорний */
         }
         
         .video-bg {
             width: 100%; height: 100%; object-fit: cover;
-            filter: brightness(0.35) contrast(1.1) saturate(1.1);
-            will-change: transform; /* Hint for browser optimization */
+            filter: brightness(0.35) contrast(1.1);
+            will-change: transform;
+            /* Fallback background image */
+            background-image: url('https://images.pexels.com/photos/3192137/pexels-photo-3192137.jpeg?auto=compress&cs=tinysrgb&w=1920');
+            background-size: cover;
+            background-position: center;
         }
 
         .bg-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: -5;
-            background: radial-gradient(circle at 50% 50%, rgba(2,12,27,0.3) 0%, rgba(2,12,27,0.95) 100%);
+            background: radial-gradient(circle at center, rgba(2,12,27,0.1) 0%, rgba(2,12,27,0.95) 100%);
         }
 
-        #snow-canvas {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1; pointer-events: none; 
-        }
+        #snow-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
 
-        .main-wrapper {
-            position: relative; z-index: 10;
-            max-width: 1240px; margin: 0 auto; padding: 0 24px;
-        }
+        .main-wrapper { position: relative; z-index: 10; max-width: 1240px; margin: 0 auto; padding: 0 24px; }
 
-        /* --- 3. TYPOGRAPHY & UI --- */
+        /* --- 3. TYPOGRAPHY & COMPONENTS --- */
         h2 {
             font-size: clamp(2rem, 5vw, 3.5rem); text-align: center; margin-bottom: 70px;
             font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
-            background: var(--gradient-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background: linear-gradient(135deg, #00d4ff 0%, #ffffff 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             text-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-            position: relative; display: inline-block; width: 100%;
         }
 
+        /* BUTTON (LIME MAGIC) */
         .btn-main {
-            position: relative; display: inline-block; padding: 20px 50px;
+            display: inline-block; padding: 22px 60px;
             background: var(--accent-primary); color: #000;
-            font-weight: 800; text-transform: uppercase; text-decoration: none;
-            border-radius: 50px; border: none; cursor: pointer; letter-spacing: 1px;
-            box-shadow: 0 0 25px rgba(57, 255, 20, 0.4);
-            transition: var(--transition); overflow: hidden; z-index: 1;
+            font-weight: 900; text-transform: uppercase; text-decoration: none;
+            border-radius: 60px; border: none; cursor: pointer; letter-spacing: 1.5px;
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.7);
+            transition: var(--transition);
+            font-size: 1.1rem;
+            position: relative;
         }
-        
         .btn-main:hover { 
-            transform: translateY(-4px) scale(1.02); 
-            box-shadow: 0 10px 50px rgba(57, 255, 20, 0.6); 
-            color: #fff;
+            transform: translateY(-5px) scale(1.03); 
+            box-shadow: 0 15px 50px var(--accent-primary); 
+            background: #fff;
         }
 
         .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            background: var(--glass-card);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
             transition: var(--transition);
         }
-        .glass-card:hover {
-            border-color: rgba(255,255,255,0.2);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-        }
 
-        /* --- 4. SECTIONS --- */
+        /* --- 4. HERO (FIXED ALIGNMENT) --- */
         .hero {
             min-height: 100vh; display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
-            padding: 120px 20px 60px; position: relative;
+            padding: 120px 20px 60px;
         }
-        .hero-sub {
-            color: var(--accent-primary); font-weight: 700; letter-spacing: 4px;
-            text-transform: uppercase; margin-bottom: 24px; display: block; font-size: 0.9rem;
-            text-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
-        }
-        .hero h1 {
-            font-size: clamp(3.5rem, 11vw, 7rem); line-height: 1.05; margin-bottom: 30px;
-            font-weight: 900; text-transform: uppercase; letter-spacing: -2px;
-            background: linear-gradient(180deg, #ffffff 0%, #b3e5fc 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.4));
-        }
+        .hero-sub { color: var(--accent-primary); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 24px; display: block; }
+        .hero h1 { font-size: clamp(3.5rem, 11vw, 7.5rem); line-height: 1.05; margin-bottom: 30px; font-weight: 900; text-shadow: 0 0 60px rgba(0, 212, 255, 0.4); }
+        
         .hero p {
-            font-size: 1.25rem; max-width: 750px; margin-bottom: 40px; 
-            color: var(--text-muted); font-weight: 400; line-height: 1.8;
-        }
-        .hero-badge {
-            background: rgba(57, 255, 20, 0.05); border: 1px solid var(--accent-primary);
-            color: var(--accent-primary); padding: 12px 30px; border-radius: 50px;
-            font-weight: 700; margin-bottom: 50px; display: inline-block; letter-spacing: 1px;
-            backdrop-filter: blur(5px);
+            font-size: clamp(1.1rem, 3vw, 1.4rem); 
+            max-width: 850px; 
+            margin: 0 auto 45px; /* ІДЕАЛЬНЕ ЦЕНТРУВАННЯ ПО ГОРИЗОНТАЛІ */
+            color: #d1d9e6; 
+            line-height: 1.8; 
+            text-align: center;
         }
         
-        .scroll-down {
-            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
-            animation: bounce 2s infinite; opacity: 0.7; cursor: pointer;
+        .hero-badge {
+            background: rgba(57, 255, 20, 0.05); border: 2px solid var(--accent-primary);
+            color: var(--accent-primary); padding: 12px 30px; border-radius: 50px;
+            font-weight: 700; margin-bottom: 50px; display: inline-block;
         }
-        .scroll-down i { font-size: 24px; color: var(--accent-secondary); }
-        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform:translateY(0) translateX(-50%);} 40% {transform:translateY(-10px) translateX(-50%);} 60% {transform:translateY(-5px) translateX(-50%);} }
 
-        /* LOGISTICS */
-        .dates-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 100px; }
+        /* --- 5. DATES (FIXED VISIBILITY) --- */
+        .date-section-container { text-align: center; margin-bottom: 120px; }
+        .date-subtitle {
+            margin-top: -30px; margin-bottom: 40px;
+            color: var(--accent-secondary); font-weight: 600; font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+        .dates-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
         .date-item {
-            padding: 14px 28px; border-radius: 16px; font-weight: 700; letter-spacing: 1px;
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
-            color: #fff; transition: var(--transition); cursor: default;
+            padding: 18px 35px; border-radius: 15px; font-weight: 800; letter-spacing: 1px;
+            background: #050f1c; border: 2px solid rgba(0, 212, 255, 0.5); /* Більш видима рамка */
+            color: #fff; transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
         }
-        .date-item:hover { 
-            border-color: var(--accent-secondary); background: rgba(0, 212, 255, 0.15); 
-            transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,212,255,0.2);
-        }
+        .date-item:hover { border-color: var(--accent-primary); color: var(--accent-primary); transform: translateY(-5px); }
 
+        /* --- 6. FLIGHTS --- */
         .flights-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-bottom: 140px; }
-        .flight-card { padding: 30px; display: flex; flex-direction: column; justify-content: center; }
-        .flight-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
-        .flag { font-size: 2.5rem; line-height: 1; }
-        .flight-card h4 { color: var(--accent-secondary); font-size: 1.2rem; font-weight: 800; text-transform: uppercase; }
-        .flight-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
+        .flight-card { padding: 35px; }
+        .flight-head { display: flex; align-items: center; gap: 18px; margin-bottom: 15px; }
+        .flag { font-size: 2.5rem; }
+        .flight-card h4 { color: var(--accent-primary); font-size: 1.2rem; font-weight: 800; text-transform: uppercase; }
+        .flight-card p { color: #a8b2d1; font-size: 1rem; }
 
-        /* PROGRAM */
-        .program-day {
-            display: grid; grid-template-columns: 1.2fr 1fr; margin-bottom: 120px; 
-            border-radius: 40px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05);
-        }
+        /* --- 7. PROGRAM (FULL VERSION) --- */
+        .program-day { display: grid; grid-template-columns: 1.2fr 1fr; margin-bottom: 100px; border-radius: 40px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
         .program-day:nth-child(even) { direction: rtl; } 
-        .program-day:nth-child(even) .day-info { direction: ltr; }
-        .program-day:nth-child(even) .day-visual { direction: ltr; }
-
-        .day-info { padding: 60px; display: flex; flex-direction: column; justify-content: center; background: rgba(10, 15, 30, 0.6); }
-        .day-badge { 
-            background: var(--accent-primary); color: #000; padding: 6px 18px; 
-            border-radius: 50px; font-weight: 800; font-size: 0.8rem; width: fit-content; 
-            margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px;
-        }
-        .day-info h3 { font-size: 2.2rem; color: #fff; margin-bottom: 24px; font-weight: 800; line-height: 1.1; }
-        .day-info p { margin-bottom: 18px; color: var(--text-muted); font-size: 1.05rem; }
-        .day-info b { color: #fff; font-weight: 600; }
+        .program-day:nth-child(even) .day-info, .program-day:nth-child(even) .day-visual { direction: ltr; }
+        
+        .day-info { padding: 60px; display: flex; flex-direction: column; justify-content: center; background: rgba(5, 10, 20, 0.7); }
+        .day-badge { background: var(--accent-primary); color: #000; padding: 6px 18px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; margin-bottom: 24px; text-transform: uppercase; }
+        .day-info h3 { font-size: 2.3rem; color: #fff; margin-bottom: 24px; font-weight: 800; line-height: 1.2; }
+        .day-info p { margin-bottom: 18px; color: #d1d9e6; font-size: 1.05rem; }
+        .day-info b { color: #fff; font-weight: 700; }
 
         .day-visual { background: #000; display: flex; flex-direction: column; position: relative; }
-        
-        .video-facade {
-            position: relative; height: 350px; cursor: pointer; overflow: hidden; display: block;
-        }
-        .video-facade img { width: 100%; height: 100%; object-fit: cover; transition: 0.7s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .video-facade { position: relative; height: 380px; cursor: pointer; overflow: hidden; display: block; }
+        .video-facade img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
         .video-facade:hover img { transform: scale(1.1); }
-        .play-btn {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 80px; height: 80px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
-            border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); 
-            display: flex; align-items: center; justify-content: center; transition: 0.4s;
-        }
-        .play-btn i { color: #fff; font-size: 28px; margin-left: 4px; }
-        .video-facade:hover .play-btn { background: var(--accent-primary); border-color: var(--accent-primary); transform: translate(-50%, -50%) scale(1.1); }
-        .video-facade:hover .play-btn i { color: #000; }
+        .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(0,0,0,0.6); border-radius: 50%; border: 2px solid #fff; display: flex; align-items: center; justify-content: center; }
+        
+        .highlights-list { padding: 35px; list-style: none; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+        .highlights-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; font-weight: 600; color: #eee; font-size: 1rem; }
+        .highlights-list i { color: var(--accent-secondary); font-size: 1.2rem; width: 25px; text-align: center; }
 
-        .day-highlights { padding: 30px 40px; background: rgba(255,255,255,0.03); flex-grow: 1; border-top: 1px solid rgba(255,255,255,0.05); }
-        .day-highlights h4 { margin-bottom: 15px; font-size: 0.9rem; color: var(--accent-secondary); text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
-        .highlights-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 15px; font-weight: 600; list-style: none; font-size: 0.95rem; }
-        .highlights-list i { color: var(--accent-secondary); min-width: 24px; text-align: center; }
-
-        /* GALLERY */
+        /* --- 8. GALLERY --- */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 160px; }
-        .gallery-item {
-            aspect-ratio: 16/9; border-radius: 20px; overflow: hidden; cursor: pointer; position: relative;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
+        .gallery-item { aspect-ratio: 16/9; border-radius: 20px; overflow: hidden; cursor: pointer; position: relative; border: 1px solid rgba(255,255,255,0.1); }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-        .gallery-item:hover img { transform: scale(1.05); opacity: 0.7; }
+        .gallery-item:hover img { transform: scale(1.05); filter: brightness(0.7); }
         .gallery-item:first-child { grid-column: 1 / -1; aspect-ratio: 21/9; }
 
-        /* PRICE */
+        /* --- 9. PRICE & FORM (MATCHED WIDTH 1000px) --- */
+        .wide-block { max-width: 1000px; margin: 0 auto 120px; }
+
         .price-box {
-            text-align: center; padding: 80px 30px; border-radius: 50px; margin-bottom: 120px;
-            background: linear-gradient(180deg, rgba(2, 12, 27, 0.8) 0%, rgba(0, 212, 255, 0.1) 100%);
-            border: 1px solid var(--accent-secondary);
-            box-shadow: 0 0 60px rgba(0, 212, 255, 0.1);
+            text-align: center; padding: 80px 40px; border-radius: 50px; 
+            background: linear-gradient(180deg, rgba(5, 15, 30, 0.95) 0%, rgba(0, 212, 255, 0.05) 100%);
+            border: 2px solid var(--accent-secondary);
         }
-        .price-val { font-size: clamp(4rem, 10vw, 6rem); font-weight: 900; color: var(--accent-primary); margin: 20px 0; text-shadow: 0 0 40px rgba(57,255,20,0.3); line-height: 1; }
-        
-        .includes-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; text-align: left; max-width: 1000px; margin: 60px auto 0; }
-        .inc-col h4 { margin-bottom: 30px; color: #fff; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 15px; display: inline-block; }
-        .inc-list li { list-style: none; margin-bottom: 18px; display: flex; gap: 15px; color: #ddd; font-size: 1.1rem; align-items: flex-start; }
-        .fa-check-circle { color: var(--accent-primary); font-size: 1.2rem; margin-top: 3px; }
-        .fa-times-circle { color: #ff4444; font-size: 1.2rem; margin-top: 3px; }
-        .fa-arrow-right { color: var(--accent-secondary); font-size: 1.2rem; margin-top: 3px; }
+        .price-val { font-size: clamp(4rem, 10vw, 6.5rem); font-weight: 900; color: var(--accent-primary); margin: 15px 0; line-height: 1; }
+        .includes-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; text-align: left; max-width: 900px; margin: 60px auto 0; }
+        .inc-col h4 { margin-bottom: 30px; color: #fff; font-size: 1.4rem; text-transform: uppercase; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom: 12px; }
+        .inc-list li { list-style: none; margin-bottom: 18px; display: flex; gap: 15px; color: #ccc; font-size: 1.1rem; }
 
-        /* FORM */
+        /* FORM BLOCK (WIDE) */
         .form-container {
-            max-width: 650px; margin: 0 auto 120px; padding: 60px 40px; 
-            background: #fff; border-radius: 40px; position: relative;
-            color: #000; box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            padding: 80px 60px; background: #fff; border-radius: 50px; position: relative;
+            color: #000; box-shadow: 0 40px 100px rgba(0,0,0,0.7);
         }
-        .form-container h2 { color: #000; text-shadow: none; margin-bottom: 10px; background: none; -webkit-text-fill-color: initial; }
-        .form-input {
-            width: 100%; padding: 18px; margin-bottom: 18px; border: 2px solid #f0f0f0; 
-            border-radius: 14px; font-size: 1rem; font-family: inherit; transition: 0.3s; background: #f9f9f9;
-        }
-        .form-input:focus { outline: none; border-color: var(--accent-secondary); background: #fff; box-shadow: 0 0 0 4px rgba(0,212,255,0.1); }
-        .form-btn {
-            width: 100%; padding: 20px; background: #000; color: #fff;
-            border: none; border-radius: 14px; font-weight: 800; font-size: 1.2rem;
-            cursor: pointer; text-transform: uppercase; transition: 0.3s; letter-spacing: 1px;
-        }
-        .form-btn:hover { background: var(--accent-secondary); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,212,255,0.3); }
-
-        /* FOOTER & COOKIES */
-        footer { text-align: center; padding: 50px 20px; background: #01060e; border-top: 1px solid rgba(255,255,255,0.05); }
-        .footer-links { margin-bottom: 25px; }
-        .footer-links a { color: var(--text-muted); text-decoration: none; margin: 0 15px; font-size: 0.9rem; transition: 0.3s; }
-        .footer-links a:hover { color: var(--accent-primary); }
         
-        .cookie-banner {
-            position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 500px;
-            background: rgba(10, 15, 30, 0.95); backdrop-filter: blur(10px);
-            padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);
-            display: none; align-items: center; justify-content: space-between; gap: 20px;
-            z-index: 10000; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        /* THE NEW LIMITED BADGE (ICON) */
+        .limited-badge {
+            position: absolute; top: -25px; right: 60px; 
+            background: #ff4444; color: #fff; padding: 14px 35px; 
+            border-radius: 50px; font-weight: 800; font-size: 1rem;
+            box-shadow: 0 12px 25px rgba(255,68,68,0.5);
+            display: flex; align-items: center; gap: 12px;
+            animation: pulse-red 2s infinite; z-index: 100;
+            text-transform: uppercase; letter-spacing: 1px;
         }
-        .cookie-banner p { font-size: 0.85rem; margin: 0; line-height: 1.4; color: #ccc; }
-        .cookie-btn {
-            padding: 10px 25px; background: var(--accent-secondary); color: #fff;
-            border: none; border-radius: 10px; font-weight: 700; cursor: pointer; white-space: nowrap;
-        }
+        @keyframes pulse-red { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
 
-        /* MODAL */
-        .modal-overlay {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); z-index: 9999; justify-content: center; align-items: center;
-            backdrop-filter: blur(10px);
-        }
-        .modal-box {
-            background: #fff; padding: 50px; border-radius: 30px; text-align: center; color: #000; max-width: 450px; width: 90%;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5); animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+        .form-container h2 { color: #000; text-shadow: none; margin-bottom: 25px; background: none; -webkit-text-fill-color: initial; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+        .form-input { width: 100%; padding: 22px; border: 2px solid #f0f0f0; border-radius: 18px; font-size: 1.1rem; font-family: inherit; transition: 0.3s; background: #f9f9f9; }
+        .form-input:focus { outline: none; border-color: var(--accent-secondary); background: #fff; box-shadow: 0 0 0 5px rgba(0,212,255,0.1); }
+        .form-full { grid-column: 1 / -1; }
+        .form-btn { grid-column: 1 / -1; padding: 24px; background: #000; color: #fff; border: none; border-radius: 18px; font-weight: 900; font-size: 1.3rem; cursor: pointer; text-transform: uppercase; transition: 0.3s; letter-spacing: 1px; }
+        .form-btn:hover { background: var(--accent-secondary); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,212,255,0.4); }
+
+        /* COOKIE & MODAL */
+        .cookie-banner { position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 500px; background: rgba(10, 15, 30, 0.98); padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); display: none; align-items: center; justify-content: space-between; gap: 20px; z-index: 10000; }
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999; justify-content: center; align-items: center; backdrop-filter: blur(10px); }
+        .modal-box { background: #fff; padding: 50px; border-radius: 30px; text-align: center; color: #000; max-width: 450px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,0.5); animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         @keyframes popIn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
         @media (max-width: 900px) {
-            h2 { font-size: 2rem; margin-bottom: 40px; }
-            .program-day { grid-template-columns: 1fr; border-radius: 30px; }
-            .day-info { padding: 40px 25px; }
-            .day-info h3 { font-size: 1.8rem; }
-            .day-visual { order: 2; height: 280px; }
-            .includes-wrapper { grid-template-columns: 1fr; gap: 40px; }
-            .hero { padding-top: 100px; padding-bottom: 60px; }
+            .program-day { grid-template-columns: 1fr; }
+            .day-visual { order: 2; }
+            .form-grid { grid-template-columns: 1fr; }
+            .includes-wrapper { grid-template-columns: 1fr; }
+            .form-container { padding: 60px 25px; }
             .hero h1 { font-size: 3.2rem; }
-            .form-container { padding: 40px 25px; }
-            .cookie-banner { flex-direction: column; text-align: center; }
+            .limited-badge { right: 50%; transform: translateX(50%); top: -30px; white-space: nowrap; }
+            @keyframes pulse-red { 0%, 100% { transform: translateX(50%) scale(1); } 50% { transform: translateX(50%) scale(1.05); } }
         }
     </style>
 </head>
 <body>
 
     <div class="video-bg-container">
-        <video autoplay muted loop playsinline class="video-bg" poster="https://images.pexels.com/photos/3192137/pexels-photo-3192137.jpeg">
+        <video autoplay muted loop playsinline class="video-bg" 
+               poster="https://images.pexels.com/photos/3192137/pexels-photo-3192137.jpeg?auto=compress&cs=tinysrgb&w=1920">
             <source src="https://assets.mixkit.co/videos/preview/mixkit-snow-falling-on-pine-trees-in-winter-42379-large.mp4" type="video/mp4">
         </video>
         <div class="bg-overlay"></div>
@@ -341,7 +271,7 @@
     <div class="main-wrapper">
         
         <section class="hero">
-            <div data-aos="fade-up" data-aos-duration="1000">
+            <div data-aos="zoom-in" data-aos-duration="1200">
                 <span class="hero-sub">🎅 Санта, Лапландія та Північне Сяйво!</span>
                 <h1>АРКТИЧНА КАЗКА</h1>
                 <p>
@@ -352,20 +282,21 @@
                 <br>
                 <a href="#book" class="btn-main">ЗАБРОНЮВАТИ МІСЦЕ</a>
             </div>
-            <div class="scroll-down" onclick="document.querySelector('.dates-grid').scrollIntoView()"><i class="fas fa-chevron-down"></i></div>
         </section>
 
-        <h2 data-aos="fade-up">📅 Дати турів 2026</h2>
-        <div class="dates-grid" data-aos="fade-up" data-aos-delay="100">
-            <div class="date-item">21.01</div><div class="date-item">26.01</div><div class="date-item">28.01</div>
-            <div class="date-item">02.02</div><div class="date-item">04.02</div><div class="date-item">09.02</div>
-            <div class="date-item">11.02</div><div class="date-item">16.02</div><div class="date-item">18.02</div>
-            <div class="date-item">23.02</div><div class="date-item">25.02</div>
-            <div class="date-item">02.03</div><div class="date-item">04.03</div><div class="date-item">09.03</div>
-            <div class="date-item">11.03</div><div class="date-item">16.03</div><div class="date-item">18.03</div>
-            <div class="date-item">23.03</div><div class="date-item">25.03</div><div class="date-item">30.03</div>
+        <div class="date-section-container">
+            <h2 data-aos="fade-up">📅 Дати турів 2026</h2>
+            <p class="date-subtitle" data-aos="fade-up">*Можливі інші дати під Ваш запит</p>
+            <div class="dates-grid" data-aos="fade-up">
+                <div class="date-item">21.01</div><div class="date-item">26.01</div><div class="date-item">28.01</div>
+                <div class="date-item">02.02</div><div class="date-item">04.02</div><div class="date-item">09.02</div>
+                <div class="date-item">11.02</div><div class="date-item">16.02</div><div class="date-item">18.02</div>
+                <div class="date-item">23.02</div><div class="date-item">25.02</div>
+                <div class="date-item">02.03</div><div class="date-item">04.03</div><div class="date-item">09.03</div>
+                <div class="date-item">11.03</div><div class="date-item">16.03</div><div class="date-item">18.03</div>
+                <div class="date-item">23.03</div><div class="date-item">25.03</div><div class="date-item">30.03</div>
+            </div>
         </div>
-        <p style="text-align: center; margin-bottom: 100px; color: var(--accent-secondary); font-weight: 600; opacity: 0.8;">*Можливі інші дати під Ваш запит</p>
 
         <h2 data-aos="fade-up">✈️ Вильоти з Європи</h2>
         <div class="flights-grid">
@@ -374,10 +305,7 @@
             <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇵🇱</span><h4>Польща</h4></div><p>Варшава (прямий рейс LOT)</p></div>
             <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇨🇿</span><h4>Чехія</h4></div><p>Прага (Eurowings)</p></div>
             <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇮🇹</span><h4>Італія</h4></div><p>Мілан, Рим, Неаполь</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇪🇸</span><h4>Іспанія</h4></div><p>Мадрид, Барселона</p></div>
             <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇦🇹</span><h4>Австрія</h4></div><p>Відень</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇳🇱</span><h4>Нідерланди</h4></div><p>Амстердам</p></div>
-            <div class="flight-card glass-card" data-aos="fade-up"><div class="flight-head"><span class="flag">🇧🇪</span><h4>Бельгія</h4></div><p>Брюссель</p></div>
         </div>
 
         <h2 style="margin-top:100px">🗺 Ваша Чарівна Програма</h2>
@@ -386,24 +314,21 @@
             <div class="day-info">
                 <span class="day-badge">День 1</span>
                 <h3>Приліт та Нічне Полювання за Сяйвом 🌌</h3>
-                <p>Ваша арктична пригода починається! Наш водій зустріне вас в аеропорту Рованіємі та з комфортом доставить до <b>затишних теплих апартаментів</b>. По дорозі ми заїдемо в супермаркет за фінськими делікатесами.</p>
-                <p><b>МАГІЯ ВЕЧОРА:</b> Ми вирушаємо в дикий засніжений ліс. Абсолютна тиша, величні ялинки та небо, що переливається зеленими вогнями Аврори... Це момент, коли час зупиняється.</p>
-                <p><b>СМАЧНИЙ БОНУС:</b> Справжній лапландський пікнік! Гарячий гльог, тріск багаття та ароматні ковбаски, підсмажені на вогні. 🔥</p>
+                <p>Ваша арктична пригода починається! Наш водій зустріне вас в аеропорту Рованіємі та з комфортом доставить до <b>затишних апартаментів</b>. По дорозі ми заїдемо в супермаркет за фінськими делікатесами.</p>
+                <p><b>МАГІЯ ВЕЧОРА:</b> Ми вирушаємо в дикий засніжений ліс. Абсолютна тиша, величні ялинки та небо, що танцює Авророю... Це момент істинного спокою.</p>
+                <p><b>СМАЧНИЙ БОНУС:</b> Справжній лапландський пікнік! Гарячий гльог, тріск багаття та ароматні ковбаски на вогні. 🔥</p>
             </div>
             <div class="day-visual">
                 <div class="video-facade" onclick="loadVideo(this, 'sH05pHZuptA')">
-                    <img src="https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Aurora Preview" loading="lazy">
+                    <img src="https://images.pexels.com/photos/1933239/pexels-photo-1933239.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Aurora">
                     <div class="play-btn"><i class="fas fa-play"></i></div>
                 </div>
-                <div class="day-highlights">
-                    <h4>У програмі:</h4>
-                    <ul class="highlights-list">
-                        <li><i class="fas fa-plane"></i> VIP Зустріч та Трансфер</li>
-                        <li><i class="fas fa-home"></i> Затишні Апартаменти</li>
-                        <li><i class="fas fa-tree"></i> Нічний магічний ліс</li>
-                        <li><i class="fas fa-fire"></i> Пікнік біля багаття</li>
-                    </ul>
-                </div>
+                <ul class="highlights-list">
+                    <li><i class="fas fa-plane"></i> VIP Зустріч</li>
+                    <li><i class="fas fa-home"></i> Апартаменти</li>
+                    <li><i class="fas fa-tree"></i> Нічний ліс</li>
+                    <li><i class="fas fa-fire"></i> Пікнік біля багаття</li>
+                </ul>
             </div>
         </div>
 
@@ -412,23 +337,20 @@
                 <span class="day-badge">День 2</span>
                 <h3>У гості до Санти та Олені 🦌</h3>
                 <p>Ранок мрії! Ми їдемо в офіційну резиденцію Санта Клауса. Ви перетнете магічну лінію <b>Полярного кола</b> — портал у світ чудес!</p>
-                <p><b>Олені Санти:</b> Відчуйте себе героєм казки. Ми покатаємось на санях, запряжених справжніми північними оленями. Скрип снігу, вітер і дзвін дзвіночків...</p>
-                <p><b>Аудієнція:</b> Ви особисто зустрінетесь із Головним Чарівником, шепнете йому найпотаємніше бажання та зробите фото, яке зігріватиме вас роками. 📸</p>
+                <p><b>Олені Санти:</b> Відчуйте себе героєм казки. Ми покатаємось на санях, запряжених справжніми північними оленями. Скрип снігу та дзвін дзвіночків...</p>
+                <p><b>Аудієнція:</b> Ви особисто зустрінетесь із Головним Чарівником, шепнете йому бажання та зробите легендарне фото. 📸</p>
             </div>
             <div class="day-visual">
                 <div class="video-facade" onclick="loadVideo(this, 'k9xx6y34xSI')">
-                    <img src="https://images.pexels.com/photos/716658/pexels-photo-716658.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Santa Preview" loading="lazy">
+                    <img src="https://images.pexels.com/photos/716658/pexels-photo-716658.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Santa">
                     <div class="play-btn"><i class="fas fa-play"></i></div>
                 </div>
-                <div class="day-highlights">
-                    <h4>У програмі:</h4>
-                    <ul class="highlights-list">
-                        <li><i class="fas fa-globe"></i> Перетин Полярного Кола</li>
-                        <li><i class="fas fa-sleigh"></i> Катання на Оленях</li>
-                        <li><i class="fas fa-star"></i> Особиста зустріч з Сантою</li>
-                        <li><i class="fas fa-envelope"></i> Головна Пошта Ельфів</li>
-                    </ul>
-                </div>
+                <ul class="highlights-list">
+                    <li><i class="fas fa-globe"></i> Полярне Коло</li>
+                    <li><i class="fas fa-sleigh"></i> Катання на Оленях</li>
+                    <li><i class="fas fa-star"></i> Зустріч з Сантою</li>
+                    <li><i class="fas fa-envelope"></i> Пошта Ельфів</li>
+                </ul>
             </div>
         </div>
 
@@ -439,22 +361,19 @@
                 <p>Ми спустимось у таємну печеру в серці скелі, де ельфи готуються до Різдва цілий рік! Тут пахне корицею та дитинством.</p>
                 <p><b>Школа Ельфів:</b> Пройдіть магічне навчання та отримайте почесний Диплом Ельфа! 🎓</p>
                 <p><b>Пекарня:</b> Разом із місіс Клаус ви прикрасите найсмачніше імбирне печиво. 🍪</p>
-                <p><b>Крижана галерея:</b> Ви побачите дивовижні скульптури з льоду і відчуєте крижаний подих Арктичної Королеви.</p>
+                <p><b>Крижана галерея:</b> Дивовижні скульптури з льоду і відчуття справжньої Арктики.</p>
             </div>
             <div class="day-visual">
                 <div class="video-facade" onclick="loadVideo(this, 'WhAJf2rALkQ')">
-                    <img src="https://images.pexels.com/photos/5727916/pexels-photo-5727916.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Santa Park Preview" loading="lazy">
+                    <img src="https://images.pexels.com/photos/5727916/pexels-photo-5727916.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Santa Park">
                     <div class="play-btn"><i class="fas fa-play"></i></div>
                 </div>
-                <div class="day-highlights">
-                    <h4>У програмі:</h4>
-                    <ul class="highlights-list">
-                        <li><i class="fas fa-graduation-cap"></i> Диплом Ельфа</li>
-                        <li><i class="fas fa-cookie-bite"></i> Майстер-клас з печива</li>
-                        <li><i class="fas fa-snowflake"></i> Крижана Галерея</li>
-                        <li><i class="fas fa-train"></i> Магічний потяг</li>
-                    </ul>
-                </div>
+                <ul class="highlights-list">
+                    <li><i class="fas fa-graduation-cap"></i> Диплом Ельфа</li>
+                    <li><i class="fas fa-cookie-bite"></i> Майстер-клас</li>
+                    <li><i class="fas fa-snowflake"></i> Крижана Галерея</li>
+                    <li><i class="fas fa-train"></i> Магічний потяг</li>
+                </ul>
             </div>
         </div>
 
@@ -463,94 +382,74 @@
                 <span class="day-badge">День 4</span>
                 <h3>Прощання з дивом 👋</h3>
                 <p>Смачний сніданок з видом на засніжені простори... 🥞</p>
-                <p>Ми зробимо фінальні фото на пам'ять, щоб забрати частинку цієї краси з собою. Комфортний трансфер доставить вас в аеропорт.</p>
-                <p>Лапландія каже вам "До побачення", але магія, яку ви відчули тут, залишиться у вашому серці назавжди! ✨</p>
+                <p>Ми зробимо фінальні фото на пам'ять, купуємо подарунки та вирушаємо в аеропорт.</p>
+                <p>Ваша казка не закінчується, вона залишається у вашому серці назавжди! ✨</p>
             </div>
             <div class="day-visual">
                 <div class="video-facade" onclick="loadVideo(this, 'QghsIbaDKss')">
-                    <img src="https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Winter Preview" loading="lazy">
+                    <img src="https://images.pexels.com/photos/3408353/pexels-photo-3408353.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Winter">
                     <div class="play-btn"><i class="fas fa-play"></i></div>
                 </div>
-                <div class="day-highlights">
-                    <h4>У програмі:</h4>
-                    <ul class="highlights-list">
-                        <li><i class="fas fa-coffee"></i> Сніданок та кава</li>
-                        <li><i class="fas fa-camera"></i> Прощальна фотосесія</li>
-                        <li><i class="fas fa-plane-departure"></i> Трансфер в аеропорт</li>
-                    </ul>
-                </div>
+                <ul class="highlights-list">
+                    <li><i class="fas fa-coffee"></i> Сніданок</li>
+                    <li><i class="fas fa-camera"></i> Фотосесія</li>
+                    <li><i class="fas fa-plane-departure"></i> Трансфер в аеропорт</li>
+                </ul>
             </div>
         </div>
 
         <h2 style="margin-top: 100px;">Відеогалерея Туру 🎬</h2>
         <div class="gallery-grid">
-            <div class="gallery-item" onclick="loadVideo(this, 'k9xx6y34xSI')">
-                <img src="https://img.youtube.com/vi/k9xx6y34xSI/maxresdefault.jpg" alt="Відео Лапландія" loading="lazy">
-                <div class="play-btn"><i class="fas fa-play"></i></div>
-            </div>
-            <div class="gallery-item" onclick="loadVideo(this, '_N6jU9FGHHA')">
-                <img src="https://img.youtube.com/vi/_N6jU9FGHHA/hqdefault.jpg" alt="Відео Санта" loading="lazy">
-                <div class="play-btn"><i class="fas fa-play"></i></div>
-            </div>
-            <div class="gallery-item" onclick="loadVideo(this, 'WhAJf2rALkQ')">
-                <img src="https://img.youtube.com/vi/WhAJf2rALkQ/maxresdefault.jpg" alt="Відео Парк" loading="lazy">
-                <div class="play-btn"><i class="fas fa-play"></i></div>
-            </div>
-            <div class="gallery-item" onclick="loadVideo(this, 'QghsIbaDKss')">
-                <img src="https://img.youtube.com/vi/QghsIbaDKss/maxresdefault.jpg" alt="Відео Зима" loading="lazy">
-                <div class="play-btn"><i class="fas fa-play"></i></div>
-            </div>
-            <div class="gallery-item" onclick="loadVideo(this, 'sH05pHZuptA')">
-                <img src="https://img.youtube.com/vi/sH05pHZuptA/maxresdefault.jpg" alt="Відео Сяйво" loading="lazy">
-                <div class="play-btn"><i class="fas fa-play"></i></div>
-            </div>
+            <div class="gallery-item" onclick="loadVideo(this, 'k9xx6y34xSI')"><img src="https://img.youtube.com/vi/k9xx6y34xSI/maxresdefault.jpg" alt="Video 1"></div>
+            <div class="gallery-item" onclick="loadVideo(this, '_N6jU9FGHHA')"><img src="https://img.youtube.com/vi/_N6jU9FGHHA/hqdefault.jpg" alt="Video 2"></div>
+            <div class="gallery-item" onclick="loadVideo(this, 'WhAJf2rALkQ')"><img src="https://img.youtube.com/vi/WhAJf2rALkQ/maxresdefault.jpg" alt="Video 3"></div>
+            <div class="gallery-item" onclick="loadVideo(this, 'QghsIbaDKss')"><img src="https://img.youtube.com/vi/QghsIbaDKss/maxresdefault.jpg" alt="Video 4"></div>
+            <div class="gallery-item" onclick="loadVideo(this, 'sH05pHZuptA')"><img src="https://img.youtube.com/vi/sH05pHZuptA/maxresdefault.jpg" alt="Video 5"></div>
         </div>
 
-        <div class="price-box" id="book" data-aos="zoom-in">
+        <div class="wide-block price-box" data-aos="zoom-in">
             <h2>ВАРТІСТЬ ТУРУ</h2>
             <div class="price-val">від 450€</div>
             <p style="font-size: 1.3rem; margin-bottom: 40px; color: #ddd;">+ авіаквитки</p>
-            
             <div class="includes-wrapper">
                 <div class="inc-col">
-                    <h4 style="color: var(--accent-primary);">✅ У ВАРТІСТЬ ВКЛЮЧЕНО:</h4>
+                    <h4 style="color: var(--accent-primary);">✅ ВКЛЮЧЕНО:</h4>
                     <ul class="inc-list">
-                        <li><i class="fas fa-check-circle"></i> Авіаквитки в обидві сторони</li>
-                        <li><i class="fas fa-check-circle"></i> Трансфер "аеропорт – апартаменти – аеропорт"</li>
-                        <li><i class="fas fa-check-circle"></i> Проживання у комфортних апартаментах</li>
-                        <li><i class="fas fa-check-circle"></i> Трансфери до всіх локацій</li>
-                        <li><i class="fas fa-check-circle"></i> Нічна поїздка за Сяйвом з пікніком!</li>
+                        <li><i class="fas fa-check-circle"></i> Авіаквитки</li>
+                        <li><i class="fas fa-check-circle"></i> Трансфер "аеропорт-апартаменти"</li>
+                        <li><i class="fas fa-check-circle"></i> Проживання (Апартаменти)</li>
+                        <li><i class="fas fa-check-circle"></i> Поїздка за Сяйвом + пікнік</li>
                     </ul>
                 </div>
                 <div class="inc-col">
-                    <h4 style="color: #ff4444;">❌ ОПЛАЧУЄТЬСЯ ДОДАТКОВО:</h4>
+                    <h4 style="color: #ff4444;">❌ ДОДАТКОВО:</h4>
                     <ul class="inc-list">
                         <li><i class="fas fa-times-circle"></i> Квитки до Санта Парку</li>
-                        <li><i class="fas fa-times-circle"></i> Катання на оленях чи хаскі</li>
-                        <li><i class="fas fa-times-circle"></i> Особисті витрати та харчування</li>
-                        <li><i class="fas fa-arrow-right"></i> <b>За бажанням:</b> Трансфер від Вашого будинку</li>
+                        <li><i class="fas fa-times-circle"></i> Катання на оленях</li>
+                        <li><i class="fas fa-arrow-right"></i> <b>Опція:</b> Трансфер від будинку</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div class="form-container" data-aos="fade-up">
-            <h2>РОЗПОЧАТИ ПРИГОДУ ✨</h2>
-            <p style="text-align: center; margin-bottom: 25px; color: #555;">В захваті як дорослі так і діти! Забронюйте своє місце зараз.</p>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 0.9rem; color: #ff4444; font-weight: 700;">🔥 Залишилось місць: Обмежено</p>
+        <div class="wide-block form-container" id="book" data-aos="fade-up">
+            <div class="limited-badge"><i class="fas fa-fire"></i> Залишилось місць: Обмежено</div>
             
-            <form id="bookingForm" action="https://formspree.io/f/ВСТАВТЕ_ТУТ_ВАШ_ID_FORMSPREE" method="POST">
-                <input type="text" name="name" class="form-input" placeholder="Ваше ім'я" required>
-                <input type="tel" name="phone" class="form-input" placeholder="Телефон (WhatsApp/Viber)" required pattern="[0-9]*">
-                <input type="email" name="email" class="form-input" placeholder="Ваш Email (не обов'язково)">
-                <select name="date" class="form-input" required>
-                    <option value="" disabled selected>Оберіть бажану дату</option>
-                    <option>Січень 2026</option>
-                    <option>Лютий 2026</option>
-                    <option>Березень 2026</option>
-                </select>
-                <textarea name="message" class="form-input" rows="3" placeholder="Кількість людей або питання"></textarea>
-                <button type="submit" class="form-btn">ВІДПРАВИТИ ЗАПИТ</button>
+            <h2>РОЗПОЧАТИ ПРИГОДУ ✨</h2>
+            <p style="text-align: center; margin-bottom: 35px; color: #555; font-weight: 500;">Залиште заявку, і ми розрахуємо найкращий варіант для вашої родини!</p>
+            
+            <form id="bookingForm" action="https://formspree.io/f/ВСТАВТЕ_ТУТ_ID" method="POST">
+                <div class="form-grid">
+                    <input type="text" name="name" class="form-input" placeholder="Ваше ім'я" required>
+                    <input type="tel" name="phone" class="form-input" placeholder="Телефон (WhatsApp/Viber)" required pattern="[0-9]*">
+                    <input type="email" name="email" class="form-input form-full" placeholder="Ваш Email (не обов'язково)">
+                    <select name="date" class="form-input form-full" required>
+                        <option value="" disabled selected>Оберіть бажану дату</option>
+                        <option>Січень 2026</option><option>Лютий 2026</option><option>Березень 2026</option>
+                    </select>
+                    <textarea name="message" class="form-input form-full" rows="3" placeholder="Кількість людей або питання"></textarea>
+                    <button type="submit" class="form-btn">ВІДПРАВИТИ ЗАПИТ</button>
+                </div>
             </form>
         </div>
 
@@ -559,141 +458,75 @@
     <div id="successModal" class="modal-overlay">
         <div class="modal-box">
             <i class="fas fa-check-circle" style="font-size: 4rem; color: #39ff14; margin-bottom: 25px;"></i>
-            <h3 style="margin-bottom: 10px; font-size: 1.8rem;">Дякуємо!</h3>
-            <p style="margin-bottom: 25px;">Вашу заявку успішно прийнято. Ми зв'яжемось з вами найближчим часом.</p>
-            <button onclick="closeModal()" style="padding: 12px 35px; background: #000; color: #fff; border:none; border-radius: 50px; font-weight: bold; cursor: pointer; text-transform: uppercase;">Чудово</button>
+            <h3>ДЯКУЄМО!</h3>
+            <p>Ми отримали ваш запит і зв'яжемось з вами скоро!</p>
+            <button onclick="closeModal()" style="margin-top: 25px; padding: 12px 40px; background: #000; color: #fff; border:none; border-radius: 50px; cursor: pointer;">ОК</button>
         </div>
     </div>
 
     <div id="cookieBanner" class="cookie-banner">
-        <p>Ми використовуємо файли cookie, щоб зробити ваш досвід кращим. Продовжуючи, ви погоджуєтесь з цим.</p>
-        <button class="cookie-btn" onclick="acceptCookies()">Зрозуміло</button>
+        <p>Ми використовуємо файли cookie для вашої зручності.</p>
+        <button class="cookie-btn" onclick="acceptCookies()" style="padding: 8px 20px; background: var(--accent-secondary); color: #fff; border: none; border-radius: 8px; cursor: pointer;">ОК</button>
     </div>
 
-    <footer>
-        <div class="footer-links">
-            <a href="#">Політика конфіденційності</a>
-            <a href="#">Публічна оферта</a>
-        </div>
-        <p style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">© 2026 ЛАПЛАНДІЯ ТУР. Україномовні гіди. Магія на все життя.</p>
-        <p style="color: #39ff14; font-weight: 700;">Зв'яжіться з нами, щоб відчути казку!</p>
+    <footer style="padding: 40px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+        <p>© 2026 ЛАПЛАНДІЯ ТУР. Україномовні гіди. Магія на все життя. ✨</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // --- 1. SMART VIDEO LOADER ---
         function loadVideo(element, videoId) {
             element.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
         }
 
-        // --- 2. FORM HANDLER (AJAX for Formspree) ---
         const form = document.getElementById('bookingForm');
         const modal = document.getElementById('successModal');
-        const btn = document.querySelector('.form-btn');
-
-        async function handleSubmit(event) {
-            event.preventDefault();
-            const originalText = btn.innerText;
-            btn.innerText = 'ВІДПРАВКА...';
-            btn.style.opacity = '0.7';
-
-            const data = new FormData(event.target);
-            
-            // Demo mode if ID is not set
-            if (form.action.includes("ВСТАВТЕ_ТУТ")) {
-                setTimeout(() => {
-                    showModal();
-                    resetBtn(originalText);
-                }, 1000);
-                return;
-            }
-
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            }).then(response => {
-                if (response.ok) {
-                    showModal();
-                    form.reset();
-                } else {
-                    alert("Помилка відправки. Спробуйте ще раз.");
-                }
-                resetBtn(originalText);
-            }).catch(error => {
-                alert("Помилка відправки. Перевірте з'єднання.");
-                resetBtn(originalText);
-            });
-        }
-
-        function showModal() { modal.style.display = 'flex'; }
-        function resetBtn(text) { btn.innerText = text; btn.style.opacity = '1'; }
-        function closeModal() { modal.style.display = 'none'; }
-        window.onclick = function(event) { if (event.target == modal) modal.style.display = "none"; }
         
-        form.addEventListener("submit", handleSubmit);
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('.form-btn');
+            const originalText = btn.innerText;
+            btn.innerText = "ВІДПРАВЛЯЄМО...";
+            
+            if (form.action.includes("ВСТАВТЕ_ТУТ")) {
+                setTimeout(() => { modal.style.display = 'flex'; btn.innerText = originalText; form.reset(); }, 1000);
+            } else {
+                await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+                modal.style.display = 'flex';
+                btn.innerText = originalText;
+                form.reset();
+            }
+        });
 
-        // --- 3. COOKIES ---
-        if (!localStorage.getItem('cookiesAccepted')) {
-            document.getElementById('cookieBanner').style.display = 'flex';
-        }
-        function acceptCookies() {
-            localStorage.setItem('cookiesAccepted', 'true');
-            document.getElementById('cookieBanner').style.display = 'none';
-        }
+        function closeModal() { modal.style.display = 'none'; }
+        
+        if (!localStorage.getItem('cookiesAccepted')) { document.getElementById('cookieBanner').style.display = 'flex'; }
+        function acceptCookies() { localStorage.setItem('cookiesAccepted', 'true'); document.getElementById('cookieBanner').style.display = 'none'; }
 
-        // --- 4. SNOW ENGINE ---
+        // SNOW ENGINE
         (function() {
             const canvas = document.getElementById('snow-canvas');
             const ctx = canvas.getContext('2d');
-            let width = window.innerWidth;
-            let height = window.innerHeight;
-            canvas.width = width; canvas.height = height;
-            
-            const particles = [];
-            const particleCount = 100;
-
-            for(let i=0; i<particleCount; i++) {
-                particles.push({
-                    x: Math.random() * width,
-                    y: Math.random() * height,
-                    r: Math.random() * 3 + 1,
-                    d: Math.random() * 1 + 0.5
-                });
-            }
-
+            let w = window.innerWidth, h = window.innerHeight;
+            canvas.width = w; canvas.height = h;
+            const p = [];
+            for(let i=0; i<100; i++) p.push({x: Math.random()*w, y: Math.random()*h, r: Math.random()*3+1, d: Math.random()*1+0.5});
             function draw() {
-                ctx.clearRect(0, 0, width, height);
-                ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+                ctx.clearRect(0, 0, w, h);
+                ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
                 ctx.beginPath();
-                for(let i=0; i<particles.length; i++) {
-                    const p = particles[i];
-                    ctx.moveTo(p.x, p.y);
-                    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
-                }
+                p.forEach(i => { ctx.moveTo(i.x, i.y); ctx.arc(i.x, i.y, i.r, 0, Math.PI*2); });
                 ctx.fill();
                 update();
                 requestAnimationFrame(draw);
             }
-
             function update() {
-                for(let i=0; i<particles.length; i++) {
-                    const p = particles[i];
-                    p.y += p.d;
-                    if(p.y > height) {
-                        particles[i] = { x: Math.random() * width, y: -5, r: p.r, d: p.d };
-                    }
-                }
+                p.forEach(i => { i.y += i.d; if(i.y > h) { i.y = -10; i.x = Math.random()*w; } });
             }
-
             draw();
-
-            window.addEventListener('resize', function() { 
-                width = window.innerWidth; height = window.innerHeight; 
-                canvas.width = width; canvas.height = height; 
-            });
+            window.addEventListener('resize', () => { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; });
         })();
     </script>
 </body>
