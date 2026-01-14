@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>МАГІЯ ЛАПЛАНДІЇ 2026 | AI EDITION</title>
+    <title>МАГІЯ ЛАПЛАНДІЇ 2026</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* --- ОСНОВНІ НАЛАШТУВАННЯ --- */
+        /* --- ОСНОВНІ --- */
         :root {
             --dark: #051626;
-            --accent: #39ff14; /* Неон лайм */
+            --accent: #39ff14; /* Неоновий лайм */
             --blue: #00d4ff;   /* Блакитний */
             --white: #ffffff;
-            --card-bg: rgba(11, 34, 56, 0.85);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,7 +28,7 @@
             overflow-x: hidden;
         }
 
-        /* --- ФОН (AI GENERATED) --- */
+        /* --- ФОН (Залізобетонний варіант з Вікіпедії) --- */
         .fixed-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
         }
@@ -38,12 +37,11 @@
         }
         .overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background: linear-gradient(to bottom, rgba(5,22,38,0.6), var(--dark));
+            background: linear-gradient(to bottom, rgba(5,22,38,0.5), var(--dark));
         }
         
         #snow-canvas {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; 
-            pointer-events: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;
         }
 
         /* --- КОНТЕЙНЕР --- */
@@ -60,23 +58,23 @@
             height: 100vh; display: flex; align-items: center; justify-content: center; 
             text-align: center; padding: 20px; position: relative; z-index: 5;
         }
-        .hero h1 { font-size: clamp(2.5rem, 7vw, 5.5rem); font-weight: 900; text-transform: uppercase; margin-bottom: 20px; line-height: 1.1; text-shadow: 0 0 30px var(--blue); }
-        .hero p { font-size: 1.5rem; color: var(--accent); font-weight: 700; margin-bottom: 40px; letter-spacing: 2px; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; text-transform: uppercase; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { font-size: 1.5rem; color: var(--accent); font-weight: 700; margin-bottom: 40px; }
         .btn {
             background: var(--accent); color: #000; padding: 20px 50px; border-radius: 50px;
             text-decoration: none; font-weight: 900; font-size: 1.2rem;
             box-shadow: 0 0 20px var(--accent); transition: 0.3s; display: inline-block;
         }
-        .btn:hover { transform: scale(1.05); background: #fff; box-shadow: 0 0 40px var(--accent); }
+        .btn:hover { transform: scale(1.05); background: #fff; }
 
         /* --- ВИЛЬОТИ --- */
         .flights-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
         .flight-card {
-            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
             padding: 25px; border-radius: 20px; backdrop-filter: blur(10px);
         }
         .flag-row { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .flag { font-size: 2.5rem; line-height: 1; }
+        .flag { font-size: 2.5rem; }
         .flight-card h4 { color: var(--accent); margin: 0; font-size: 1.2rem; font-weight: 700; }
         .flight-card p { font-size: 0.9rem; color: #ddd; }
 
@@ -93,6 +91,7 @@
 
         .day-content { padding: 40px; flex: 1; }
         
+        /* Блок зображення (Надійний) */
         .day-img-box { 
             flex: 1; min-height: 350px; position: relative; overflow: hidden; background: #000;
         }
@@ -104,32 +103,32 @@
         
         .day-num { background: var(--accent); color: #000; padding: 5px 15px; border-radius: 20px; font-weight: 800; display: inline-block; margin-bottom: 20px; }
         .day-content h3 { font-size: 2rem; color: var(--blue); margin-bottom: 20px; line-height: 1.2; }
-        .day-content p { margin-bottom: 15px; color: #f0f0f0; font-size: 1.05rem; }
+        .day-content p { margin-bottom: 15px; color: #f0f0f0; }
         .day-content b { color: var(--accent); }
         
-        .list-style li { list-style: none; margin-bottom: 12px; display: flex; gap: 12px; align-items: flex-start; }
-        .list-style i { color: var(--accent); margin-top: 5px; font-size: 1.2rem; }
+        .list-style li { list-style: none; margin-bottom: 12px; display: flex; gap: 12px; }
+        .list-style i { color: var(--accent); margin-top: 5px; }
 
-        /* --- LIVE КАМЕРИ --- */
+        /* --- КАМЕРИ --- */
         .live-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
         @media(min-width: 768px) { .live-grid { grid-template-columns: 1fr 1fr; } }
 
         .cam-link {
-            display: block; position: relative; height: 280px; border-radius: 20px; 
+            display: block; position: relative; height: 250px; border-radius: 20px; 
             overflow: hidden; border: 2px solid #fff; text-decoration: none; background: #000;
         }
         .cam-link img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 0.3s; }
         .cam-link:hover img { opacity: 1; transform: scale(1.05); }
         .cam-badge {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            background: red; color: white; padding: 12px 25px; border-radius: 30px; font-weight: 900;
-            display: flex; align-items: center; gap: 10px; white-space: nowrap; box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            background: red; color: white; padding: 10px 20px; border-radius: 30px; font-weight: 900;
+            display: flex; align-items: center; gap: 10px; white-space: nowrap; box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
         /* --- ГАЛЕРЕЯ --- */
         .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
         .gallery img {
-            width: 100%; height: 220px; object-fit: cover; border-radius: 10px;
+            width: 100%; height: 200px; object-fit: cover; border-radius: 10px;
             border: 1px solid rgba(255,255,255,0.2); transition: 0.3s;
         }
         .gallery img:hover { transform: scale(1.05); border-color: var(--accent); }
@@ -139,22 +138,19 @@
             text-align: center; padding: 50px; background: rgba(0, 31, 63, 0.8);
             border: 2px solid var(--blue); border-radius: 30px; margin: 80px 0;
         }
-        .price { font-size: 4.5rem; color: var(--accent); font-weight: 900; margin: 10px 0; }
+        .price { font-size: 4rem; color: var(--accent); font-weight: 900; margin: 10px 0; }
 
         /* --- ФОРМА --- */
         .form-box { max-width: 600px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 30px; color: #000; }
-        .form-box h2 { color: #000; text-align: center; margin-bottom: 20px; text-shadow: none; }
-        .form-box input, .form-box select, .form-box textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 10px; font-size: 1rem; }
-        .form-submit { width: 100%; padding: 20px; background: var(--dark); color: #fff; font-weight: 900; border: none; border-radius: 10px; cursor: pointer; font-size: 1.2rem; }
-        .form-submit:hover { background: var(--blue); }
-        
-        footer { text-align: center; padding: 40px; opacity: 0.6; font-size: 0.9rem; }
+        .form-box h2 { color: #000; text-align: center; margin-bottom: 20px; }
+        .form-box input, .form-box select, .form-box textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 10px; }
+        .form-submit { width: 100%; padding: 20px; background: var(--dark); color: #fff; font-weight: 900; border: none; border-radius: 10px; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <div class="fixed-bg">
-        <img src="https://image.pollinations.ai/prompt/Aurora%20Borealis%20Northern%20Lights%20Green%20Night%20Sky%20Stars%20Snowy%20Mountains%20Realistic%20Cinematic%208k?width=1920&height=1080&nologo=true" alt="Background">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Aurora_Borealis_over_Lake_Burntside.jpg" alt="Aurora Background">
     </div>
     <div class="overlay"></div>
     
@@ -173,15 +169,15 @@
 
         <h2 data-aos="fade-up">Вильоти з усієї Європи ✈️</h2>
         <div class="flights-grid">
-            <div class="flight-card" data-aos="fade-up"><div class="flag-row"><span class="flag">🇩🇪</span><h4>Німеччина</h4></div><p>Берлін, Дюссельдорф, Франкфурт, Гамбург, Мюнхен, Штутгарт</p></div>
-            <div class="flight-card" data-aos="fade-up"><div class="flag-row"><span class="flag">🇫🇷</span><h4>Франція</h4></div><p>Париж (CDG, Orly, Beauvais), Ліон, Ніцца, Бордо</p></div>
-            <div class="flight-card" data-aos="fade-up"><div class="flag-row"><span class="flag">🇵🇱</span><h4>Польща</h4></div><p>Варшава (LOT)</p></div>
-            <div class="flight-card" data-aos="fade-up"><div class="flag-row"><span class="flag">🇨🇿</span><h4>Чехія</h4></div><p>Прага (Eurowings, Smartwings)</p></div>
-            <div class="flight-card" data-aos="fade-up"><div class="flag-row"><span class="flag">🇮🇹</span><h4>Італія</h4></div><p>Мілан, Рим, Неаполь</p></div>
-            <div class="flight-card" data-aos="fade-up"><div class="flag-row"><span class="flag">🇪🇸</span><h4>Іспанія</h4></div><p>Мадрид, Барселона</p></div>
-            <div class="flight-card" data-aos="fade-up"><div class="flag-row"><span class="flag">🇦🇹</span><h4>Австрія</h4></div><p>Відень</p></div>
-            <div class="flight-card" data-aos="fade-up"><div class="flag-row"><span class="flag">🇳🇱</span><h4>Нідерланди</h4></div><p>Амстердам</p></div>
-            <div class="flight-card" data-aos="fade-up"><div class="flag-row"><span class="flag">🇧🇪</span><h4>Бельгія</h4></div><p>Брюссель</p></div>
+            <div class="flight-card"><div class="flag-row"><span class="flag">🇩🇪</span><h4>Німеччина</h4></div><p>Берлін, Дюссельдорф, Франкфурт, Гамбург, Мюнхен, Штутгарт</p></div>
+            <div class="flight-card"><div class="flag-row"><span class="flag">🇫🇷</span><h4>Франція</h4></div><p>Париж (CDG, Orly, Beauvais), Ліон, Ніцца, Бордо</p></div>
+            <div class="flight-card"><div class="flag-row"><span class="flag">🇵🇱</span><h4>Польща</h4></div><p>Варшава (LOT)</p></div>
+            <div class="flight-card"><div class="flag-row"><span class="flag">🇨🇿</span><h4>Чехія</h4></div><p>Прага (Eurowings, Smartwings)</p></div>
+            <div class="flight-card"><div class="flag-row"><span class="flag">🇮🇹</span><h4>Італія</h4></div><p>Мілан, Рим, Неаполь</p></div>
+            <div class="flight-card"><div class="flag-row"><span class="flag">🇪🇸</span><h4>Іспанія</h4></div><p>Мадрид, Барселона</p></div>
+            <div class="flight-card"><div class="flag-row"><span class="flag">🇦🇹</span><h4>Австрія</h4></div><p>Відень</p></div>
+            <div class="flight-card"><div class="flag-row"><span class="flag">🇳🇱</span><h4>Нідерланди</h4></div><p>Амстердам</p></div>
+            <div class="flight-card"><div class="flag-row"><span class="flag">🇧🇪</span><h4>Бельгія</h4></div><p>Брюссель</p></div>
         </div>
 
         <h2 style="margin-top: 100px;">Програма Туру</h2>
@@ -190,16 +186,16 @@
             <div class="day-content">
                 <span class="day-num">День 1</span>
                 <h3>Приліт та Полювання за Сяйвом 🌌</h3>
-                <p>Ваша пригода починається в аеропорту Рованіємі. Наш водій зустріне Вас на комфортному індивідуальному трансфері та відвезе до нових затишних <b>апартаментів</b>.</p>
-                <p>По дорозі заїдемо до супермаркету 🛒, щоб Ви могли купити улюблені продукти для комфортного відпочинку.</p>
+                <p>Приліт в аеропорту Рованіємі. Наш водій зустріне Вас на комфортному індивідуальному трансфері. Відвеземо Вас до нових затишних <b>апартаментів</b>.</p>
+                <p>По дорозі заїдемо до супермаркету 🛒, щоб Ви могли купити продукти та смаколики.</p>
                 <ul class="list-style">
                     <li><i class="fas fa-magic"></i> <b>ВВЕРІ:</b> Ми вирушаємо в заповідний ліс ловити Північне Сяйво!</li>
-                    <li><i class="fas fa-fire"></i> <b>Пікнік:</b> Тріск багаття та аромат соковитих лапландських ковбасок на вогні. 🤤</li>
+                    <li><i class="fas fa-fire"></i> <b>Пікнік:</b> Тріск багаття та соковиті ковбаски на вогні. 🤤</li>
                     <li><i class="fas fa-mug-hot"></i> Гарячий ягідний чай ☕️🍓 та магія в небі.</li>
                 </ul>
             </div>
             <div class="day-img-box">
-                <img src="https://image.pollinations.ai/prompt/Winter%20Forest%20Campfire%20Picnic%20Snow%20Sausages%20Tea%20Cozy%20Realistic%20Night%204k?nologo=true" alt="Picnic">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Aurora_borealis_2016.jpg" alt="Aurora">
             </div>
         </div>
 
@@ -210,14 +206,14 @@
                 <p><b>11:00 — Відправлення до Селища Санта-Клауса. 🏘</b></p>
                 <ul class="list-style">
                     <li><i class="fas fa-globe"></i> <b>Полярне коло:</b> Ви перетнете магічну лінію Арктики!</li>
-                    <li><i class="fas fa-sleigh"></i> <b>Олені Санти:</b> Подорож у санях, запряжених справжніми північними оленями.</li>
-                    <li><i class="fas fa-star"></i> <b>Аудієнція:</b> Зустріч із Сантою в його офісі. Загадайте бажання! 🎁</li>
-                    <li><i class="fas fa-envelope"></i> <b>Пошта:</b> Надішліть листівку з фірмовим штампом близьким!</li>
+                    <li><i class="fas fa-sleigh"></i> <b>Олені Санти:</b> Подорож у санях, запряжених оленями.</li>
+                    <li><i class="fas fa-star"></i> <b>Аудієнція:</b> Особиста зустріч із Сантою в його офісі. Загадайте бажання! 🎁</li>
+                    <li><i class="fas fa-envelope"></i> <b>Пошта:</b> Надішліть листівку з фірмовим штампом!</li>
                 </ul>
                 <p><b>16:00 — Повернення до апартаментів.</b> Відпочинок.</p>
             </div>
             <div class="day-img-box">
-                <img src="https://image.pollinations.ai/prompt/Santa%20Claus%20Reindeer%20Sled%20Snowy%20Forest%20Lapland%20Daytime%20Realistic%20Cinematic?nologo=true" alt="Santa Reindeer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Santa_Claus_Village_Rovaniemi_Finland.jpg" alt="Santa Village">
             </div>
         </div>
 
@@ -225,16 +221,16 @@
             <div class="day-content">
                 <span class="day-num">День 3</span>
                 <h3>Підземна пригода у Santa Park 🎢</h3>
-                <p><b>11:00 — Відправлення до Санта Парку. 🎡</b> Це таємна печера в скелі, де ельфи готуються до Різдва цілий рік!</p>
+                <p><b>11:00 — Відправлення до Санта Парку. 🎡</b> Це таємна печера в скелі!</p>
                 <ul class="list-style">
-                    <li><i class="fas fa-graduation-cap"></i> <b>Школа ельфів:</b> Пройдіть навчання та отримайте диплом помічника! 🎓</li>
-                    <li><i class="fas fa-cookie-bite"></i> <b>Пекарня:</b> Ви власноруч прикрасите імбирне печиво. 🍪</li>
-                    <li><i class="fas fa-snowflake"></i> <b>Крижана галерея:</b> Скульптури з льоду та подих Арктики. 🧊</li>
+                    <li><i class="fas fa-graduation-cap"></i> <b>Школа ельфів:</b> Пройдіть навчання та отримайте диплом! 🎓</li>
+                    <li><i class="fas fa-cookie-bite"></i> <b>Пекарня:</b> Прикрасьте імбирне печиво. 🍪</li>
+                    <li><i class="fas fa-snowflake"></i> <b>Крижана галерея:</b> Скульптури з льоду. 🧊</li>
                 </ul>
-                <p><b>16:00 — Повернення до апартаментів.</b> Вечір у колі друзів.</p>
+                <p><b>16:00 — Повернення до апартаментів.</b></p>
             </div>
             <div class="day-img-box">
-                <img src="https://image.pollinations.ai/prompt/Magical%20Ice%20Cave%20Santa%20Park%20Elves%20Christmas%20Decorations%20Realistic%20Interior?nologo=true" alt="Santa Park">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Santa_Park_Rovaniemi.jpg" alt="Santa Park">
             </div>
         </div>
 
@@ -244,41 +240,41 @@
                 <h3>Прощання з дивом 👋</h3>
                 <p>Останній сніданок у Лапландії... 🥞</p>
                 <p>Робимо фінальні фото на фоні засніжених краєвидів 📸 та вирушаємо в аеропорт.</p>
-                <p>Ваша подорож завершується, але магія залишається з Вами назавжди! 🛫</p>
+                <p>Магія залишається з Вами назавжди! 🛫</p>
             </div>
             <div class="day-img-box">
-                <img src="https://image.pollinations.ai/prompt/Winter%20Morning%20Lapland%20Snow%20Landscape%20Sunrise%20Cozy%20Travel%20Realistic?nologo=true" alt="Winter Goodbye">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Rovaniemi_Winter.jpg" alt="Winter">
             </div>
         </div>
 
         <h2>Лапландія LIVE 🔴</h2>
         <div class="live-grid">
             <a href="https://www.youtube.com/watch?v=p90_t78S8vA" target="_blank" class="cam-link">
-                <img src="https://image.pollinations.ai/prompt/Santa%20Claus%20Village%20Rovaniemi%20Winter%20Square%20Christmas%20Tree%20Live%20View%20Realistic?nologo=true" alt="Santa Cam">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Santa_Claus_Village_Rovaniemi_Finland.jpg/800px-Santa_Claus_Village_Rovaniemi_Finland.jpg" alt="Santa Cam">
                 <div class="cam-badge"><i class="fas fa-play"></i> LIVE: СЕЛИЩЕ САНТИ</div>
             </a>
             <a href="https://www.youtube.com/results?search_query=northern+lights+live" target="_blank" class="cam-link">
-                <img src="https://image.pollinations.ai/prompt/Green%20Aurora%20Borealis%20Night%20Sky%20Stars%20Winter%20Lake%20Reflection%20Realistic?nologo=true" alt="Aurora Cam">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Aurora_Borealis_over_Lake_Burntside.jpg" alt="Aurora Cam">
                 <div class="cam-badge"><i class="fas fa-play"></i> LIVE: СЯЙВО</div>
             </a>
         </div>
 
         <h2 style="margin-top: 80px;">Галерея</h2>
         <div class="gallery">
-            <img src="https://image.pollinations.ai/prompt/Husky%20Sled%20Dog%20Winter%20Snow%20Run%20Realistic?nologo=true" alt="Husky">
-            <img src="https://image.pollinations.ai/prompt/Reindeer%20Close%20Up%20Winter%20Snow%20Forest%20Realistic?nologo=true" alt="Reindeer">
-            <img src="https://image.pollinations.ai/prompt/Hot%20Berry%20Juice%20Cup%20Hands%20Mittens%20Winter%20Snow%20Background?nologo=true" alt="Berry Juice">
-            <img src="https://image.pollinations.ai/prompt/Christmas%20Gingerbread%20Cookies%20Decorating%20Cozy%20Kitchen?nologo=true" alt="Cookies">
-            <img src="https://image.pollinations.ai/prompt/Ice%20Sculpture%20Art%20Blue%20Light%20Winter%20Magic?nologo=true" alt="Ice">
-            <img src="https://image.pollinations.ai/prompt/Rovaniemi%20City%20Winter%20Street%20Lights%20Night?nologo=true" alt="City">
-            <img src="https://image.pollinations.ai/prompt/Cozy%20Wooden%20Cabin%20Interior%20Fireplace%20Winter%20Window?nologo=true" alt="Cabin">
-            <img src="https://image.pollinations.ai/prompt/Northern%20Lights%20Aurora%20Forest%20Night%20Sky%20Realistic?nologo=true" alt="Aurora">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Aurora_borealis_2016.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Reindeer_in_Lapland.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Ice_Gallery_Santa_Park.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Rovaniemi_Winter.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Santa_Park_Rovaniemi.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Santa_Claus_Office_-_Rovaniemi.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Husky_safari_in_Lapland.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Lapland_winter_landscape.jpg">
         </div>
 
         <div class="price-box" id="book">
             <h2>ВАРТІСТЬ</h2>
             <div class="price">від 450€</div>
-            <p style="font-size: 1.2rem;">+ авіаквитки</p>
+            <p>+ авіаквитки</p>
             <div style="margin-top: 30px; text-align: left; display: inline-block; color: #ddd;">
                 <p>✅ Авіа, Трансфери, Апартаменти, Полювання за Сяйвом, Пікнік.</p>
                 <p>❌ Квитки в Парк, олені/хаскі, <b>Сертифікат</b>, Трансфер від дому.</p>
@@ -292,7 +288,7 @@
                 <input type="tel" placeholder="Телефон (WhatsApp/Viber)" required>
                 <select>
                     <option>Країна вильоту</option>
-                    <option>Німеччина</option><option>Польща</option><option>Чехія</option><option>Франція</option><option>Інша</option>
+                    <option>Німеччина</option><option>Польща</option><option>Чехія</option><option>Інша</option>
                 </select>
                 <textarea rows="3" placeholder="Ваші побажання"></textarea>
                 <button type="submit" class="form-submit">НАДІСЛАТИ ЗАПИТ</button>
@@ -309,7 +305,7 @@
     <script>
         AOS.init();
 
-        // Сніг (Легкий скрипт)
+        // СКРИПТ СНІГУ
         (function() {
             var canvas = document.getElementById('snow-canvas');
             var ctx = canvas.getContext('2d');
