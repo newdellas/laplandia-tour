@@ -1,369 +1,93 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>МАГІЯ ЗА ПОЛЯРНИМ КОЛОМ 2026 | Арктична казка</title>
+<section class="container" id="flights">
+    <h2 class="section-title">Вильоти з усіх куточків Європи ✈️</h2>
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <style>
-        :root {
-            --dark: #020c1b;
-            --aurora: #39ff14;
-            --blue: #00d4ff;
-            --white: #ffffff;
-            --glass: rgba(255, 255, 255, 0.08);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            background: var(--dark);
-            color: var(--white);
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* --- BACKGROUND VIDEO --- */
-        .hero-video {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; object-fit: cover; filter: brightness(0.4);
-        }
-
-        #snow-canvas {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0; pointer-events: none;
-        }
-
-        /* --- HERO --- */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            position: relative;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2.2rem, 8vw, 4.8rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            text-shadow: 0 0 30px var(--blue);
-            text-transform: uppercase;
-        }
-
-        .hero-content p {
-            font-size: clamp(1.1rem, 3vw, 1.8rem);
-            color: var(--aurora);
-            font-weight: 700;
-            margin-bottom: 40px;
-        }
-
-        .btn-main {
-            background: linear-gradient(45deg, var(--aurora), #2ecc71);
-            color: #000; padding: 20px 50px; border-radius: 60px;
-            text-decoration: none; font-weight: 900; display: inline-block;
-            transition: 0.4s; box-shadow: 0 0 30px rgba(57, 255, 20, 0.4);
-            text-transform: uppercase;
-        }
-
-        /* --- LAYOUT --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; position: relative; z-index: 2; }
-        .section-title { text-align: center; font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 60px; font-weight: 900; color: var(--blue); }
-
-        /* --- FLIGHTS --- */
-        .flights-box {
-            background: var(--glass);
-            border-radius: 40px;
-            padding: 40px;
-            margin-bottom: 80px;
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .flights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .flight-item h4 { color: var(--aurora); margin-bottom: 10px; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; }
-        .flight-item p { font-size: 0.85rem; opacity: 0.8; }
-
-        /* --- LIVE WIDGETS --- */
-        .live-section {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 25px;
-            margin-bottom: 80px;
-        }
-
-        .weather-box {
-            background: rgba(0,0,0,0.3);
-            border-radius: 30px;
-            padding: 30px;
-            border: 1px solid var(--blue);
-        }
-
-        .cams-box {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .cam-card {
-            background: #000;
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .cam-card iframe { width: 100%; height: 200px; border: none; }
-        .cam-label { position: absolute; top: 10px; left: 10px; background: rgba(255,0,0,0.8); color: #fff; padding: 4px 10px; font-size: 0.7rem; font-weight: 900; border-radius: 4px; }
-
-        /* --- PROGRAM --- */
-        .day-block {
-            background: var(--glass);
-            border-radius: 40px;
-            margin-bottom: 60px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-            display: grid;
-            grid-template-columns: 1.4fr 1fr;
-        }
-
-        .day-block:nth-child(even) { direction: rtl; }
-        .day-block:nth-child(even) .day-text { direction: ltr; }
-
-        .day-text { padding: 50px; }
-        .day-num { background: var(--aurora); color: #000; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; margin-bottom: 20px; }
-        .day-text h3 { font-size: 2rem; margin-bottom: 20px; color: var(--blue); }
-        .day-text p { margin-bottom: 15px; color: #eee; }
-        .day-list { list-style: none; margin: 20px 0; }
-        .day-list li { margin-bottom: 12px; display: flex; gap: 12px; align-items: flex-start; }
-        .day-list li i { color: var(--aurora); margin-top: 5px; }
-
-        .day-img { background-size: cover; background-position: center; min-height: 400px; }
-
-        /* --- PRICE & FORM --- */
-        .price-card {
-            text-align: center; padding: 60px;
-            background: radial-gradient(circle at center, rgba(0, 212, 255, 0.15), transparent);
-            border-radius: 40px; border: 2px solid var(--blue);
-            margin: 80px 0;
-        }
-        .price-val { font-size: clamp(3.5rem, 8vw, 5.5rem); font-weight: 900; color: var(--aurora); line-height: 1; }
-
-        .form-wrap {
-            max-width: 600px; margin: 0 auto;
-            background: #ffffff; padding: 40px; border-radius: 30px; color: #111;
-        }
-        .form-wrap input, .form-wrap select, .form-wrap textarea {
-            width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 12px; font-family: inherit;
-        }
-        .submit-btn {
-            width: 100%; background: var(--dark); color: #fff; border: none; padding: 20px; border-radius: 12px; font-weight: 900; cursor: pointer; transition: 0.3s;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 992px) {
-            .day-block { grid-template-columns: 1fr; }
-            .day-img { height: 300px; order: -1; }
-            .live-section { grid-template-columns: 1fr; }
-            .cams-box { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
-<body>
-
-    <video autoplay muted loop playsinline class="hero-video">
-        <source src="https://player.vimeo.com/external/394333170.hd.mp4?s=43c3359d9595562723326f5d88662660a950e3b6&profile_id=175" type="video/mp4">
-    </video>
-    <canvas id="snow-canvas"></canvas>
-
-    <header class="hero">
-        <div class="hero-content" data-aos="zoom-out">
-            <p>🦌 МАГІЯ ЗА ПОЛЯРНИМ КОЛОМ ✨🎅</p>
-            <h1>АРКТИЧНА КАЗКА 2026</h1>
-            <p>Санта, Лапландія та Північне Сяйво!</p>
-            <a href="#book" class="btn-main">Забронювати пригоду</a>
-        </div>
-    </header>
-
-    <div class="container">
-        
-        <h2 class="section-title" data-aos="fade-up">Вильоти з усієї Європи ✈️</h2>
-        <div class="flights-box" data-aos="fade-up">
-            <div class="flights-grid">
-                <div class="flight-item">
-                    <h4>Німеччина</h4>
-                    <p>Берлін, Дюссельдорф, Франкфурт, Гамбург, Мюнхен, Штутгарт</p>
-                </div>
-                <div class="flight-item">
-                    <h4>Франція</h4>
-                    <p>Париж (CDG, Orly, Beauvais), Ліон, Ніцца, Бордо</p>
-                </div>
-                <div class="flight-item">
-                    <h4>Польща та Чехія</h4>
-                    <p>Варшава (LOT), Прага (Eurowings, Smartwings)</p>
-                </div>
-                <div class="flight-item">
-                    <h4>Південна Європа</h4>
-                    <p>Мілан, Рим, Неаполь, Мадрид, Барселона</p>
-                </div>
-                <div class="flight-item">
-                    <h4>Інші</h4>
-                    <p>Відень, Амстердам, Брюссель, Цюрих, Копенгаген</p>
-                </div>
+    <div class="flights-grid-modern">
+        <div class="country-card" data-aos="fade-up">
+            <div class="country-header">
+                <span class="flag-icon">🇩🇪</span>
+                <h4>Німеччина</h4>
             </div>
+            <p>Берлін, Дюссельдорф, Франкфурт, Гамбург, Мюнхен, Штутгарт</p>
         </div>
 
-        <h2 class="section-title">Програма Вашої подорожі</h2>
-
-        <div class="day-block" data-aos="fade-up">
-            <div class="day-text">
-                <div class="day-num">1</div>
-                <h3>Приліт та Полювання за Сяйвом 🌌🔥</h3>
-                <p>Ваша пригода починається в аеропорту Рованіємі, де Вас зустріне наш індивідуальний трансфер. 🚐 <b>Виліт з різних міст Європи, при бажанні — трансфер від Вашого будинку.</b></p>
-                <p>По дорозі до Вашого нового дому ми заїдемо до супермаркету 🛒, щоб Ви змогли купити улюблені продукти для комфортного відпочинку в <b>апартаментах</b>.</p>
-                <ul class="day-list">
-                    <li><i class="fas fa-magic"></i> <b>🌠 ВВЕРІ:</b> Вирушаємо в заповідний лапландський ліс ловити Північне Сяйво!</li>
-                    <li><i class="fas fa-fire"></i> <b>Смачний пікнік:</b> тиша арктичної ночі, тріск багаття та аромат лапландських ковбасок на вогні. 🤤</li>
-                    <li><i class="fas fa-mug-hot"></i> Гарячий ягідний чай ☕️🍓 та спостереження за зеленими хвилями Сяйва.</li>
-                </ul>
+        <div class="country-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="country-header">
+                <span class="flag-icon">🇫🇷</span>
+                <h4>Франція</h4>
             </div>
-            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1531366930477-4f2118bdce49?auto=format&fit=crop&q=80&w=800');"></div>
+            <p>Париж (CDG, Orly, Beauvais), Ліон, Ніцца, Бордо</p>
         </div>
 
-        <div class="day-block" data-aos="fade-up">
-            <div class="day-text">
-                <div class="day-num">2</div>
-                <h3>У гості до Санти та Олені 🎅🦌</h3>
-                <p><b>11:00 — Відправлення до Селища Санта-Клауса. 🏘</b></p>
-                <ul class="day-list">
-                    <li><i class="fas fa-bolt"></i> <b>Полярне коло:</b> Ви перетнете магічну лінію Арктики — портал у світ чудес!</li>
-                    <li><i class="fas fa-sleigh"></i> <b>Олені Санти:</b> Подорож у санях, запряжених справжніми північними оленями. Скрип снігу та неймовірні краєвиди.</li>
-                    <li><i class="fas fa-certificate"></i> <b>Аудієнція:</b> Особиста зустріч із Головним Чарівником світу в його офісі. 🎁</li>
-                    <li><i class="fas fa-envelope"></i> <b>Головна Пошта:</b> Надішліть листівку з фірмовим штампом Полярного кола!</li>
-                </ul>
-                <p><b>16:00 — Повернення до Ваших апартаментів. 🏢</b> Відпочинок та вільний час.</p>
+        <div class="country-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="country-header">
+                <span class="flag-icon">🇵🇱</span>
+                <h4>Польща</h4>
             </div>
-            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1544233736-0f62e633225c?auto=format&fit=crop&q=80&w=800');"></div>
+            <p>Варшава (LOT)</p>
         </div>
 
-        <div class="day-block" data-aos="fade-up">
-            <div class="day-text">
-                <div class="day-num">3</div>
-                <h3>Підземна пригода у Santa Park 🎢✨</h3>
-                <p><b>11:00 — Відправлення до Санта Парку. 🎡</b> Це таємна печера в скелі, де ельфи готуються до Різдва цілий рік!</p>
-                <ul class="day-list">
-                    <li><i class="fas fa-hat-wizard"></i> <b>Школа ельфів:</b> Пройдіть навчання та дізнайтеся всі секрети помічників Санти! 🎓</li>
-                    <li><i class="fas fa-cookie-bite"></i> <b>Пекарня місіс Клаус:</b> Ви власноруч прикрасите ароматне імбирне печиво. 🍪</li>
-                    <li><i class="fas fa-cube"></i> <b>Крижана галерея:</b> Крижані скульптури та подих справжньої Арктики. 🧊</li>
-                </ul>
-                <p><b>16:00 — Повернення до апартаментів. 🏠</b> Вечір у колі друзів.</p>
+        <div class="country-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="country-header">
+                <span class="flag-icon">🇨🇿</span>
+                <h4>Чехія</h4>
             </div>
-            <div class="day-img" style="background-image: url('https://images.unsplash.com/photo-1512598268429-9d7458084500?auto=format&fit=crop&q=80&w=800');"></div>
+            <p>Прага (Eurowings, Smartwings)</p>
         </div>
 
-        <section id="live" data-aos="fade-up">
-            <h2 class="section-title">Лапландія в реальному часі ❄️</h2>
-            <div class="live-section">
-                <div class="weather-box">
-                    <h4 style="margin-bottom: 15px; color: var(--aurora);">Погода в Рованіємі:</h4>
-                    <a class="weatherwidget-io" href="https://forecast7.com/uk/66d5025d73/rovaniemi/" data-label_1="РОВАНІЄМІ" data-label_2="ПОГОДА" data-theme="pure" data-basecolor="rgba(0,0,0,0)" data-accent="var(--blue)" data-textcolor="#ffffff">РОВАНІЄМІ</a>
-                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>
-                </div>
-                <div class="cams-box">
-                    <div class="cam-card"><span class="cam-label">● LIVE: СЕЛИЩЕ САНТИ</span><iframe src="https://www.youtube.com/embed/p90_t78S8vA?autoplay=1&mute=1"></iframe></div>
-                    <div class="cam-card"><span class="cam-label">● LIVE: ПОШУК СЯЙВА</span><iframe src="https://www.youtube.com/embed/OIm7_9S_Ouw?autoplay=1&mute=1"></iframe></div>
-                </div>
+        <div class="country-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="country-header">
+                <span class="flag-icon">🇮🇹</span>
+                <h4>Італія</h4>
             </div>
-        </section>
+            <p>Мілан, Рим, Неаполь</p>
+        </div>
 
-        <div class="price-card" data-aos="zoom-in">
-            <h2>ВАРТІСТЬ ТУРУ</h2>
-            <div class="price-val">від 450€</div>
-            <p style="font-size: 1.5rem; opacity: 0.8; margin-bottom: 30px;">+ авіаквитки</p>
-            <div style="text-align: left; display: inline-block; max-width: 550px;">
-                <p>✅ <b>ВКЛЮЧЕНО:</b> Переліт, Трансфери, Проживання в апартаментах, Полювання за Сяйвом + Пікнік, Супровід україномовного гіда.</p>
-                <br>
-                <p>❌ <b>ДОДАТКОВО:</b> Квитки в Санта Парк, олені/хаскі, <b>Сертифікат про перетин Полярного кола</b>, Трансфер від дому (за бажанням).</p>
+        <div class="country-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="country-header">
+                <span class="flag-icon">🇪🇸</span>
+                <h4>Іспанія</h4>
             </div>
+            <p>Мадрид, Барселона</p>
         </div>
 
-        <div id="book" class="form-wrap" data-aos="fade-up">
-            <h2>ЗАБРОНЮВАТИ КАЗКУ ✨</h2>
-            <form id="tourForm">
-                <input type="text" placeholder="Ваше ім'я" required>
-                <input type="tel" placeholder="Телефон (WhatsApp/Viber)" required>
-                <select required>
-                    <option value="">Країна вильоту</option>
-                    <option>Німеччина</option>
-                    <option>Польща</option>
-                    <option>Чехія</option>
-                    <option>Франція</option>
-                    <option>Інша</option>
-                </select>
-                <textarea rows="3" placeholder="Ваші побажання (дати, кількість осіб)"></textarea>
-                <button type="submit" class="submit-btn">ХОЧУ В ЛАПЛАНДІЮ!</button>
-            </form>
+        <div class="country-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="country-header">
+                <span class="flag-icon">🇦🇹</span>
+                <h4>Австрія</h4>
+            </div>
+            <p>Відень</p>
         </div>
 
+        <div class="country-card" data-aos="fade-up" data-aos-delay="350">
+            <div class="country-header">
+                <span class="flag-icon">🇳🇱</span>
+                <h4>Нідерланди</h4>
+            </div>
+            <p>Амстердам</p>
+        </div>
+
+        <div class="country-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="country-header">
+                <span class="flag-icon">🇧🇪</span>
+                <h4>Бельгія</h4>
+            </div>
+            <p>Брюссель</p>
+        </div>
+
+        <div class="country-card" data-aos="fade-up" data-aos-delay="450">
+            <div class="country-header">
+                <span class="flag-icon">🇨🇭</span>
+                <h4>Швейцарія</h4>
+            </div>
+            <p>Цюрих</p>
+        </div>
+
+        <div class="country-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="country-header">
+                <span class="flag-icon">🇩🇰</span>
+                <h4>Данія</h4>
+            </div>
+            <p>Копенгаген</p>
+        </div>
     </div>
-
-    <footer style="text-align: center; padding: 60px; opacity: 0.5; font-size: 0.9rem;">
-        <p>© 2026 ЛАПЛАНДІЯ ТУР. Гіди, що говорять українською. Магія, яка залишається назавжди.</p>
-    </footer>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-
-        const canvas = document.getElementById('snow-canvas');
-        const ctx = canvas.getContext('2d');
-        let width, height, flakes = [];
-
-        function initSnow() {
-            width = window.innerWidth; height = window.innerHeight;
-            canvas.width = width; canvas.height = height;
-            flakes = [];
-            for(let i=0; i<100; i++) { flakes.push({ x: Math.random()*width, y: Math.random()*height, r: Math.random()*3+1, d: Math.random()*1 }); }
-        }
-
-        function drawSnow() {
-            ctx.clearRect(0,0,width,height);
-            ctx.fillStyle = 'white'; ctx.beginPath();
-            for(let i=0; i<flakes.length; i++) {
-                let f = flakes[i]; ctx.moveTo(f.x, f.y); ctx.arc(f.x, f.y, f.r, 0, Math.PI*2, true);
-            }
-            ctx.fill(); moveSnow();
-        }
-
-        function moveSnow() {
-            for(let i=0; i<flakes.length; i++) {
-                let f = flakes[i]; f.y += Math.pow(f.d, 2) + 1; f.x += Math.sin(f.y/50);
-                if(f.y > height) flakes[i] = { x: Math.random()*width, y: 0, r: f.r, d: f.d };
-            }
-        }
-
-        window.addEventListener('resize', initSnow);
-        initSnow(); setInterval(drawSnow, 30);
-
-        document.getElementById('tourForm').addEventListener('submit', (e) => {
-            e.preventDefault(); alert('Дякуємо! Ваша заявка прийнята. Ми зв’яжемося з вами найближчим часом.');
-        });
-    </script>
-</body>
-</html>
+</section>
