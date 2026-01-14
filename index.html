@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- ОСНОВНІ НАЛАШТУВАННЯ --- */
+        /* --- НАЛАШТУВАННЯ --- */
         :root {
             --dark: #051626;
-            --accent: #39ff14; /* Яскравий лайм */
+            --accent: #39ff14; /* Неон лайм */
             --blue: #00d4ff;   /* Блакитний */
             --white: #ffffff;
+            --card-bg: rgba(11, 34, 56, 0.8);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,24 +28,20 @@
             line-height: 1.6;
         }
 
-        /* --- ФОН ТА СНІГ --- */
-        #bg-fixed {
+        /* --- ФОН (Гарантований показ) --- */
+        .bg-fixed {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
-            /* Градієнт, якщо картинка не прогрузиться */
-            background: linear-gradient(135deg, #020c1b 0%, #0a2e4d 100%);
+            background: url('https://upload.wikimedia.org/wikipedia/commons/a/a4/Aurora_Borealis_over_Lake_Burntside.jpg') no-repeat center center/cover;
         }
-        
-        /* Надійна картинка на фон */
-        #bg-image {
+        .bg-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a4/Aurora_Borealis_over_Lake_Burntside.jpg');
-            background-size: cover; background-position: center;
-            opacity: 0.3; /* Затемнення для читабельності тексту */
+            background: rgba(5, 22, 38, 0.85); /* Затемнення щоб текст читався */
         }
 
+        /* Сніг */
         #snow-canvas {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; 
-            pointer-events: none; /* Щоб сніг не заважав клікати */
+            pointer-events: none;
         }
 
         /* --- КОНТЕЙНЕРИ --- */
@@ -52,20 +49,20 @@
         
         h2 { 
             text-align: center; font-size: 2.5rem; margin-bottom: 50px; 
-            color: var(--blue); text-transform: uppercase; text-shadow: 0 0 20px rgba(0,212,255,0.5);
+            color: var(--blue); text-transform: uppercase; text-shadow: 0 0 10px rgba(0,212,255,0.5);
         }
 
-        /* --- HERO --- */
+        /* --- HERO SECTION --- */
         .hero {
             height: 100vh; display: flex; align-items: center; justify-content: center; 
             text-align: center; padding: 20px; position: relative; z-index: 5;
         }
         .hero h1 {
-            font-size: clamp(2rem, 6vw, 5rem); font-weight: 900; text-transform: uppercase;
+            font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; text-transform: uppercase;
             text-shadow: 0 0 30px var(--blue); margin-bottom: 20px; line-height: 1.2;
         }
         .hero p {
-            font-size: 1.5rem; color: var(--accent); font-weight: 700; margin-bottom: 40px;
+            font-size: 1.5rem; color: var(--accent); font-weight: 700; margin-bottom: 40px; letter-spacing: 2px;
         }
         .btn {
             background: var(--accent); color: #000; padding: 20px 50px; border-radius: 50px;
@@ -74,22 +71,22 @@
         }
         .btn:hover { transform: scale(1.05); background: #fff; }
 
-        /* --- ВИЛЬОТИ --- */
+        /* --- ВИЛЬОТИ (Прапори Emoji) --- */
         .flights-grid {
             display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;
         }
         .flight-card {
-            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255,255,255,0.2);
-            padding: 25px; border-radius: 20px; backdrop-filter: blur(10px);
+            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1);
+            padding: 25px; border-radius: 20px; backdrop-filter: blur(5px);
         }
-        .flag-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-        .flag { font-size: 2rem; }
-        .flight-card h4 { color: var(--accent); margin: 0; font-size: 1.2rem; }
-        .flight-card p { font-size: 0.9rem; color: #ddd; line-height: 1.4; }
+        .flag-row { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
+        .flag { font-size: 2.5rem; line-height: 1; }
+        .flight-card h4 { color: var(--accent); margin: 0; font-size: 1.2rem; font-weight: 700; }
+        .flight-card p { font-size: 0.95rem; color: #ddd; line-height: 1.4; }
 
-        /* --- ПРОГРАМА (ДЕТАЛЬНА) --- */
+        /* --- ПРОГРАМА (ПОВНИЙ ТЕКСТ) --- */
         .program-day {
-            background: rgba(0, 0, 0, 0.6); border: 1px solid var(--blue);
+            background: rgba(0, 0, 0, 0.5); border: 1px solid var(--blue);
             border-radius: 30px; margin-bottom: 60px; overflow: hidden;
             display: flex; flex-direction: column;
         }
@@ -109,13 +106,14 @@
             background: var(--accent); color: #000; padding: 5px 15px; 
             border-radius: 20px; font-weight: 800; display: inline-block; margin-bottom: 20px;
         }
-        .day-content h3 { font-size: 1.8rem; color: var(--blue); margin-bottom: 20px; }
-        .day-content p { margin-bottom: 15px; color: #f0f0f0; font-size: 1.05rem; }
-        
+        .day-content h3 { font-size: 2rem; color: var(--blue); margin-bottom: 20px; line-height: 1.2; }
+        .day-content p { margin-bottom: 15px; color: #f0f0f0; font-size: 1.1rem; }
+        .day-content b { color: var(--accent); }
+
         .list-style li {
-            list-style: none; margin-bottom: 10px; display: flex; gap: 10px; align-items: flex-start;
+            list-style: none; margin-bottom: 12px; display: flex; gap: 12px; align-items: flex-start;
         }
-        .list-style i { color: var(--accent); margin-top: 5px; }
+        .list-style i { color: var(--accent); margin-top: 5px; font-size: 1.2rem; }
 
         /* --- LIVE КАМЕРИ --- */
         .live-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
@@ -125,47 +123,53 @@
             display: block; position: relative; height: 250px; border-radius: 20px; 
             overflow: hidden; text-decoration: none; border: 2px solid #fff;
         }
-        .cam-btn img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+        .cam-btn img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 0.3s; }
+        .cam-btn:hover img { opacity: 1; transform: scale(1.05); }
         .cam-overlay {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            background: red; color: white; padding: 10px 20px; border-radius: 30px;
-            font-weight: 900; text-transform: uppercase; white-space: nowrap;
+            background: red; color: white; padding: 12px 25px; border-radius: 30px;
+            font-weight: 900; text-transform: uppercase; white-space: nowrap; box-shadow: 0 0 20px rgba(0,0,0,0.5);
         }
 
-        /* --- ГАЛЕРЕЯ --- */
+        /* --- ГАЛЕРЕЯ (10 ФОТО) --- */
         .gallery {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;
         }
         .gallery img {
             width: 100%; height: 200px; object-fit: cover; border-radius: 10px;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.2); transition: 0.3s;
         }
+        .gallery img:hover { transform: scale(1.05); border-color: var(--accent); }
 
         /* --- ЦІНА --- */
         .price-box {
             text-align: center; padding: 50px 20px; background: rgba(0, 31, 63, 0.8);
             border: 2px solid var(--blue); border-radius: 30px; margin: 80px 0;
         }
-        .price { font-size: 4rem; color: var(--accent); font-weight: 900; margin: 10px 0; }
+        .price { font-size: 4.5rem; color: var(--accent); font-weight: 900; margin: 10px 0; line-height: 1; }
 
         /* --- ФОРМА --- */
         .form-box {
             max-width: 600px; margin: 0 auto; background: #fff; padding: 40px; 
             border-radius: 30px; color: #000;
         }
+        .form-box h2 { color: #000; text-shadow: none; margin-bottom: 30px; }
         .form-box input, .form-box select, .form-box textarea {
-            width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 10px;
+            width: 100%; padding: 15px; margin-bottom: 15px; border: 2px solid #ccc; border-radius: 10px; font-size: 1rem;
         }
         .form-submit {
             width: 100%; padding: 20px; background: var(--dark); color: #fff; font-weight: 900;
-            border: none; border-radius: 10px; cursor: pointer; font-size: 1.2rem;
+            border: none; border-radius: 10px; cursor: pointer; font-size: 1.2rem; transition: 0.3s;
         }
+        .form-submit:hover { background: var(--blue); }
+        
+        footer { text-align: center; padding: 40px; opacity: 0.6; }
     </style>
 </head>
 <body>
 
-    <div id="bg-fixed"></div>
-    <div id="bg-image"></div>
+    <div class="bg-fixed"></div>
+    <div class="bg-overlay"></div>
     <canvas id="snow-canvas"></canvas>
 
     <div class="hero">
@@ -182,9 +186,9 @@
         <h2>Вильоти з усієї Європи ✈️</h2>
         <div class="flights-grid">
             <div class="flight-card"><div class="flag-row"><span class="flag">🇩🇪</span><h4>Німеччина</h4></div><p>Берлін, Дюссельдорф, Франкфурт, Гамбург, Мюнхен, Штутгарт</p></div>
-            <div class="flight-card"><div class="flag-row"><span class="flag">🇫🇷</span><h4>Франція</h4></div><p>Париж, Ліон, Ніцца, Бордо</p></div>
+            <div class="flight-card"><div class="flag-row"><span class="flag">🇫🇷</span><h4>Франція</h4></div><p>Париж (CDG, Orly, Beauvais), Ліон, Ніцца, Бордо</p></div>
             <div class="flight-card"><div class="flag-row"><span class="flag">🇵🇱</span><h4>Польща</h4></div><p>Варшава (LOT)</p></div>
-            <div class="flight-card"><div class="flag-row"><span class="flag">🇨🇿</span><h4>Чехія</h4></div><p>Прага (Eurowings)</p></div>
+            <div class="flight-card"><div class="flag-row"><span class="flag">🇨🇿</span><h4>Чехія</h4></div><p>Прага (Eurowings, Smartwings)</p></div>
             <div class="flight-card"><div class="flag-row"><span class="flag">🇮🇹</span><h4>Італія</h4></div><p>Мілан, Рим, Неаполь</p></div>
             <div class="flight-card"><div class="flag-row"><span class="flag">🇪🇸</span><h4>Іспанія</h4></div><p>Мадрид, Барселона</p></div>
             <div class="flight-card"><div class="flag-row"><span class="flag">🇦🇹</span><h4>Австрія</h4></div><p>Відень</p></div>
@@ -216,9 +220,10 @@
                 <span class="day-num">День 2</span>
                 <h3>У гості до Санти та Олені 🦌</h3>
                 <p><b>11:00 — Відправлення до Селища Санта-Клауса. 🏘</b></p>
+                <p>День, коли казка оживає!</p>
                 <ul class="list-style">
                     <li><i class="fas fa-globe"></i> <b>Полярне коло:</b> Ви перетнете магічну лінію Арктики!</li>
-                    <li><i class="fas fa-sleigh"></i> <b>Олені Санти:</b> Подорож у санях, запряжених оленями. Скрип снігу та казка навколо.</li>
+                    <li><i class="fas fa-sleigh"></i> <b>Олені Санти:</b> Подорож у санях, запряжених оленями. Скрип снігу та неймовірні краєвиди.</li>
                     <li><i class="fas fa-star"></i> <b>Аудієнція:</b> Особиста зустріч із Сантою в його офісі. Загадайте бажання! 🎁</li>
                     <li><i class="fas fa-envelope"></i> <b>Пошта:</b> Надішліть листівку з фірмовим штампом близьким!</li>
                 </ul>
@@ -235,8 +240,8 @@
                 <h3>Підземна пригода у Santa Park 🎢</h3>
                 <p><b>11:00 — Відправлення до Санта Парку. 🎡</b> Це таємна печера в скелі, де ельфи готуються до Різдва цілий рік!</p>
                 <ul class="list-style">
-                    <li><i class="fas fa-graduation-cap"></i> <b>Школа ельфів:</b> Пройдіть навчання та дізнайтеся всі секрети! 🎓</li>
-                    <li><i class="fas fa-cookie-bite"></i> <b>Пекарня:</b> Ви власноруч прикрасите імбирне печиво. 🍪</li>
+                    <li><i class="fas fa-graduation-cap"></i> <b>Школа ельфів:</b> Пройдіть навчання та дізнайтеся всі секрети помічників! 🎓</li>
+                    <li><i class="fas fa-cookie-bite"></i> <b>Пекарня місіс Клаус:</b> Ви власноруч прикрасите ароматне імбирне печиво. 🍪</li>
                     <li><i class="fas fa-snowflake"></i> <b>Крижана галерея:</b> Скульптури з льоду та подих Арктики. 🧊</li>
                 </ul>
                 <p><b>16:00 — Повернення до апартаментів.</b> Вечір у колі друзів.</p>
@@ -281,6 +286,8 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Santa_Claus_Office_-_Rovaniemi.jpg/640px-Santa_Claus_Office_-_Rovaniemi.jpg">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Husky_safari_in_Lapland.jpg/640px-Husky_safari_in_Lapland.jpg">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Lapland_winter_landscape.jpg/640px-Lapland_winter_landscape.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/640px-Moraine_Lake_17092005.jpg">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Santa_Claus_Reindeer_Rovaniemi_Lapland_Finland.jpg/640px-Santa_Claus_Reindeer_Rovaniemi_Lapland_Finland.jpg">
         </div>
 
         <div class="price-box" id="book">
@@ -302,12 +309,16 @@
                     <option>Країна вильоту</option>
                     <option>Німеччина</option><option>Польща</option><option>Чехія</option><option>Франція</option><option>Інша</option>
                 </select>
-                <textarea rows="3" placeholder="Побажання"></textarea>
+                <textarea rows="3" placeholder="Ваші побажання"></textarea>
                 <button type="submit" class="form-submit">НАДІСЛАТИ ЗАПИТ</button>
             </form>
         </div>
 
     </div>
+
+    <footer>
+        <p>© 2026 Лапландія Тур. Україномовні гіди. Магія на все життя.</p>
+    </footer>
 
     <script>
         (function() {
@@ -324,7 +335,7 @@
                     x: Math.random() * width,
                     y: Math.random() * height,
                     r: Math.random() * 3 + 1,
-                    d: Math.random() * 1
+                    d: Math.random() * 1 + 1
                 });
             }
 
@@ -344,21 +355,21 @@
             function update() {
                 for(var i=0; i<particles.length; i++) {
                     var p = particles[i];
-                    p.y += Math.pow(p.d, 2) + 1;
+                    p.y += p.d;
                     if(p.y > height) {
                         particles[i] = {x: Math.random()*width, y: 0, r: p.r, d: p.d};
                     }
                 }
             }
 
-            setInterval(draw, 33);
+            setInterval(draw, 30);
             
-            window.onresize = function() {
+            window.addEventListener('resize', function() {
                 width = window.innerWidth;
                 height = window.innerHeight;
                 canvas.width = width;
                 canvas.height = height;
-            }
+            });
         })();
     </script>
 </body>
